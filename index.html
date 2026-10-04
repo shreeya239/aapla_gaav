@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aapla Gaav – CEP | Digital Village Governance Platform</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Government & Helpline Ribbon -->
+  <div class="gov-topbar">
+    <div class="container gov-topbar-inner">
+      <div class="gov-emblem-text">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span>Gram Panchayat Aapla Gaav • Rural Development Dept, Govt. of Maharashtra</span>
+      </div>
+      <div class="gov-links">
+        <span>Toll-Free Helpline: <strong>1800-233-0456</strong></span>
+        <span>Emergency: <strong>112</strong></span>
+        <select id="langSelect" class="lang-selector" aria-label="Select Language">
+          <option value="en">English</option>
+          <option value="mr">मराठी (Marathi)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar">
+        <div class="brand-wrapper">
+          <div class="brand-logo-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>Aapla Gaav <span>CEP</span></h1>
+            <p>Citizen Empowerment Platform</p>
+          </div>
+        </div>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#home" class="active">Home</a></li>
+          <li class="nav-item"><a href="#about">About</a></li>
+          <li class="nav-item"><a href="#statistics">Statistics</a></li>
+          <li class="nav-item"><a href="#services">Services</a></li>
+          <li class="nav-item"><a href="#schemes">Govt Schemes</a></li>
+          <li class="nav-item"><a href="#grievance">Lodge Grievance</a></li>
+          <li class="nav-item"><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <!-- Citizen Portal Button -->
+          <button id="citizenPortalBtn" class="btn btn-outline" title="Citizen Services Login & Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Citizen Portal
+          </button>
+
+          <!-- Admin Login Button -->
+          <button id="adminLoginBtn" class="btn btn-admin" title="Sarpanch & Village Authority Login">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            Admin Login
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Live Village Announcements Ticker -->
+  <div class="announcement-bar">
+    <div class="container ticker-wrapper">
+      <span class="ticker-badge">Live Notice</span>
+      <div class="ticker-content">
+        <span id="tickerText" class="ticker-text">
+          📢 Special Gram Sabha scheduled for 15th October at 10:00 AM in Gram Panchayat Hall | Free Ayushman Health Checkup Camp this Saturday at PHC Center | PM-KISAN biometric e-KYC camp open at Village CSC Kiosk.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge-pill">
+          <span>🚩</span>
+          <span>Gram Panchayat Aapla Gaav, Nagpur (Maharashtra)</span>
+        </div>
+        <h1>Aapla Gaav</h1>
+        <div class="hero-subtitle">“Our Village. Our Progress. Our Future.”</div>
+        <p class="hero-description">
+          Welcome to the official digital portal of Aapla Gaav. A smart, ODF-plus, model gram panchayat where civic administration, developmental transparency, and direct citizen welfare converge through the Citizen Empowerment Platform (CEP).
+        </p>
+
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-saffron">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            Explore Services
+          </a>
+
+          <a href="#grievance" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.4);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            Lodge a Grievance
+          </a>
+
+          <button onclick="document.getElementById('adminLoginBtn').click()" class="btn btn-admin">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Sarpanch Desk (Admin)
+          </button>
+        </div>
+
+        <div class="hero-tags">
+          <span class="hero-tag">✓ 100% Piped Drinking Water</span>
+          <span class="hero-tag">✓ Solar-Powered Streetlights</span>
+          <span class="hero-tag">✓ Digital CSC Panchayat</span>
+        </div>
+      </div>
+
+      <!-- Village Image / Modern Illustration SVG -->
+      <div class="hero-visual">
+        <div class="hero-card-frame">
+          <svg class="hero-illustration-svg" viewBox="0 0 540 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0f3460"/>
+                <stop offset="40%" stop-color="#164e63"/>
+                <stop offset="100%" stop-color="#047857"/>
+              </linearGradient>
+              <linearGradient id="sunGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#fbbf24"/>
+                <stop offset="100%" stop-color="#f97316"/>
+              </linearGradient>
+              <linearGradient id="fieldGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#15803d"/>
+                <stop offset="100%" stop-color="#166534"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Sky & Backdrop -->
+            <rect width="540" height="380" rx="12" fill="url(#skyGrad)"/>
+
+            <!-- Rising Sun of Progress -->
+            <circle cx="270" cy="180" r="65" fill="url(#sunGrad)" opacity="0.9"/>
+            <circle cx="270" cy="180" r="90" fill="#fde68a" opacity="0.18"/>
+
+            <!-- Distant Hills -->
+            <path d="M0 240 Q130 180 270 230 T540 220 L540 380 L0 380 Z" fill="#065f46" opacity="0.8"/>
+            <path d="M0 260 Q180 220 360 260 T540 250 L540 380 L0 380 Z" fill="#047857"/>
+
+            <!-- Green Agricultural Fields -->
+            <path d="M0 290 Q200 270 540 290 L540 380 L0 380 Z" fill="url(#fieldGrad)"/>
+            
+            <!-- Furrows / Crop Lines -->
+            <path d="M 80 380 L 170 300 M 200 380 L 230 300 M 340 380 L 310 300 M 460 380 L 370 300" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
+
+            <!-- Gram Panchayat Central Building -->
+            <g transform="translate(190, 170)">
+              <!-- Base and Pillars -->
+              <rect x="0" y="40" width="160" height="75" fill="#f8fafc" rx="4"/>
+              <rect x="15" y="55" width="15" height="60" fill="#cbd5e1"/>
+              <rect x="50" y="55" width="15" height="60" fill="#cbd5e1"/>
+              <rect x="95" y="55" width="15" height="60" fill="#cbd5e1"/>
+              <rect x="130" y="55" width="15" height="60" fill="#cbd5e1"/>
+              <!-- Door & Window -->
+              <path d="M68 85 h24 v30 h-24 Z" fill="#1e293b"/>
+              <rect x="25" y="65" width="15" height="15" fill="#38bdf8"/>
+              <rect x="120" y="65" width="15" height="15" fill="#38bdf8"/>
+              <!-- Roof & Dome -->
+              <polygon points="-10,40 80,0 170,40" fill="#f97316"/>
+              <circle cx="80" cy="-5" r="14" fill="#fbbf24"/>
+              <!-- Indian Tricolor Flag atop -->
+              <line x1="80" y1="-5" x2="80" y2="-35" stroke="#ffffff" stroke-width="2.5"/>
+              <rect x="80" y="-35" width="22" height="5" fill="#ff9933"/>
+              <rect x="80" y="-30" width="22" height="5" fill="#ffffff"/>
+              <circle cx="91" cy="-27.5" r="2" fill="#000088"/>
+              <rect x="80" y="-25" width="22" height="5" fill="#138808"/>
+              <text x="80" y="32" font-size="9" font-weight="bold" fill="#0f172a" text-anchor="middle">GRAM PANCHAYAT</text>
+            </g>
+
+            <!-- Jal Jeevan Mission Water Tank Tower -->
+            <g transform="translate(390, 180)">
+              <rect x="35" y="25" width="6" height="75" fill="#94a3b8"/>
+              <rect x="65" y="25" width="6" height="75" fill="#94a3b8"/>
+              <line x1="38" y1="40" x2="68" y2="70" stroke="#94a3b8" stroke-width="2"/>
+              <line x1="38" y1="70" x2="68" y2="40" stroke="#94a3b8" stroke-width="2"/>
+              <!-- Cylindrical Tank -->
+              <ellipse cx="53" cy="22" rx="28" ry="10" fill="#0284c7"/>
+              <rect x="25" y="0" width="56" height="22" fill="#0369a1"/>
+              <ellipse cx="53" cy="0" rx="28" ry="8" fill="#38bdf8"/>
+              <text x="53" y="15" font-size="7" font-weight="bold" fill="#ffffff" text-anchor="middle">JAL JEEVAN</text>
+            </g>
+
+            <!-- Solar Street Lights -->
+            <g transform="translate(130, 215)">
+              <line x1="20" y1="0" x2="20" y2="80" stroke="#cbd5e1" stroke-width="3"/>
+              <!-- Solar Panel -->
+              <polygon points="10,-8 30,-12 34,-5 14,-1" fill="#1e3a8a"/>
+              <!-- LED Lamp head -->
+              <ellipse cx="28" cy="4" rx="7" ry="3" fill="#fef08a"/>
+              <circle cx="28" cy="8" r="10" fill="#fef08a" opacity="0.3"/>
+            </g>
+
+            <!-- Modern School & E-Library -->
+            <g transform="translate(40, 220)">
+              <rect x="0" y="20" width="80" height="55" fill="#ffffff" rx="4"/>
+              <polygon points="-5,20 40,0 85,20" fill="#0284c7"/>
+              <rect x="15" y="35" width="12" height="15" fill="#bae6fd"/>
+              <rect x="35" y="35" width="12" height="15" fill="#bae6fd"/>
+              <rect x="55" y="35" width="12" height="15" fill="#bae6fd"/>
+              <text x="40" y="16" font-size="7" font-weight="bold" fill="#ffffff" text-anchor="middle">Z.P. SCHOOL</text>
+            </g>
+
+            <!-- Lush Green Trees -->
+            <circle cx="370" cy="270" r="22" fill="#15803d"/>
+            <circle cx="385" cy="260" r="18" fill="#16a34a"/>
+            <rect x="375" y="275" width="6" height="25" fill="#78350f"/>
+
+            <circle cx="100" cy="285" r="20" fill="#15803d"/>
+            <circle cx="115" cy="275" r="16" fill="#16a34a"/>
+            <rect x="105" y="290" width="5" height="20" fill="#78350f"/>
+          </svg>
+
+          <!-- Floating Stat Banner -->
+          <div class="hero-quick-stat">
+            <div class="quick-stat-item">
+              <div class="quick-stat-num">8,542</div>
+              <div class="quick-stat-label">Citizens</div>
+            </div>
+            <div style="width: 1px; height: 32px; background: #e2e8f0;"></div>
+            <div class="quick-stat-item">
+              <div class="quick-stat-num">78/100</div>
+              <div class="quick-stat-label">CEP Rating</div>
+            </div>
+            <div style="width: 1px; height: 32px; background: #e2e8f0;"></div>
+            <div class="quick-stat-item">
+              <div class="quick-stat-num">ODF+</div>
+              <div class="quick-stat-label">Certified</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Village Statistics Ribbon -->
+  <section id="statistics" class="stats-ribbon-section">
+    <div class="container">
+      <div class="section-head" style="margin-bottom: 30px;">
+        <span class="section-tag">Village At A Glance</span>
+        <h2>Key Demographics & Vital Indicators</h2>
+        <p>Verified data maintained directly by Gram Panchayat Aapla Gaav and Government Revenue Records.</p>
+      </div>
+
+      <div class="stats-grid">
+        <!-- Population -->
+        <div class="stat-card-simple">
+          <div class="stat-icon-wrapper blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="stat-value-large">8,542</div>
+          <div class="stat-title-label">Total Population</div>
+        </div>
+
+        <!-- Households -->
+        <div class="stat-card-simple">
+          <div class="stat-icon-wrapper purple">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <div class="stat-value-large">1,982</div>
+          <div class="stat-title-label">Households</div>
+        </div>
+
+        <!-- CEP Score -->
+        <div class="stat-card-simple">
+          <div class="stat-icon-wrapper green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <div class="stat-value-large" style="color: var(--accent-green);">78 / 100</div>
+          <div class="stat-title-label">CEP Performance Score</div>
+        </div>
+
+        <!-- Active Projects -->
+        <div class="stat-card-simple">
+          <div class="stat-icon-wrapper orange">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <div class="stat-value-large">12</div>
+          <div class="stat-title-label">Active Projects</div>
+        </div>
+
+        <!-- Pending Complaints -->
+        <div class="stat-card-simple">
+          <div class="stat-icon-wrapper gold">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <div class="stat-value-large">18</div>
+          <div class="stat-title-label">Pending Complaints</div>
+        </div>
+
+        <!-- Village Budget -->
+        <div class="stat-card-simple">
+          <div class="stat-icon-wrapper blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="11" x2="16" y2="11"></line>
+            </svg>
+          </div>
+          <div class="stat-value-large" style="font-size: 1.45rem;">₹1.24 Cr</div>
+          <div class="stat-title-label">Village Budget</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Aapla Gaav Section -->
+  <section id="about" class="section-padding about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="section-tag">About Our Village</span>
+          <h3>Fostering Sustainable Growth, Clean Energy & Digital E-Panchayat</h3>
+          <p>
+            Aapla Gaav is a flourishing agricultural and agro-allied village situated in Nagpur Rural Taluka, Maharashtra. Known for its progressive farming communities, orange orchards, and high literacy rate, our village has evolved into a pioneer of digital gram panchayat governance.
+          </p>
+          <p>
+            Under the Citizen Empowerment Platform (CEP), every rupee of public development funds, ongoing infrastructure projects, and welfare distribution is recorded transparently for citizens and auditors alike.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-box">
+              <h4>100% Tap Water</h4>
+              <p>Under Jal Jeevan Mission, every home has functional household tap connectivity.</p>
+            </div>
+            <div class="highlight-box">
+              <h4>Green Energy</h4>
+              <p>High-mast solar streetlights illuminate all 5 village wards and farmer roads.</p>
+            </div>
+            <div class="highlight-box">
+              <h4>Quality Education</h4>
+              <p>Zilla Parishad High School equipped with smart digital classroom and e-library.</p>
+            </div>
+            <div class="highlight-box">
+              <h4>24x7 CSC Center</h4>
+              <p>Citizen Service Kiosk for instant certificates, pensions, and land records.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sarpanch Profile Card -->
+        <div class="sarpanch-card">
+          <div class="sarpanch-header">
+            <div class="sarpanch-avatar">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h4>Shri. Rajesh Patil</h4>
+            <span>Sarpanch — Aapla Gaav Gram Panchayat</span>
+          </div>
+
+          <div class="sarpanch-body">
+            <div class="sarpanch-quote">
+              “Our mission is zero-tolerance for corruption, 100% saturation of welfare schemes, and immediate time-bound redressal of citizen grievances. Through Aapla Gaav CEP, governance is delivered to every doorstep.”
+            </div>
+
+            <ul class="panchayat-meta-list">
+              <li><strong>Gram Panchayat Code:</strong> <span>GP-MH-NAG-2401</span></li>
+              <li><strong>Taluka:</strong> <span>Nagpur Rural</span></li>
+              <li><strong>District:</strong> <span>Nagpur, Maharashtra (441108)</span></li>
+              <li><strong>Panchayat Office Hours:</strong> <span>Mon – Sat (10:00 AM – 5:30 PM)</span></li>
+              <li><strong>Gram Sevak:</strong> <span>Smt. Sunita Kulkarni (BDO Officer)</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Important Services Section -->
+  <section id="services" class="section-padding services-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Direct Citizen Services</span>
+        <h2>Important Village Public Services</h2>
+        <p>Apply for village certificates, revenue extracts, and municipal utility connections seamlessly.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon blue">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <h3>Birth & Death Certificate</h3>
+          <p>Official registration and digital certificate issuance authenticated under the Registration of Births and Deaths Act.</p>
+          <button onclick="openServiceModal('Birth & Death Certificate')" class="btn btn-primary">Apply Online</button>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon green">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+              <line x1="8" y1="2" x2="8" y2="18"></line>
+              <line x1="16" y1="6" x2="16" y2="22"></line>
+            </svg>
+          </div>
+          <h3>Land Records (7/12 & 8A)</h3>
+          <p>Instant digitally signed Satbara (7/12) and 8A land revenue extracts for agricultural credit, crop loans, and verification.</p>
+          <button onclick="openServiceModal('Land Records (7/12 & 8A)')" class="btn btn-primary">Apply Online</button>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon teal">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+          </div>
+          <h3>Water Supply Connection</h3>
+          <p>Request new household tap water connections under the Jal Jeevan Har Ghar Jal mission or report line repairs.</p>
+          <button onclick="openServiceModal('Water Supply Connection')" class="btn btn-primary">Apply Online</button>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="service-icon orange">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <h3>Property Tax (Ghar Patti)</h3>
+          <p>Calculate, review assessment register, and generate official payment challans for annual Gram Panchayat property tax.</p>
+          <button onclick="openServiceModal('Property Tax Assessment')" class="btn btn-primary">Apply Online</button>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card">
+          <div class="service-icon purple">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <circle cx="10" cy="13" r="2"></circle>
+              <path d="M14 17h-8"></path>
+            </svg>
+          </div>
+          <h3>Caste & Income Certificate</h3>
+          <p>Gram Sevak verification certificates required for scholarships, educational admissions, and government welfare benefits.</p>
+          <button onclick="openServiceModal('Income & Caste Certificate')" class="btn btn-primary">Apply Online</button>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card">
+          <div class="service-icon red">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </div>
+          <h3>Public Grievance Redressal</h3>
+          <p>Lodge civic complaints concerning roads, sanitation, electricity, water or streetlights directly to the Sarpanch desk.</p>
+          <a href="#grievance" class="btn btn-primary">Lodge Grievance</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Government Schemes Section -->
+  <section id="schemes" class="section-padding schemes-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Welfare & Development</span>
+        <h2>Central & State Government Schemes</h2>
+        <p>Active government welfare flagship programs implemented with 100% transparency in Aapla Gaav.</p>
+      </div>
+
+      <div class="schemes-grid">
+        <!-- Scheme 1 -->
+        <div class="scheme-card">
+          <span class="scheme-badge">Housing</span>
+          <h3>Pradhan Mantri Awas Yojana (PMAY-G)</h3>
+          <div class="scheme-dept">Ministry of Rural Development</div>
+          <div class="scheme-benefit">Financial grant of <strong>₹1,20,000 + MGNREGA wages</strong> for pucca house.</div>
+          <p>Financial assistance provided to eligible homeless and kutcha-house families in our village for constructing durable concrete homes.</p>
+          <button onclick="alert('PMAY-G Aapla Gaav Target: 48 Houses Sanctioned | 36 Completed | 12 Under Construction. Visit Gram Panchayat desk to inspect beneficiary list.')" class="btn btn-outline">Check Eligibility</button>
+        </div>
+
+        <!-- Scheme 2 -->
+        <div class="scheme-card">
+          <span class="scheme-badge">Water</span>
+          <h3>Jal Jeevan Mission (Har Ghar Jal)</h3>
+          <div class="scheme-dept">Dept of Drinking Water & Sanitation</div>
+          <div class="scheme-benefit"><strong>55 LPCD</strong> purified drinking water per person per day.</div>
+          <p>Aapla Gaav is 100% piped-water compliant. Water quality testing is carried out bi-weekly by village Anganwadi and ASHA workers.</p>
+          <button onclick="alert('Jal Jeevan Status: 1,982 / 1,982 households connected with metered supply.')" class="btn btn-outline">View Water Report</button>
+        </div>
+
+        <!-- Scheme 3 -->
+        <div class="scheme-card">
+          <span class="scheme-badge">Agriculture</span>
+          <h3>PM-KISAN Samman Nidhi</h3>
+          <div class="scheme-dept">Ministry of Agriculture & Farmers Welfare</div>
+          <div class="scheme-benefit">Direct cash transfer of <strong>₹6,000 annually</strong> in 3 equal installments.</div>
+          <p>All eligible landholder farmer families in Aapla Gaav receive financial support deposited directly into their Aadhaar-linked bank accounts.</p>
+          <button onclick="alert('Aapla Gaav Farmers: 1,420 registered farmers receiving quarterly DBT credit.')" class="btn btn-outline">Farmer Beneficiary List</button>
+        </div>
+
+        <!-- Scheme 4 -->
+        <div class="scheme-card">
+          <span class="scheme-badge">Employment</span>
+          <h3>Mahatma Gandhi NREGA</h3>
+          <div class="scheme-dept">Rural Employment Guarantee</div>
+          <div class="scheme-benefit">Guaranteed <strong>100 days wage employment</strong> per financial year.</div>
+          <p>Creating sustainable village infrastructure including lake desilting, tree plantation, concrete farm bunds, and rural farm roads.</p>
+          <button onclick="alert('MGNREGA Job Cards: 640 active workers engaged in watershed conservation projects.')" class="btn btn-outline">Apply for Job Card</button>
+        </div>
+
+        <!-- Scheme 5 -->
+        <div class="scheme-card">
+          <span class="scheme-badge">Health</span>
+          <h3>Ayushman Bharat (PM-JAY)</h3>
+          <div class="scheme-dept">National Health Authority</div>
+          <div class="scheme-benefit">Health cover of <strong>₹5,00,000 per family/year</strong> for hospitalization.</div>
+          <p>Free cashless medical treatment in empanelled secondary and tertiary care hospitals across Maharashtra and nationwide.</p>
+          <button onclick="alert('Golden Card Kiosk: 6,840 cards issued. Free verification available at PHC.')" class="btn btn-outline">Verify Card Status</button>
+        </div>
+
+        <!-- Scheme 6 -->
+        <div class="scheme-card">
+          <span class="scheme-badge">Renewable</span>
+          <h3>Mukhyamantri Saur Krushi Pump Yojana</h3>
+          <div class="scheme-dept">Maharashtra State Energy Agency</div>
+          <div class="scheme-benefit">Up to <strong>90% subsidy on solar water pumps</strong> for day-time irrigation.</div>
+          <p>Assisting farmers with independent, daytime solar irrigation pumps to eliminate reliance on conventional erratic power supply.</p>
+          <button onclick="alert('Solar Pumps Installed: 84 farm units operational in Aapla Gaav.')" class="btn btn-outline">Solar Scheme Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Public Grievance / Complaint Submission Section -->
+  <section id="grievance" class="section-padding" style="background: #f1f5f9;">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Citizen Grievance Redressal</span>
+        <h2>Lodge a Village Problem or Grievance</h2>
+        <p>Your issues are sent immediately to the Village Administrator (Sarpanch) dashboard with a tracked ticket ID.</p>
+      </div>
+
+      <div style="max-width: 720px; margin: 0 auto; background: #ffffff; padding: 32px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: var(--shadow-md);">
+        <div id="publicGrievanceAlert" class="alert-message"></div>
+        <form id="publicGrievanceForm">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="grvName">Full Name *</label>
+              <input type="text" id="grvName" class="form-control" placeholder="e.g. Rameshwar Kale" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="grvMobile">Mobile Number *</label>
+              <input type="tel" id="grvMobile" class="form-control" placeholder="e.g. 9822114455" pattern="[0-9]{10}" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="grvWard">Select Ward *</label>
+              <select id="grvWard" class="form-control" required>
+                <option value="Ward 1">Ward No. 1 (Gaothan Chowk)</option>
+                <option value="Ward 2">Ward No. 2 (Mandir Area)</option>
+                <option value="Ward 3">Ward No. 3 (Shivaji Nagar)</option>
+                <option value="Ward 4">Ward No. 4 (School & PHC)</option>
+                <option value="Ward 5">Ward No. 5 (Krushi Parisar)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="grvCategory">Category *</label>
+              <select id="grvCategory" class="form-control" required>
+                <option value="Water Supply">Water Supply & Pipeline</option>
+                <option value="Electricity">Electricity & Streetlights</option>
+                <option value="Sanitation">Sanitation & Garbage Disposal</option>
+                <option value="Roads & Infra">Roads, Drainage & Footpaths</option>
+                <option value="Health">Health & PHC Clinic</option>
+                <option value="Agriculture">Agriculture & Irrigation</option>
+                <option value="Education">Anganwadi & School</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="grvSubject">Subject / Brief Title *</label>
+            <input type="text" id="grvSubject" class="form-control" placeholder="e.g. Streetlight faulty near house #42" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="grvDetails">Detailed Description *</label>
+            <textarea id="grvDetails" class="form-control" rows="3" placeholder="Provide specific landmark or location details..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-saffron" style="width: 100%;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            Submit Grievance to Gram Panchayat
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information Section -->
+  <section id="contact" class="section-padding contact-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Reach Gram Panchayat</span>
+        <h2>Contact Information & Office Location</h2>
+        <p>Visit our Gram Panchayat office or connect directly with responsible village authorities.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-panel">
+          <div class="contact-card-item">
+            <div class="contact-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <h4>Gram Panchayat Office Address</h4>
+              <p>Gram Panchayat Bhavan, Near Chhatrapati Shivaji Maharaj Chowk, Main Gaothan, Aapla Gaav, Taluka Nagpur Rural, District Nagpur, Maharashtra – 441108.</p>
+            </div>
+          </div>
+
+          <div class="contact-card-item">
+            <div class="contact-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <h4>Phone & Helpline</h4>
+              <p>Gram Panchayat Desk: <strong>0712-2894100</strong><br>Sarpanch Office: <strong>+91 94221 88990</strong><br>Gram Sevak Helpline: <strong>+91 98230 45671</strong></p>
+            </div>
+          </div>
+
+          <div class="contact-card-item">
+            <div class="contact-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <h4>Official Email</h4>
+              <p>sarpanch@aaplagav.gov.in<br>gramsevak.aaplagav@mahadg.in</p>
+            </div>
+          </div>
+
+          <div class="contact-card-item">
+            <div class="contact-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <h4>Public Office Working Hours</h4>
+              <p>Monday to Saturday: 10:00 AM – 5:30 PM<br>(2nd & 4th Saturday Holiday, Public Holidays Closed)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">Gram Panchayat Officials Directory</h3>
+          <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 20px;">Key functionaries responsible for administrative execution in Aapla Gaav.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; background: #f8fafc;">
+              <strong style="color: #0f172a;">Shri. Rajesh Patil</strong> — <em>Sarpanch (Village Head)</em>
+              <div style="font-size: 0.8rem; color: #64748b;">Elected representative responsible for overall village policy and development sanctions.</div>
+            </div>
+
+            <div style="padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; background: #f8fafc;">
+              <strong style="color: #0f172a;">Smt. Shanta Bhoyar</strong> — <em>Up-Sarpanch</em>
+              <div style="font-size: 0.8rem; color: #64748b;">In-charge of Women & Child Welfare, Health Camps, and Anganwadi oversight.</div>
+            </div>
+
+            <div style="padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; background: #f8fafc;">
+              <strong style="color: #0f172a;">Smt. Sunita Kulkarni</strong> — <em>Gram Sevak / Secretary</em>
+              <div style="font-size: 0.8rem; color: #64748b;">Government administrative executive managing certificates, funds, and official records.</div>
+            </div>
+
+            <div style="padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; background: #f8fafc;">
+              <strong style="color: #0f172a;">Shri. Vinod Deshmukh</strong> — <em>Talathi (Revenue Officer)</em>
+              <div style="font-size: 0.8rem; color: #64748b;">Land records, 7/12 mutation entries, crop damage assessment, and tax collections.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4 style="color: #fff; font-size: 1.25rem;">Aapla Gaav – CEP</h4>
+          <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 14px;">
+            Citizen Empowerment Platform (CEP) is dedicated to advancing open governance, rapid civic delivery, and modern technological empowerment for Aapla Gaav, Nagpur, Maharashtra.
+          </p>
+          <div style="font-size: 0.8rem; color: #94a3b8;">
+            Aapla Gaav Gram Panchayat • Registered under Maharashtra Village Panchayats Act.
+          </div>
+        </div>
+
+        <div>
+          <h4>Important Links</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Aapla Gaav</a></li>
+            <li><a href="#statistics">Village Demographics</a></li>
+            <li><a href="#services">Online Certificates</a></li>
+            <li><a href="#schemes">Government Schemes</a></li>
+            <li><a href="#grievance">Lodge Grievance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Citizen Support</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="openModal('citizenAuthModal')">Citizen Portal Login</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('adminLoginModal')">Sarpanch Admin Login</a></li>
+            <li><a href="#contact">Gram Sevak Desk</a></li>
+            <li><a href="#contact">Emergency Contacts</a></li>
+            <li><a href="javascript:void(0)" onclick="alert('RTI Inquiries can be filed in person at Gram Panchayat office or online via Maharashtra RTI Portal.')">Right to Information (RTI)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Administrator Access</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 14px;">
+            Authorized access for Sarpanch, Gram Sevak, and Gram Panchayat members.
+          </p>
+          <button onclick="openModal('adminLoginModal')" class="btn btn-saffron" style="width: 100%;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            Admin Secure Login
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Gram Panchayat Aapla Gaav. All Rights Reserved. Citizen Empowerment Platform (CEP).</div>
+        <div>Designed with HTML5 • CSS3 • Vanilla JavaScript</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       STEP 1 MODALS: CITIZEN AUTHENTICATION & ADMIN SECURE LOGIN
+       ======================================================================= -->
+
+  <!-- Citizen Login, Register, Forgot Modal -->
+  <div id="citizenAuthModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-navy)" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Citizen Portal
+        </h3>
+        <button class="modal-close-btn" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="auth-tabs">
+          <div id="tabCitizenLogin" class="auth-tab active">Citizen Login</div>
+          <div id="tabCitizenRegister" class="auth-tab">Create Account</div>
+        </div>
+
+        <!-- Alert Notification Box -->
+        <div id="citizenAuthAlert" class="alert-message"></div>
+
+        <!-- View 1: Citizen Login -->
+        <div id="citizenLoginView">
+          <div class="demo-credentials-callout">
+            <strong>Demo Citizen Credentials:</strong><br>
+            Mobile: <code>9876543210</code> &nbsp;|&nbsp; Password: <code>Citizen@123</code><br>
+            <button id="autoFillCitizenBtn" type="button" class="demo-autofill-btn" style="background: #92400e; margin-top: 4px;">1-Click Auto-Fill Demo</button>
+          </div>
+
+          <form id="citizenLoginForm">
+            <div class="form-group">
+              <label class="form-label" for="citizenMobileInput">Mobile Number</label>
+              <input type="tel" id="citizenMobileInput" class="form-control" placeholder="10-digit registered mobile" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label class="form-label" for="citizenPasswordInput" style="margin-bottom: 0;">Password</label>
+                <a href="#" id="citizenForgotLink" style="font-size: 0.78rem; color: var(--accent-saffron); font-weight: 600;">Forgot Password?</a>
+              </div>
+              <input type="password" id="citizenPasswordInput" class="form-control" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+              Log In as Citizen
+            </button>
+          </form>
+        </div>
+
+        <!-- View 2: Citizen Register (Create Account) -->
+        <div id="citizenRegisterView" style="display: none;">
+          <form id="citizenRegisterForm">
+            <div class="form-group">
+              <label class="form-label" for="regFullName">Full Name *</label>
+              <input type="text" id="regFullName" class="form-control" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regMobile">Mobile Number *</label>
+              <input type="tel" id="regMobile" class="form-control" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regWard">Village Ward *</label>
+              <select id="regWard" class="form-control" required>
+                <option value="Ward No. 01 (Gram Panchayat Chowk)">Ward No. 01 (Gram Panchayat Chowk)</option>
+                <option value="Ward No. 02 (Mandir Area)">Ward No. 02 (Mandir Area)</option>
+                <option value="Ward No. 03 (Shivaji Nagar)" selected>Ward No. 03 (Shivaji Nagar)</option>
+                <option value="Ward No. 04 (School & PHC)">Ward No. 04 (School & PHC)</option>
+                <option value="Ward No. 05 (Krushi Parisar)">Ward No. 05 (Krushi Parisar)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regPassword">Create Password *</label>
+              <input type="password" id="regPassword" class="form-control" placeholder="Minimum 6 characters" minlength="6" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regConfirmPassword">Confirm Password *</label>
+              <input type="password" id="regConfirmPassword" class="form-control" placeholder="Re-enter password" required>
+            </div>
+
+            <button type="submit" class="btn btn-saffron" style="width: 100%;">
+              Create Citizen Account
+            </button>
+          </form>
+        </div>
+
+        <!-- View 3: Citizen Forgot Password -->
+        <div id="citizenForgotView" style="display: none;">
+          <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 14px;">
+            Enter your registered 10-digit mobile number to set a new password.
+          </p>
+          <form id="citizenForgotForm">
+            <div class="form-group">
+              <label class="form-label" for="forgotMobile">Registered Mobile Number *</label>
+              <input type="tel" id="forgotMobile" class="form-control" placeholder="10-digit mobile" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="forgotNewPass">New Password *</label>
+              <input type="password" id="forgotNewPass" class="form-control" placeholder="Enter new password" minlength="6" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 12px;">Reset Password</button>
+            <div style="text-align: center;">
+              <a href="#" id="backToLoginLink" style="font-size: 0.82rem; color: var(--accent-saffron); font-weight: 600;">← Back to Citizen Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Village Administrator / Sarpanch Secure Login Modal -->
+  <div id="adminLoginModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header admin-theme">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f26522" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Village Administrator Login
+        </h3>
+        <button class="modal-close-btn" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div style="margin-bottom: 14px;">
+          <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #166534; background: #dcfce7; padding: 3px 8px; border-radius: 4px;">
+            Sarpanch / Gram Panchayat Authority Portal
+          </span>
+        </div>
+
+        <!-- Clearly labeled demo credentials -->
+        <div class="demo-credentials-callout admin">
+          <strong>DEMO CREDENTIALS:</strong><br>
+          Admin ID: <code>admin@aaplagav</code><br>
+          Password: <code>Aapla@123</code><br>
+          <button id="autoFillAdminBtn" type="button" class="demo-autofill-btn">1-Click Auto-Fill Demo Admin</button>
+        </div>
+
+        <div id="adminLoginAlert" class="alert-message"></div>
+
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label class="form-label" for="adminIdInput">Admin ID</label>
+            <input type="text" id="adminIdInput" class="form-control" placeholder="e.g. admin@aaplagav" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="adminPasswordInput">Password</label>
+            <input type="password" id="adminPasswordInput" class="form-control" placeholder="••••••••••••" required>
+          </div>
+
+          <button type="submit" class="btn btn-admin" style="width: 100%; padding: 12px; margin-top: 10px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            Secure Admin Login →
+          </button>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        🔒 Authorized access for Sarpanch & Gram Panchayat Administrator only. Session secured under Aapla Gaav CEP.
+      </div>
+    </div>
+  </div>
+
+  <!-- Logged-in Citizen Quick Profile & History Modal -->
+  <div id="citizenDashboardModal" class="modal-overlay">
+    <div class="modal-card" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-navy)" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Citizen Dashboard
+        </h3>
+        <button class="modal-close-btn" aria-label="Close Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+          <h4 id="cdCitizenName" style="font-size: 1.15rem; color: #0f172a; margin-bottom: 4px;">Citizen Name</h4>
+          <div style="font-size: 0.85rem; color: #64748b;">
+            Ward: <strong id="cdCitizenWard" style="color: #0f172a;">Ward 3</strong> &nbsp;|&nbsp; 
+            Mobile: <strong id="cdCitizenPhone" style="color: #0f172a;">9876543210</strong>
+          </div>
+        </div>
+
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; color: #0f172a;">My Filed Grievances</h4>
+        <div id="cdComplaintsList"></div>
+
+        <div style="margin-top: 20px; display: flex; gap: 10px;">
+          <a href="#grievance" onclick="closeModal('citizenDashboardModal')" class="btn btn-saffron" style="flex: 1;">+ Lodge New Grievance</a>
+          <button id="citizenLogoutBtn" class="btn btn-outline" style="color: #b91c1c; border-color: #fca5a5;">Sign Out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

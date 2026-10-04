@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Village Administrator Portal | Aapla Gaav – CEP</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <!-- =======================================================================
+       SIDEBAR: EXACT 16 ITEMS AS SPECIFIED IN STEP 3
+       ======================================================================= -->
+  <aside class="dashboard-sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <div class="sidebar-brand-title">
+        <h2 id="sidebarVillageName">Aapla Gaav</h2>
+        <p>Admin Console • CEP</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Core Dashboard</div>
+      
+      <!-- 1. Dashboard -->
+      <a href="#dashboard" class="sidebar-link active" data-view="view-dashboard">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span>Dashboard</span>
+      </a>
+
+      <!-- 2. Village Profile -->
+      <a href="#village-profile" class="sidebar-link" data-view="view-village-profile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>Village Profile</span>
+      </a>
+
+      <!-- 3. CEP Overview -->
+      <a href="#cep-overview" class="sidebar-link" data-view="view-cep-overview">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span>CEP Overview</span>
+        <span class="badge-counter" id="sidebarCepBadge">78%</span>
+      </a>
+
+      <!-- 4. Projects -->
+      <a href="#projects" class="sidebar-link" data-view="view-projects">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+        <span>Projects</span>
+        <span class="badge-counter" id="sidebarProjectsBadge">12</span>
+      </a>
+
+      <div class="nav-section-label">Sectoral Pillars</div>
+
+      <!-- 5. Education -->
+      <a href="#education" class="sidebar-link" data-view="view-education">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span>Education</span>
+      </a>
+
+      <!-- 6. Health -->
+      <a href="#health" class="sidebar-link" data-view="view-health">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+        <span>Health</span>
+      </a>
+
+      <!-- 7. Water & Sanitation -->
+      <a href="#water-sanitation" class="sidebar-link" data-view="view-water-sanitation">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+        </svg>
+        <span>Water & Sanitation</span>
+      </a>
+
+      <!-- 8. Agriculture -->
+      <a href="#agriculture" class="sidebar-link" data-view="view-agriculture">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+        <span>Agriculture</span>
+      </a>
+
+      <!-- 9. Infrastructure -->
+      <a href="#infrastructure" class="sidebar-link" data-view="view-infrastructure">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <span>Infrastructure</span>
+      </a>
+
+      <!-- 10. Government Schemes -->
+      <a href="#schemes" class="sidebar-link" data-view="view-schemes">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <span>Government Schemes</span>
+      </a>
+
+      <div class="nav-section-label">Public & Civic Administration</div>
+
+      <!-- 11. Complaints -->
+      <a href="#complaints" class="sidebar-link" data-view="view-complaints">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>Complaints</span>
+        <span class="badge-counter" id="sidebarComplaintsBadge" style="background: rgba(244, 63, 94, 0.2); color: #fb7185; border-color: rgba(244, 63, 94, 0.4);">18</span>
+      </a>
+
+      <!-- 12. Announcements -->
+      <a href="#announcements" class="sidebar-link" data-view="view-announcements">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <span>Announcements</span>
+      </a>
+
+      <!-- 13. Citizens -->
+      <a href="#citizens" class="sidebar-link" data-view="view-citizens">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span>Citizens</span>
+      </a>
+
+      <div class="nav-section-label">Records & Governance</div>
+
+      <!-- 14. Documents -->
+      <a href="#documents" class="sidebar-link" data-view="view-documents">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+        </svg>
+        <span>Documents</span>
+      </a>
+
+      <!-- 15. Reports -->
+      <a href="#reports" class="sidebar-link" data-view="view-reports">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+        <span>Reports</span>
+      </a>
+
+      <!-- 16. Settings -->
+      <a href="#settings" class="sidebar-link" data-view="view-settings">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+        <span>Settings</span>
+      </a>
+
+      <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <a href="index.html" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>View Public Portal</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-gov-tag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span>Official Sarpanch Console</span>
+      </div>
+      <div style="margin-top: 10px;">
+        <button class="logout-trigger" style="width: 100%; background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); padding: 7px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer;">
+          Logout Session
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =======================================================================
+       MAIN APP WORKSPACE
+       ======================================================================= -->
+  <main class="dashboard-main">
+
+    <!-- Top App Bar -->
+    <header class="dash-topbar">
+      <div class="topbar-left">
+        <button id="sidebarToggleBtn" class="sidebar-toggle-btn" aria-label="Toggle Navigation">☰</button>
+        <div class="dash-heading-badge">
+          <span class="admin-mode-pill">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="#166534">
+              <circle cx="5" cy="5" r="5"></circle>
+            </svg>
+            Village Administrator Portal
+          </span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <!-- Live Current Date & Last Update -->
+        <div class="time-box">
+          <span id="currentDateDisplay" class="current-date">Sunday, 4 Oct 2026</span>
+          <span id="lastUpdateDisplay" class="last-update-time">Last synced: Today, 08:30 PM</span>
+        </div>
+
+        <!-- Notifications Bell -->
+        <button id="notifBellBtn" class="notif-bell-btn" title="View Administrative Alerts">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+          <span class="notif-dot"></span>
+        </button>
+
+        <!-- Notifications Popover Box -->
+        <div id="notifPopover" class="notif-popover">
+          <div class="notif-popover-header">
+            <span>Administrative Alerts</span>
+            <span style="font-size: 0.72rem; color: #f26522; font-weight: 700;">3 Unread</span>
+          </div>
+          <ul class="notif-list">
+            <li class="notif-item">
+              <strong>Gram Sabha Quorum Notice</strong>
+              <span>Agenda documentation uploaded for October session.</span>
+              <span class="notif-time">15 mins ago</span>
+            </li>
+            <li class="notif-item">
+              <strong>Water Supply Turbidity Cleared</strong>
+              <span>Ward 2 booster pipeline repaired by water squad.</span>
+              <span class="notif-time">2 hours ago</span>
+            </li>
+            <li class="notif-item">
+              <strong>New Grievance Registered</strong>
+              <span>Streetlight replacement ticket #AG-2026-00102 assigned.</span>
+              <span class="notif-time">5 hours ago</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Administrator Profile Chip -->
+        <div class="admin-user-chip" title="Active Admin Session">
+          <div class="admin-avatar">RP</div>
+          <div class="admin-details">
+            <span id="adminNameDisplay" class="admin-name">Shri. Rajesh Patil</span>
+            <span id="adminRoleDisplay" class="admin-role">Sarpanch • Aapla Gaav</span>
+          </div>
+        </div>
+
+        <!-- Logout Button -->
+        <button class="logout-btn-top logout-trigger" title="Log out from portal">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- App Content Wrapper -->
+    <div class="dash-content">
+
+      <!-- =====================================================================
+           VIEW 1: DASHBOARD (MAIN OVERVIEW)
+           ===================================================================== -->
+      <section id="view-dashboard" class="dash-view active">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+          <div class="welcome-text">
+            <h1>Welcome, Village Administrator — <span>Sarpanch Desk</span></h1>
+            <div class="welcome-location">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <strong id="bannerLocationText">Aapla Gaav, Nagpur, Maharashtra</strong>
+            </div>
+            <p class="welcome-sub">
+              Citizen Empowerment Platform (CEP) digital console. Real-time monitoring of civic health, active public infrastructure, and transparent welfare delivery.
+            </p>
+          </div>
+
+          <div class="banner-action-buttons">
+            <button onclick="switchView('view-complaints')" class="banner-btn primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              Review Complaints
+            </button>
+            <button onclick="openModal('editVillageProfileModal')" class="banner-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+              Edit Village Info
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Statistics (6 Large Cards) -->
+        <div class="main-stats-grid">
+          <!-- Population -->
+          <div class="stat-metric-card pop">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">Population</span>
+              <div class="stat-metric-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+            </div>
+            <div id="popVal" class="stat-metric-number">8,542</div>
+            <div class="stat-metric-footer">
+              <span class="badge-tag-positive">↑ 1.4%</span>
+              <span id="popGenderSplit">4,390 M / 4,152 F</span>
+            </div>
+          </div>
+
+          <!-- Households -->
+          <div class="stat-metric-card house">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">Households</span>
+              <div class="stat-metric-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div id="houseVal" class="stat-metric-number">1,982</div>
+            <div class="stat-metric-footer">
+              <span class="badge-tag-positive">100%</span>
+              <span>Piped Tap Water</span>
+            </div>
+          </div>
+
+          <!-- CEP Score -->
+          <div class="stat-metric-card cep" onclick="switchView('view-cep-overview')" style="cursor: pointer;" title="Click to edit CEP scores">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">CEP Score</span>
+              <div class="stat-metric-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div id="cepVal" class="stat-metric-number" style="color: var(--accent-green);">78/100</div>
+            <div class="stat-metric-footer">
+              <span class="badge-tag-positive">Grade A</span>
+              <span>Click to update ✎</span>
+            </div>
+          </div>
+
+          <!-- Active Projects -->
+          <div class="stat-metric-card proj" onclick="switchView('view-projects')" style="cursor: pointer;">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">Active Projects</span>
+              <div class="stat-metric-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div id="projVal" class="stat-metric-number">12</div>
+            <div class="stat-metric-footer">
+              <span class="badge-tag-positive" id="dashProjectsFooter">3 Nearing Completion</span>
+            </div>
+          </div>
+
+          <!-- Pending Complaints -->
+          <div class="stat-metric-card comp" onclick="switchView('view-complaints')" style="cursor: pointer;">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">Pending Complaints</span>
+              <div class="stat-metric-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+            </div>
+            <div id="compVal" class="stat-metric-number" style="color: var(--accent-rose);">18</div>
+            <div class="stat-metric-footer">
+              <span class="badge-tag-alert">Action Needed</span>
+              <span>Avg 1.8d SLA</span>
+            </div>
+          </div>
+
+          <!-- Village Budget -->
+          <div class="stat-metric-card budg">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">Village Budget</span>
+              <div class="stat-metric-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="11" x2="16" y2="11"></line>
+                </svg>
+              </div>
+            </div>
+            <div id="budgVal" class="stat-metric-number" style="font-size: 1.45rem;">₹1,24,50,000</div>
+            <div class="stat-metric-footer">
+              <span class="badge-tag-positive">FY 2026-27</span>
+              <span>72% Utilized</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CEP Performance Section -->
+        <div class="cep-section-grid">
+          <!-- Radial Gauge Card -->
+          <div class="dash-card cep-score-visual-card">
+            <div class="dash-card-header" style="width: 100%;">
+              <div>
+                <h3>Overall CEP Score</h3>
+                <div class="card-subtitle">Common Evaluation & Progress Index</div>
+              </div>
+              <span class="grade-badge-pill" id="cepGradePill">Grade A (High)</span>
+            </div>
+
+            <div class="radial-chart-wrapper">
+              <svg class="radial-svg" viewBox="0 0 200 200">
+                <circle class="radial-bg" cx="100" cy="100" r="90"></circle>
+                <circle class="radial-progress" cx="100" cy="100" r="90"></circle>
+              </svg>
+              <div class="radial-center-text">
+                <span id="cepScoreRadialVal" class="radial-val">78</span>
+                <span class="radial-max">/ 100</span>
+              </div>
+            </div>
+
+            <div class="cep-performance-tier">
+              ★ Top 5% Gram Panchayats in Nagpur District
+            </div>
+
+            <p class="cep-summary-note">
+              Calculated dynamically across 7 core governance pillars. You can adjust scores directly in the <strong>CEP Overview</strong> section.
+            </p>
+            <button onclick="switchView('view-cep-overview')" class="btn-admin-action saffron" style="margin-top: 10px; font-size: 0.78rem;">
+              Update CEP Scores →
+            </button>
+          </div>
+
+          <!-- Breakdown Progress Bars Card -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div>
+                <h3>CEP Sector Breakdown</h3>
+                <div class="card-subtitle">7 Development Pillars Evaluation</div>
+              </div>
+              <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">Benchmark: Target 70%</span>
+            </div>
+
+            <div id="cepBreakdownList" class="breakdown-bars-list">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Quarterly Trend Chart -->
+            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-dash);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 0.8rem; font-weight: 700; color: #0f172a;">Historical Progression (Quarterly Trend)</span>
+                <span style="font-size: 0.72rem; color: #10b981; font-weight: 700;">+10% Gain in 5 Quarters</span>
+              </div>
+              <div id="cepTrendChart"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Glance Row -->
+        <div class="dash-two-col">
+          <!-- Recent Projects Glance -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div>
+                <h3>Active Development Works</h3>
+                <div class="card-subtitle">Recent priority projects</div>
+              </div>
+              <button onclick="switchView('view-projects')" class="action-icon-btn">View All 12 →</button>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Budget</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="dashGlanceProjectsBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Recent Grievances Glance -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div>
+                <h3>Urgent Citizen Grievances</h3>
+                <div class="card-subtitle">Pending redressal</div>
+              </div>
+              <button onclick="switchView('view-complaints')" class="action-icon-btn">Full Console →</button>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>ID & Subject</th>
+                    <th>Category</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="dashGlanceComplaintsBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 2: VILLAGE PROFILE (STEP 3)
+           ===================================================================== -->
+      <section id="view-village-profile" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Village Profile & Official Demographics</h2>
+            <p>Master record of geographic, demographic, and agricultural data for Aapla Gaav Gram Panchayat.</p>
+          </div>
+          <div class="view-actions">
+            <button onclick="openModal('editVillageProfileModal')" class="btn-admin-action saffron">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+              Edit Village Information
+            </button>
+          </div>
+        </div>
+
+        <div class="dash-card" style="margin-bottom: 22px;">
+          <div class="dash-card-header">
+            <div>
+              <h3 id="vpHeaderTitle">Aapla Gaav Gram Panchayat Profile</h3>
+              <div class="card-subtitle" id="vpHeaderSubtitle">Nagpur Rural Taluka, Nagpur District, Maharashtra</div>
+            </div>
+            <span class="status-badge completed">Verified Panchayat</span>
+          </div>
+
+          <div class="profile-meta-grid">
+            <div class="profile-meta-box">
+              <div class="meta-label">Village Name</div>
+              <div class="meta-value" id="vpVillageName">Aapla Gaav</div>
+            </div>
+            <div class="profile-meta-box">
+              <div class="meta-label">District & State</div>
+              <div class="meta-value" id="vpDistState">Nagpur, Maharashtra</div>
+            </div>
+            <div class="profile-meta-box">
+              <div class="meta-label">Taluka</div>
+              <div class="meta-value" id="vpTaluka">Nagpur Rural</div>
+            </div>
+            <div class="profile-meta-box">
+              <div class="meta-label">Total Population</div>
+              <div class="meta-value" id="vpPopulation">8,542</div>
+            </div>
+            <div class="profile-meta-box">
+              <div class="meta-label">Total Households</div>
+              <div class="meta-value" id="vpHouseholds">1,982</div>
+            </div>
+            <div class="profile-meta-box">
+              <div class="meta-label">Village Geographical Area</div>
+              <div class="meta-value" id="vpArea">14.8 sq. km (1,480 Hectares)</div>
+            </div>
+            <div class="profile-meta-box">
+              <div class="meta-label">Literacy Rate</div>
+              <div class="meta-value" id="vpLiteracy">86.4%</div>
+            </div>
+            <div class="profile-meta-box">
+              <div class="meta-label">Male / Female Population</div>
+              <div class="meta-value" id="vpGender">4,390 Male / 4,152 Female</div>
+            </div>
+            <div class="profile-meta-box" style="grid-column: span 2;">
+              <div class="meta-label">Main Occupations</div>
+              <div class="meta-value" id="vpOccupations" style="font-size: 0.95rem;">Agriculture, Agro-Processing, Dairy Farming, Handloom, Local Commerce</div>
+            </div>
+            <div class="profile-meta-box" style="grid-column: span 2;">
+              <div class="meta-label">Main Agricultural Crops</div>
+              <div class="meta-value" id="vpCrops" style="font-size: 0.95rem;">Nagpur Oranges, Cotton, Soybean, Wheat, Gram (Chana), Tur Dal</div>
+            </div>
+            <div class="profile-meta-box" style="grid-column: span 2;">
+              <div class="meta-label">Contact Information & Headquarters</div>
+              <div class="meta-value" id="vpContact" style="font-size: 0.92rem; font-weight: 600;">Gram Panchayat Bhavan, Shivaji Maharaj Chowk, Aapla Gaav. Phone: 0712-2894100, Email: sarpanch@aaplagav.gov.in</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 3: CEP OVERVIEW & SCORECARD EDITOR (STEP 4)
+           ===================================================================== -->
+      <section id="view-cep-overview" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>CEP Overview & Indicator Management</h2>
+            <p>Update Village Citizen Empowerment Platform (CEP) performance metrics across all 7 pillars. Live recalculation.</p>
+          </div>
+          <div class="view-actions">
+            <button onclick="saveCepEditorScores()" class="btn-admin-action saffron">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                <polyline points="7 3 7 8 15 8"></polyline>
+              </svg>
+              Save CEP Indicator Scores
+            </button>
+          </div>
+        </div>
+
+        <div class="dash-card" style="margin-bottom: 22px;">
+          <div class="dash-card-header">
+            <div>
+              <h3>Update Village CEP Indicators</h3>
+              <div class="card-subtitle">Changes instantly synchronize with dashboard gauges, progress bars, and stats</div>
+            </div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: #10b981;">
+              Calculated Overall Score: <span id="cepEditorCalculatedScore">78</span> / 100
+            </div>
+          </div>
+
+          <!-- Slider 1: Education (82%) -->
+          <div class="cep-slider-group">
+            <label>🎓 Education Score:</label>
+            <input type="range" id="sliderEducation" min="0" max="100" value="82" class="cep-slider-input" oninput="onCepSliderChange()">
+            <div class="cep-slider-val" id="valEducation">82%</div>
+          </div>
+
+          <!-- Slider 2: Health (74%) -->
+          <div class="cep-slider-group">
+            <label>🏥 Health Score:</label>
+            <input type="range" id="sliderHealth" min="0" max="100" value="74" class="cep-slider-input" oninput="onCepSliderChange()">
+            <div class="cep-slider-val" id="valHealth">74%</div>
+          </div>
+
+          <!-- Slider 3: Water & Sanitation (88%) -->
+          <div class="cep-slider-group">
+            <label>💧 Water & Sanitation:</label>
+            <input type="range" id="sliderWater" min="0" max="100" value="88" class="cep-slider-input" oninput="onCepSliderChange()">
+            <div class="cep-slider-val" id="valWater">88%</div>
+          </div>
+
+          <!-- Slider 4: Infrastructure (69%) -->
+          <div class="cep-slider-group">
+            <label>🛣️ Infrastructure Score:</label>
+            <input type="range" id="sliderInfra" min="0" max="100" value="69" class="cep-slider-input" oninput="onCepSliderChange()">
+            <div class="cep-slider-val" id="valInfra">69%</div>
+          </div>
+
+          <!-- Slider 5: Agriculture (81%) -->
+          <div class="cep-slider-group">
+            <label>🌾 Agriculture Score:</label>
+            <input type="range" id="sliderAgri" min="0" max="100" value="81" class="cep-slider-input" oninput="onCepSliderChange()">
+            <div class="cep-slider-val" id="valAgri">81%</div>
+          </div>
+
+          <!-- Slider 6: Environment (72%) -->
+          <div class="cep-slider-group">
+            <label>🌳 Environment Score:</label>
+            <input type="range" id="sliderEnviro" min="0" max="100" value="72" class="cep-slider-input" oninput="onCepSliderChange()">
+            <div class="cep-slider-val" id="valEnviro">72%</div>
+          </div>
+
+          <!-- Slider 7: Digital Services (76%) -->
+          <div class="cep-slider-group">
+            <label>💻 Digital Services:</label>
+            <input type="range" id="sliderDigital" min="0" max="100" value="76" class="cep-slider-input" oninput="onCepSliderChange()">
+            <div class="cep-slider-val" id="valDigital">76%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 4: PROJECTS SYSTEM (STEP 4)
+           ===================================================================== -->
+      <section id="view-projects" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Village Development Projects Management</h2>
+            <p>Complete project monitoring: add, edit, track progress, change status, and audit budget allocation.</p>
+          </div>
+          <div class="view-actions">
+            <button onclick="openAddProjectModal()" class="btn-admin-action saffron">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              + Add New Project
+            </button>
+          </div>
+        </div>
+
+        <!-- Project Status Filters -->
+        <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
+          <button class="action-icon-btn project-filter-btn active" onclick="filterProjectsList('all', this)">All Projects (<span id="countAllProjects">12</span>)</button>
+          <button class="action-icon-btn project-filter-btn" onclick="filterProjectsList('In Progress', this)">In Progress</button>
+          <button class="action-icon-btn project-filter-btn" onclick="filterProjectsList('Planned', this)">Planned</button>
+          <button class="action-icon-btn project-filter-btn" onclick="filterProjectsList('Completed', this)">Completed</button>
+          <button class="action-icon-btn project-filter-btn" onclick="filterProjectsList('Delayed', this)">Delayed</button>
+        </div>
+
+        <div class="dash-card">
+          <div class="table-responsive">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Project Name & Dept</th>
+                  <th>Location</th>
+                  <th>Budget</th>
+                  <th>Spent</th>
+                  <th>Timeline</th>
+                  <th>Progress</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="projectsFullTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 5: EDUCATION PILLAR
+           ===================================================================== -->
+      <section id="view-education" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Education Sector (CEP Score: <span class="val-edu-display">82%</span>)</h2>
+            <p>Monitoring Anganwadi centers, Zilla Parishad schools, digital e-classrooms, and student literacy.</p>
+          </div>
+          <button onclick="switchView('view-projects')" class="btn-admin-action outline">View School Projects</button>
+        </div>
+
+        <div class="profile-meta-grid">
+          <div class="profile-meta-box">
+            <div class="meta-label">Primary & High Schools</div>
+            <div class="meta-value">2 Z.P. Schools + 1 Secondary High School</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Anganwadi Centers</div>
+            <div class="meta-value">5 Operational Anganwadi Centers</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Total Student Enrollment</div>
+            <div class="meta-value">940 Students (485 Boys / 455 Girls)</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Mid-Day Meal Saturation</div>
+            <div class="meta-value">100% Quality-Inspected Daily</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 6: HEALTH PILLAR
+           ===================================================================== -->
+      <section id="view-health" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Public Health Sector (CEP Score: <span class="val-health-display">74%</span>)</h2>
+            <p>Primary Health Center (PHC), maternal care, immunization drives, and disease prevention.</p>
+          </div>
+        </div>
+
+        <div class="profile-meta-grid">
+          <div class="profile-meta-box">
+            <div class="meta-label">Healthcare Facility</div>
+            <div class="meta-value">Primary Health Sub-Center (PHC)</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">ASHA & ANM Healthcare Workers</div>
+            <div class="meta-value">6 ASHA Workers + 2 Auxiliary Nurses</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Ayushman Golden Cards Issued</div>
+            <div class="meta-value">6,840 Verified Citizens (80.1%)</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Childhood Immunization Rate</div>
+            <div class="meta-value">96.5% Mission Indradhanush Coverage</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 7: WATER & SANITATION PILLAR
+           ===================================================================== -->
+      <section id="view-water-sanitation" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Water & Sanitation Sector (CEP Score: <span class="val-water-display">88%</span>)</h2>
+            <p>Jal Jeevan Mission Har Ghar Jal tap water, ODF-Plus certification, and solid waste management.</p>
+          </div>
+        </div>
+
+        <div class="profile-meta-grid">
+          <div class="profile-meta-box">
+            <div class="meta-label">Tap Water Connectivity</div>
+            <div class="meta-value">1,982 / 1,982 Households (100%)</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Daily Supply Per Person</div>
+            <div class="meta-value">55 Litres Per Capita Per Day (LPCD)</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Sanitation Status</div>
+            <div class="meta-value">ODF-Plus Certified (100% IHHL Toilets)</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Bio-Compost Processing</div>
+            <div class="meta-value">2.4 Tonnes Organic Compost Monthly</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 8: AGRICULTURE PILLAR
+           ===================================================================== -->
+      <section id="view-agriculture" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Agriculture & Irrigation (CEP Score: <span class="val-agri-display">81%</span>)</h2>
+            <p>Crop advisory, PM-KISAN, soil health analysis, and solar irrigation pumps.</p>
+          </div>
+        </div>
+
+        <div class="profile-meta-grid">
+          <div class="profile-meta-box">
+            <div class="meta-label">Registered Farmer Families</div>
+            <div class="meta-value">1,420 Beneficiary Farmers</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">PM-KISAN DBT Saturation</div>
+            <div class="meta-value">₹28.4 Lakhs Credited Annually</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Subsidized Solar Water Pumps</div>
+            <div class="meta-value">84 Units Installed under MEDA Scheme</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Soil Health Cards Issued</div>
+            <div class="meta-value">1,310 Farm Parcels Analyzed</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 9: INFRASTRUCTURE PILLAR
+           ===================================================================== -->
+      <section id="view-infrastructure" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Infrastructure & Energy (CEP Score: <span class="val-infra-display">69%</span>)</h2>
+            <p>Cement concrete internal roads, solar high-mast streetlights, drainage, and CCTV network.</p>
+          </div>
+        </div>
+
+        <div class="profile-meta-grid">
+          <div class="profile-meta-box">
+            <div class="meta-label">Paved Concrete Road Network</div>
+            <div class="meta-value">18.6 Kilometers Gaothan & Farm Roads</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Solar-Powered Streetlights</div>
+            <div class="meta-value">120 LED Smart Poles across 5 Wards</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Covered Drainage Coverage</div>
+            <div class="meta-value">72% of Gaothan Area Covered</div>
+          </div>
+          <div class="profile-meta-box">
+            <div class="meta-label">Security Surveillance</div>
+            <div class="meta-value">16 Weather-Proof IP CCTV Cameras</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 10: GOVERNMENT SCHEMES
+           ===================================================================== -->
+      <section id="view-schemes" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Central & State Government Schemes Directory</h2>
+            <p>Beneficiary tracking, implementation status, and fund disbursement monitoring.</p>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="table-responsive">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Scheme Name</th>
+                  <th>Department</th>
+                  <th>Target / Sanctioned</th>
+                  <th>Achieved</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Pradhan Mantri Awas Yojana (PMAY-G)</strong></td>
+                  <td>Ministry of Rural Development</td>
+                  <td>48 Pucca Houses</td>
+                  <td>36 Completed (12 In Progress)</td>
+                  <td><span class="status-badge in-progress">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Jal Jeevan Mission (Har Ghar Jal)</strong></td>
+                  <td>Drinking Water & Sanitation</td>
+                  <td>1,982 Household Taps</td>
+                  <td>1,982 Connected (100%)</td>
+                  <td><span class="status-badge completed">100% Saturated</span></td>
+                </tr>
+                <tr>
+                  <td><strong>PM-KISAN Samman Nidhi</strong></td>
+                  <td>Agriculture Welfare</td>
+                  <td>1,420 Farmers</td>
+                  <td>1,420 Active DBT</td>
+                  <td><span class="status-badge completed">Disbursed</span></td>
+                </tr>
+                <tr>
+                  <td><strong>MGNREGA Rural Employment</strong></td>
+                  <td>Rural Development Dept</td>
+                  <td>640 Job Card Holders</td>
+                  <td>100 Days Wage Guarantee</td>
+                  <td><span class="status-badge in-progress">Ongoing</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Ayushman Bharat PM-JAY</strong></td>
+                  <td>National Health Authority</td>
+                  <td>8,542 Citizens</td>
+                  <td>6,840 Cards Issued (80.1%)</td>
+                  <td><span class="status-badge in-progress">Active Camp</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 11: COMPLAINTS & GRIEVANCE REDRESSAL (STEP 5)
+           ===================================================================== -->
+      <section id="view-complaints" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Citizen Grievance Redressal Command Center</h2>
+            <p>Track, assign, investigate, and resolve complaints submitted by citizens of Aapla Gaav.</p>
+          </div>
+        </div>
+
+        <!-- 5 Complaint Statistics Tiles as requested in STEP 5 -->
+        <div class="main-stats-grid" style="grid-template-columns: repeat(5, 1fr); margin-bottom: 20px;">
+          <!-- Total Complaints -->
+          <div class="stat-metric-card pop">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">Total Complaints</span>
+            </div>
+            <div id="cStatTotal" class="stat-metric-number">20</div>
+            <div class="stat-metric-footer">All logged tickets</div>
+          </div>
+
+          <!-- New Complaints (Submitted) -->
+          <div class="stat-metric-card comp">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">New Complaints</span>
+            </div>
+            <div id="cStatNew" class="stat-metric-number" style="color: #ea580c;">5</div>
+            <div class="stat-metric-footer">Awaiting initial review</div>
+          </div>
+
+          <!-- In Progress / Assigned -->
+          <div class="stat-metric-card proj">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">In Progress</span>
+            </div>
+            <div id="cStatInProgress" class="stat-metric-number" style="color: #0284c7;">13</div>
+            <div class="stat-metric-footer">Field work underway</div>
+          </div>
+
+          <!-- Resolved -->
+          <div class="stat-metric-card cep">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">Resolved</span>
+            </div>
+            <div id="cStatResolved" class="stat-metric-number" style="color: #10b981;">2</div>
+            <div class="stat-metric-footer">Citizen verified</div>
+          </div>
+
+          <!-- Average Resolution Time -->
+          <div class="stat-metric-card house">
+            <div class="stat-metric-top">
+              <span class="stat-metric-label">Avg Resolution</span>
+            </div>
+            <div class="stat-metric-number" style="font-size: 1.45rem;">1.8 Days</div>
+            <div class="stat-metric-footer">Within 48h SLA</div>
+          </div>
+        </div>
+
+        <!-- Complaints Filters & Table -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div>
+              <h3>Complaints Register</h3>
+              <div class="card-subtitle">Lifecycle: Submitted → Under Review → Assigned → In Progress → Resolved</div>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+              <button class="action-icon-btn c-filter-btn active" onclick="filterComplaintsView('all', this)">All</button>
+              <button class="action-icon-btn c-filter-btn" onclick="filterComplaintsView('Submitted', this)">Submitted</button>
+              <button class="action-icon-btn c-filter-btn" onclick="filterComplaintsView('Under Review', this)">Under Review</button>
+              <button class="action-icon-btn c-filter-btn" onclick="filterComplaintsView('Assigned', this)">Assigned</button>
+              <button class="action-icon-btn c-filter-btn" onclick="filterComplaintsView('In Progress', this)">In Progress</button>
+              <button class="action-icon-btn c-filter-btn" onclick="filterComplaintsView('Resolved', this)">Resolved</button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Ticket ID</th>
+                  <th>Citizen & Mobile</th>
+                  <th>Category</th>
+                  <th>Location</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Assigned Officer</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="complaintsFullTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 12: ANNOUNCEMENTS
+           ===================================================================== -->
+      <section id="view-announcements" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Village Notice Board & Broadcasts</h2>
+            <p>Publish instant announcements to the scrolling ticker on the citizen landing page.</p>
+          </div>
+        </div>
+
+        <div class="dash-card" style="margin-bottom: 22px;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 12px;">Broadcast New Notice</h3>
+          <form id="dashViewNoticeForm">
+            <div class="form-group">
+              <label class="form-label" for="dashViewNoticeInput">Announcement Message *</label>
+              <textarea id="dashViewNoticeInput" class="form-control" rows="3" placeholder="Enter village notice text..." required></textarea>
+            </div>
+            <button type="submit" class="btn-admin-action saffron">📢 Publish Announcement</button>
+          </form>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3>Active Broadcast Notices</h3>
+          </div>
+          <div id="activeNoticesList" style="display: flex; flex-direction: column; gap: 10px;"></div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 13: CITIZENS MANAGEMENT (STEP 5)
+           ===================================================================== -->
+      <section id="view-citizens" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Citizen Management Directory</h2>
+            <p>Registered village citizens, verified residents, and active user accounts.</p>
+          </div>
+          <div class="view-actions">
+            <button onclick="openModal('addCitizenModal')" class="btn-admin-action saffron">+ Register Citizen</button>
+          </div>
+        </div>
+
+        <!-- 4 Citizen Stat Tiles as requested in STEP 5 -->
+        <div class="main-stats-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 20px;">
+          <div class="stat-metric-card pop">
+            <div class="stat-metric-top"><span class="stat-metric-label">Total Citizens</span></div>
+            <div class="stat-metric-number">8,542</div>
+            <div class="stat-metric-footer">Census Population</div>
+          </div>
+          <div class="stat-metric-card house">
+            <div class="stat-metric-top"><span class="stat-metric-label">Registered Citizens</span></div>
+            <div id="cRegCount" class="stat-metric-number">1,420</div>
+            <div class="stat-metric-footer">Portal Accounts</div>
+          </div>
+          <div class="stat-metric-card proj">
+            <div class="stat-metric-top"><span class="stat-metric-label">New Registrations</span></div>
+            <div class="stat-metric-number" style="color: #0284c7;">38</div>
+            <div class="stat-metric-footer">Registered This Month</div>
+          </div>
+          <div class="stat-metric-card cep">
+            <div class="stat-metric-top"><span class="stat-metric-label">Active Users</span></div>
+            <div class="stat-metric-number" style="color: #10b981;">215</div>
+            <div class="stat-metric-footer">Online This Week</div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div>
+              <h3>Registered Citizen Directory</h3>
+              <div class="card-subtitle">Verified village residents registered for digital services</div>
+            </div>
+            <div>
+              <input type="text" id="citizenSearchInput" class="form-control" placeholder="Search by name, phone or ward..." onkeyup="filterCitizensTable()" style="width: 240px; padding: 6px 10px; font-size: 0.8rem;">
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Citizen Name</th>
+                  <th>Mobile Number</th>
+                  <th>Area / Ward</th>
+                  <th>Registration Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="citizensTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 14: DOCUMENTS
+           ===================================================================== -->
+      <section id="view-documents" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Panchayat Documents & Legal Records</h2>
+            <p>Official Gram Sabha resolutions, audit certificates, tenders, and revenue forms.</p>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="table-responsive">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Document Title</th>
+                  <th>Category</th>
+                  <th>Date Uploaded</th>
+                  <th>File Size</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Gram Sabha Resolution No. 14 (Budget FY 2026-27)</strong></td>
+                  <td>Official Resolution</td>
+                  <td>2026-08-15</td>
+                  <td>2.4 MB PDF</td>
+                  <td><button class="action-icon-btn" onclick="alert('Viewing Gram Sabha Resolution 14. Digitally verified by Sarpanch & Gram Sevak.')">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Jal Jeevan Mission Water Quality Audit Report</strong></td>
+                  <td>Technical Audit</td>
+                  <td>2026-09-10</td>
+                  <td>1.8 MB PDF</td>
+                  <td><button class="action-icon-btn" onclick="alert('Downloading Water Quality Lab Report.')">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Aapla Gaav Development Plan Master Blueprint 2026-2030</strong></td>
+                  <td>Planning Master</td>
+                  <td>2026-07-01</td>
+                  <td>5.2 MB PDF</td>
+                  <td><button class="action-icon-btn" onclick="alert('Downloading Village Master Plan.')">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Annual Property Tax (Ghar Patti) Assessment Register</strong></td>
+                  <td>Revenue Record</td>
+                  <td>2026-06-20</td>
+                  <td>3.1 MB PDF</td>
+                  <td><button class="action-icon-btn" onclick="alert('Downloading Tax Register.')">Download PDF</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 15: REPORTS
+           ===================================================================== -->
+      <section id="view-reports" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Village Governance & CEP Reports</h2>
+            <p>Generate verifiable executive reports for Zilla Parishad and state evaluation.</p>
+          </div>
+        </div>
+
+        <div class="dash-two-col">
+          <div class="dash-card">
+            <h3>CEP Performance Audit Certificate</h3>
+            <p style="font-size: 0.85rem; color: #64748b; margin: 10px 0 16px;">
+              Generates an aggregated score certificate detailing the 7 sectors: Education (82%), Health (74%), Water (88%), Infrastructure (69%), Agriculture (81%), Environment (72%), and Digital (76%).
+            </p>
+            <button class="btn-admin-action saffron" onclick="generateReport('CEP')">Print / Export CEP Report</button>
+          </div>
+
+          <div class="dash-card">
+            <h3>Grievance SLA Compliance Summary</h3>
+            <p style="font-size: 0.85rem; color: #64748b; margin: 10px 0 16px;">
+              Comprehensive report detailing citizen tickets received, resolution velocity, average turnaround time (1.8 days), and officer performance.
+            </p>
+            <button class="btn-admin-action" onclick="generateReport('Grievances')">Export Grievances Report</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           VIEW 16: SETTINGS
+           ===================================================================== -->
+      <section id="view-settings" class="dash-view">
+        <div class="view-header">
+          <div class="view-title-group">
+            <h2>Administrator Console Settings</h2>
+            <p>Session management, backup, and default data restore options.</p>
+          </div>
+        </div>
+
+        <div class="dash-card" style="max-width: 600px;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 14px;">Data Management</h3>
+          <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 16px;">
+            All Aapla Gaav platform information is stored persistently in your browser's <code>localStorage</code>.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <button class="btn-admin-action outline" onclick="exportDataBackup()">
+              📥 Backup / Download JSON Data
+            </button>
+            <button class="btn-admin-action" style="background: #be123c;" onclick="resetDemoData()">
+              🔄 Reset Everything to Demo Defaults
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- =======================================================================
+       MODALS: VILLAGE PROFILE, PROJECTS, COMPLAINT ACTIONS, CITIZENS
+       ======================================================================= -->
+
+  <!-- Modal 1: Edit Village Information (STEP 3) -->
+  <div id="editVillageProfileModal" class="modal-overlay">
+    <div class="modal-card large">
+      <div class="modal-header">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f26522" stroke-width="2">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+          Edit Village Information
+        </h3>
+        <button class="modal-close-btn" onclick="closeModal('editVillageProfileModal')">&times;</button>
+      </div>
+
+      <form id="editVillageProfileForm">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="inpVillageName">Village Name *</label>
+              <input type="text" id="inpVillageName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inpDistrict">District *</label>
+              <input type="text" id="inpDistrict" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="inpTaluka">Taluka *</label>
+              <input type="text" id="inpTaluka" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inpState">State *</label>
+              <input type="text" id="inpState" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row-3">
+            <div class="form-group">
+              <label class="form-label" for="inpPopulation">Total Population *</label>
+              <input type="number" id="inpPopulation" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inpHouseholds">Total Households *</label>
+              <input type="number" id="inpHouseholds" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inpArea">Village Area *</label>
+              <input type="text" id="inpArea" class="form-control" placeholder="e.g. 14.8 sq. km" required>
+            </div>
+          </div>
+
+          <div class="form-row-3">
+            <div class="form-group">
+              <label class="form-label" for="inpLiteracy">Literacy Rate *</label>
+              <input type="text" id="inpLiteracy" class="form-control" placeholder="e.g. 86.4%" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inpMalePop">Male Population *</label>
+              <input type="number" id="inpMalePop" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inpFemalePop">Female Population *</label>
+              <input type="number" id="inpFemalePop" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inpOccupations">Main Occupations *</label>
+            <textarea id="inpOccupations" class="form-control" rows="2" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inpCrops">Main Agricultural Crops *</label>
+            <textarea id="inpCrops" class="form-control" rows="2" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inpContact">Official Contact Information *</label>
+            <textarea id="inpContact" class="form-control" rows="2" required></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-admin-action outline" onclick="closeModal('editVillageProfileModal')">Cancel</button>
+          <button type="submit" class="btn-admin-action saffron">Save Village Profile Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Add or Edit Project (STEP 4) -->
+  <div id="projectModal" class="modal-overlay">
+    <div class="modal-card large">
+      <div class="modal-header">
+        <h3 id="projectModalTitle">Add Village Development Project</h3>
+        <button class="modal-close-btn" onclick="closeModal('projectModal')">&times;</button>
+      </div>
+
+      <form id="projectForm">
+        <input type="hidden" id="projFormMode" value="add">
+        <input type="hidden" id="projFormId" value="">
+
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="projInpName">Project Name *</label>
+              <input type="text" id="projInpName" class="form-control" placeholder="e.g. Village Road Improvement" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="projInpDept">Department *</label>
+              <input type="text" id="projInpDept" class="form-control" placeholder="e.g. Public Works (PWD)" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="projInpCategory">Category *</label>
+              <select id="projInpCategory" class="form-control" required>
+                <option value="Infrastructure">Infrastructure</option>
+                <option value="Water & Sanitation">Water & Sanitation</option>
+                <option value="Education">Education</option>
+                <option value="Health">Health</option>
+                <option value="Agriculture">Agriculture</option>
+                <option value="Environment">Environment</option>
+                <option value="Digital Services">Digital Services</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="projInpLocation">Location / Site *</label>
+              <input type="text" id="projInpLocation" class="form-control" placeholder="e.g. Ward No. 3 Gaothan link" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="projInpBudget">Sanctioned Budget (₹) *</label>
+              <input type="number" id="projInpBudget" class="form-control" placeholder="e.g. 1500000" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="projInpSpent">Amount Spent (₹) *</label>
+              <input type="number" id="projInpSpent" class="form-control" placeholder="e.g. 450000" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="projInpStart">Start Date *</label>
+              <input type="date" id="projInpStart" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="projInpEnd">Expected Completion Date *</label>
+              <input type="date" id="projInpEnd" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="projInpProgress">Progress % (0 to 100) *</label>
+              <input type="number" id="projInpProgress" min="0" max="100" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="projInpStatus">Project Status *</label>
+              <select id="projInpStatus" class="form-control" required>
+                <option value="Planned">Planned</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Delayed">Delayed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="projInpDesc">Project Scope & Description *</label>
+            <textarea id="projInpDesc" class="form-control" rows="3" required></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-admin-action outline" onclick="closeModal('projectModal')">Cancel</button>
+          <button type="submit" class="btn-admin-action saffron">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3: View Project Details (STEP 4) -->
+  <div id="projectDetailsModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="pdTitle">Project Details</h3>
+        <button class="modal-close-btn" onclick="closeModal('projectDetailsModal')">&times;</button>
+      </div>
+      <div class="modal-body" id="pdContent">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-admin-action outline" onclick="closeModal('projectDetailsModal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Assign / Update Status / Add Response to Complaint (STEP 5) -->
+  <div id="complaintActionModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="caTitle">Manage Complaint</h3>
+        <button class="modal-close-btn" onclick="closeModal('complaintActionModal')">&times;</button>
+      </div>
+
+      <form id="complaintActionForm">
+        <input type="hidden" id="caComplaintId" value="">
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Ticket Reference</label>
+            <div id="caRefDisplay" style="font-weight: 800; color: #0f172a; font-size: 1.05rem;"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="caAssignee">Assign Complaint To Officer / Engineer *</label>
+            <select id="caAssignee" class="form-control" required>
+              <option value="Gram Sevak Smt. Sunita Kulkarni">Gram Sevak Smt. Sunita Kulkarni</option>
+              <option value="Shri. M. K. Patil (Water Supply Engineer)">Shri. M. K. Patil (Water Supply Engineer)</option>
+              <option value="MSEDCL Lineman Rameshwar">MSEDCL Lineman Rameshwar</option>
+              <option value="PWD Gram Panchayat Contractor">PWD Gram Panchayat Contractor</option>
+              <option value="PHC Health Inspector Dr. Joshi">PHC Health Inspector Dr. Joshi</option>
+              <option value="Sanitation Squad Lead">Sanitation Squad Lead</option>
+              <option value="Irrigation Dept Liason Officer">Irrigation Dept Liason Officer</option>
+              <option value="CSC VLE Operator">CSC VLE Operator</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="caStatus">Update Lifecycle Status *</label>
+            <select id="caStatus" class="form-control" required>
+              <option value="Submitted">Submitted</option>
+              <option value="Under Review">Under Review</option>
+              <option value="Assigned">Assigned</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="caResponse">Administrative Response / Resolution Notes *</label>
+            <textarea id="caResponse" class="form-control" rows="3" placeholder="Provide action taken details or resolution summary..." required></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-admin-action outline" onclick="closeModal('complaintActionModal')">Cancel</button>
+          <button type="submit" class="btn-admin-action saffron">Save Complaint Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 5: View Complaint Full Details & Attachment (STEP 5) -->
+  <div id="complaintDetailsModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="cdTitle">Grievance Investigation File</h3>
+        <button class="modal-close-btn" onclick="closeModal('complaintDetailsModal')">&times;</button>
+      </div>
+      <div class="modal-body" id="cdContent">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-admin-action outline" onclick="closeModal('complaintDetailsModal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6: Add Citizen (STEP 5) -->
+  <div id="addCitizenModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Register New Village Citizen</h3>
+        <button class="modal-close-btn" onclick="closeModal('addCitizenModal')">&times;</button>
+      </div>
+
+      <form id="addCitizenForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="cInpName">Citizen Full Name *</label>
+            <input type="text" id="cInpName" class="form-control" placeholder="e.g. Tukaram Gaikwad" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cInpMobile">Mobile Number *</label>
+            <input type="tel" id="cInpMobile" class="form-control" pattern="[0-9]{10}" placeholder="10-digit mobile" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cInpArea">Area / Ward *</label>
+            <select id="cInpArea" class="form-control" required>
+              <option value="Ward No. 01 (Gaothan Chowk)">Ward No. 01 (Gaothan Chowk)</option>
+              <option value="Ward No. 02 (Mandir Area)">Ward No. 02 (Mandir Area)</option>
+              <option value="Ward No. 03 (Shivaji Nagar)">Ward No. 03 (Shivaji Nagar)</option>
+              <option value="Ward No. 04 (School & PHC)">Ward No. 04 (School & PHC)</option>
+              <option value="Ward No. 05 (Krushi Parisar)">Ward No. 05 (Krushi Parisar)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cInpPass">Default Password *</label>
+            <input type="password" id="cInpPass" class="form-control" value="Citizen@123" required>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-admin-action outline" onclick="closeModal('addCitizenModal')">Cancel</button>
+          <button type="submit" class="btn-admin-action saffron">Create Citizen Account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
