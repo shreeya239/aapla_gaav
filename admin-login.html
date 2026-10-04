@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valivade Gram Panchayat — Administrator Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page-body admin-theme">
+
+  <div class="auth-page-container">
+    <div class="auth-page-card admin-card">
+      
+      <!-- Card Header -->
+      <div class="auth-page-header admin-hdr">
+        <a href="index.html" class="auth-back-link" style="color: #cbd5e1;">← Back to Village Portal</a>
+        <div class="auth-brand-badge">
+          <img src="assets/logo.png" alt="Logo" class="auth-emblem-img">
+          <div>
+            <h2 style="color: #ffffff;">Valivade Gram Panchayat</h2>
+            <p style="color: #f26522; font-size: 0.88rem; font-weight: 600;">Aapla Gaav | Digital Village Governance Portal</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auth Body -->
+      <div class="auth-page-content">
+        <div style="margin-bottom: 16px;">
+          <span class="status-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; font-size: 0.76rem; padding: 4px 10px;">
+            🔒 Village Administrator & Gram Panchayat Authority Login
+          </span>
+        </div>
+
+        <!-- Clearly labeled demo credentials -->
+        <div class="demo-credentials-callout admin">
+          <strong>DEMO CREDENTIALS:</strong><br>
+          Admin ID: <code>admin@valivade</code><br>
+          Password: <code>Aapla@123</code><br>
+          <div style="margin: 6px 0 8px 0; font-size: 0.74rem; color: #475569; line-height: 1.4;">
+            <em>Note: These are simulated demonstration credentials for evaluation purposes and do not represent any real individual Sarpanch or official.</em>
+          </div>
+          <button type="button" class="demo-autofill-btn" onclick="autofillAdminDemo()">
+            1-Click Auto-Fill Demo Admin
+          </button>
+        </div>
+
+        <!-- Alert Notification -->
+        <div id="adminAuthAlert" class="alert-message"></div>
+
+        <form id="pageAdminLoginForm">
+          <div class="form-group">
+            <label class="form-label" for="pageAdminId" style="color: #0f172a;">Admin ID *</label>
+            <input type="text" id="pageAdminId" class="form-control" placeholder="e.g. admin@valivade" required>
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+              <label class="form-label" for="pageAdminPass" style="color: #0f172a; margin-bottom:0;">Password *</label>
+              <a href="#" onclick="openChangePasswordModal()" style="font-size: 0.78rem; color: var(--accent-saffron); font-weight: 600;">Change Password?</a>
+            </div>
+            <input type="password" id="pageAdminPass" class="form-control" placeholder="••••••••••••" required>
+          </div>
+
+          <button type="submit" class="btn btn-admin" style="width: 100%; padding: 13px; font-weight: 700; margin-top: 10px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            Secure Login to Administrator Dashboard →
+          </button>
+        </form>
+
+        <div style="margin-top: 22px; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+          Looking for Citizen Services? <a href="login.html" style="color: var(--accent-saffron); font-weight: 700;">Citizen Portal Login →</a>
+        </div>
+      </div>
+
+      <!-- Card Footer -->
+      <div class="auth-page-footer admin-ftr">
+        🛡️ Authorized access for Valivade Gram Panchayat Administrator only.<br>
+        <small style="opacity: 0.7;">Karvir Taluka, Kolhapur District, Maharashtra • Aapla Gaav — Valivade</small>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Change Password Modal (STEP 7) -->
+  <div id="changePasswordModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Change Administrator Password</h3>
+        <button class="modal-close-btn" onclick="closeModal('changePasswordModal')">&times;</button>
+      </div>
+      <form id="changePasswordForm">
+        <div class="modal-body">
+          <div class="demo-credentials-callout" style="margin-bottom: 14px;">
+            Verify current password (Default: <code>Aapla@123</code>) to set a new password in localStorage.
+          </div>
+          <div id="cpAlert" class="alert-message"></div>
+          <div class="form-group">
+            <label class="form-label">Current Password *</label>
+            <input type="password" id="cpCurrentPass" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">New Password *</label>
+            <input type="password" id="cpNewPass" class="form-control" minlength="6" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Confirm New Password *</label>
+            <input type="password" id="cpConfirmPass" class="form-control" minlength="6" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('changePasswordModal')">Cancel</button>
+          <button type="submit" class="btn btn-saffron">Update Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function autofillAdminDemo() {
+      document.getElementById('pageAdminId').value = DEMO_ADMIN.adminId;
+      document.getElementById('pageAdminPass').value = DEMO_ADMIN.password;
+    }
+
+    document.getElementById('pageAdminLoginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const adminId = document.getElementById('pageAdminId').value;
+      const pass = document.getElementById('pageAdminPass').value;
+      const res = AaplaAuth.loginAdmin(adminId, pass);
+      const alertBox = document.getElementById('adminAuthAlert');
+      if (res.success) {
+        alertBox.className = 'alert-message success';
+        alertBox.textContent = 'Identity authenticated! Redirecting to Village Administrator Dashboard...';
+        setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
+      } else {
+        alertBox.className = 'alert-message error';
+        alertBox.textContent = res.message;
+      }
+    });
+
+    function openChangePasswordModal() {
+      openModal('changePasswordModal');
+    }
+
+    document.getElementById('changePasswordForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const current = document.getElementById('cpCurrentPass').value;
+      const newP = document.getElementById('cpNewPass').value;
+      const confirmP = document.getElementById('cpConfirmPass').value;
+      const alertBox = document.getElementById('cpAlert');
+
+      if (current !== DEMO_ADMIN.password) {
+        alertBox.className = 'alert-message error';
+        alertBox.textContent = 'Current password does not match demo administrator record.';
+        return;
+      }
+      if (newP !== confirmP) {
+        alertBox.className = 'alert-message error';
+        alertBox.textContent = 'New passwords do not match.';
+        return;
+      }
+
+      DEMO_ADMIN.password = newP;
+      alertBox.className = 'alert-message success';
+      alertBox.textContent = 'Password updated in localStorage demo record! You can now log in with the new password.';
+      setTimeout(() => {
+        closeModal('changePasswordModal');
+        document.getElementById('pageAdminPass').value = newP;
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

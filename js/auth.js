@@ -3,48 +3,110 @@
    Pure Vanilla JavaScript & LocalStorage
    ========================================================================== */
 
-const AAPLA_STORAGE_KEYS = {
+var AAPLA_STORAGE_KEYS = window.AAPLA_STORAGE_KEYS || {
   ADMIN_SESSION: 'aapla_admin_session',
   CITIZEN_SESSION: 'aapla_citizen_session',
   CITIZENS_DB: 'aapla_citizens_db',
   COMPLAINTS: 'aapla_complaints_db',
   PROJECTS: 'aapla_projects_db',
+  SCHEMES: 'aapla_schemes_db',
+  ANNOUNCEMENTS: 'aapla_announcements_db',
   NOTICES: 'aapla_notices_db',
   VILLAGE_PROFILE: 'aapla_village_profile',
   CEP_SCORES: 'aapla_cep_scores',
+  ADMIN_PROFILE: 'aapla_admin_profile',
+  THEME: 'aapla_theme_pref',
+  LANG: 'aapla_lang_pref',
   LAST_UPDATE: 'aapla_last_update_ts'
 };
+window.AAPLA_STORAGE_KEYS = AAPLA_STORAGE_KEYS;
 
 // Official Demo Administrator Credentials
-const DEMO_ADMIN = {
-  adminId: 'admin@aaplagav',
+// Clearly marked as sample demo credentials; not claiming to belong to the real current Sarpanch.
+var DEMO_ADMIN = window.DEMO_ADMIN || {
+  adminId: 'admin@valivade',
+  altAdminId: 'admin@aaplagav',
   password: 'Aapla@123',
-  title: 'Sarpanch / Village Administrator',
-  name: 'Shri. Rajesh Patil',
-  village: 'Aapla Gaav',
-  taluka: 'Nagpur Rural',
-  district: 'Nagpur',
-  state: 'Maharashtra'
+  title: 'Gram Panchayat Administrator (Demo Account)',
+  name: 'Administrator to update',
+  village: 'Valivade (Walivade)',
+  villageMr: 'वळिवडे',
+  taluka: 'Karvir',
+  district: 'Kolhapur',
+  state: 'Maharashtra',
+  pinCode: '416119',
+  censusCode: '567409',
+  mobile: 'Information needs to be updated',
+  email: 'valivade.gp@kolhapur.gov.in',
+  photo: 'assets/logo.png',
+  isDemoAccount: true
 };
+window.DEMO_ADMIN = DEMO_ADMIN;
 
 // Seed initial database if empty or missing new schema keys
 function initializeStorageDefaults() {
-  // 1. Village Profile (STEP 3)
+  // Check for legacy fictional data and reset to Valivade, Kolhapur
+  const existingVp = localStorage.getItem(AAPLA_STORAGE_KEYS.VILLAGE_PROFILE);
+  const existingPrj = localStorage.getItem(AAPLA_STORAGE_KEYS.PROJECTS);
+  if ((existingVp && (existingVp.includes('Nagpur') || existingVp.includes('8542') || !existingVp.includes('Valivade'))) ||
+      (existingPrj && (existingPrj.includes('Nagpur') || !existingPrj.includes('[DEMO]')))) {
+    localStorage.removeItem(AAPLA_STORAGE_KEYS.VILLAGE_PROFILE);
+    localStorage.removeItem(AAPLA_STORAGE_KEYS.ADMIN_PROFILE);
+    localStorage.removeItem(AAPLA_STORAGE_KEYS.PROJECTS);
+    localStorage.removeItem(AAPLA_STORAGE_KEYS.COMPLAINTS);
+    localStorage.removeItem(AAPLA_STORAGE_KEYS.SCHEMES);
+    localStorage.removeItem(AAPLA_STORAGE_KEYS.ANNOUNCEMENTS);
+    localStorage.removeItem(AAPLA_STORAGE_KEYS.NOTICES);
+  }
+
+  // 1. Village Profile (STEP 3 & Census 2011 Reference Data)
   if (!localStorage.getItem(AAPLA_STORAGE_KEYS.VILLAGE_PROFILE)) {
     const defaultProfile = {
-      villageName: 'Aapla Gaav',
-      district: 'Nagpur',
-      taluka: 'Nagpur Rural',
+      villageName: 'Valivade (Walivade)',
+      villageNameMr: 'वळिवडे',
+      gramPanchayat: 'Valivade Gram Panchayat',
+      gramPanchayatMr: 'वळिवडे ग्रामपंचायत',
+      district: 'Kolhapur',
+      districtMr: 'कोल्हापूर',
+      taluka: 'Karvir',
+      talukaMr: 'करवीर',
       state: 'Maharashtra',
-      population: 8542,
-      households: 1982,
-      villageArea: '14.8 sq. km (1,480 Hectares)',
-      literacyRate: '86.4%',
-      malePopulation: 4390,
-      femalePopulation: 4152,
-      mainOccupations: 'Agriculture, Agro-Processing, Dairy Farming, Handloom, Local Commerce',
-      mainCrops: 'Nagpur Oranges, Cotton, Soybean, Wheat, Gram (Chana), Tur Dal',
-      contactInfo: 'Gram Panchayat Bhavan, Shivaji Maharaj Chowk, Aapla Gaav. Phone: 0712-2894100, Email: sarpanch@aaplagav.gov.in'
+      stateMr: 'महाराष्ट्र',
+      pinCode: '416119',
+      censusCode: '567409',
+      // Real Census 2011 Reference Data
+      population: 1668,
+      households: 332,
+      malePopulation: 865,
+      femalePopulation: 803,
+      childrenZeroToSix: 187,
+      sexRatio: '928 females per 1,000 males',
+      villageArea: '588.44 hectares (5.88 sq. km)',
+      villageAreaHa: 588.44,
+      literacyRate: '67.63%',
+      maleLiteracy: '75.95%',
+      femaleLiteracy: '58.66%',
+      dataSource: 'Census 2011 / Reference Data',
+      current2026Population: 'Data not available / Update required',
+      currentBudget: 'Data not available / Update required',
+      // Real administrative context
+      sarpanchName: 'Administrator to update',
+      gramSevakName: 'Administrator to update',
+      panchayatMembers: 'Information needs to be updated by the Gram Panchayat administrator.',
+      officeTimings: '10:00 AM to 05:30 PM (Monday to Saturday)',
+      contactInfo: 'Valivade Gram Panchayat Bhavan, Valivade, Karvir, Kolhapur, Maharashtra 416119. Coordinates: 16.71979° N, 74.31259° E',
+      mainOccupations: 'Agriculture, Sugarcane farming, Dairy cooperative, Commerce, Service sector',
+      mainCrops: 'Sugarcane, Paddy (Rice), Soybean, Vegetables, Groundnut',
+      latitude: '16.71979',
+      longitude: '74.31259',
+      // Sectoral real-world indicators
+      educationDetails: 'Zilla Parishad Primary School, Valivade. Secondary & higher education accessible in Karvir / Kolhapur cluster.',
+      waterDetails: 'Piped drinking water distribution network; Panchganga river basin recharge zone.',
+      sanitationDetails: 'ODF Gram Panchayat status; household sanitary latrine coverage.',
+      agricultureDetails: 'Fertile black soil of Panchganga basin; canal & lift irrigation for sugarcane.',
+      infrastructureDetails: 'Connected via Kolhapur-Hupari / Karvir regional road link; Valivade railway halt nearby.',
+      schemesStatus: 'Information needs to be updated by the Gram Panchayat administrator.',
+      developmentStatus: 'Information needs to be updated by the Gram Panchayat administrator.'
     };
     localStorage.setItem(AAPLA_STORAGE_KEYS.VILLAGE_PROFILE, JSON.stringify(defaultProfile));
   }
@@ -155,7 +217,7 @@ function initializeStorageDefaults() {
         description: 'Low water pressure in pipeline tap during morning supply. Water barely fills two buckets.',
         priority: 'High',
         status: 'In Progress',
-        assignedTo: 'Shri. M. K. Patil (Water Supply Engineer)',
+        assignedTo: 'Water Supply Junior Engineer',
         adminResponse: 'Inspection team dispatched. Valve booster repair underway in Ward 2 line.',
         date: '2026-10-02',
         imageAttachment: null
@@ -169,7 +231,7 @@ function initializeStorageDefaults() {
         description: 'Streetlight pole #14 non-functional for past 3 days. Lane is pitch dark at night.',
         priority: 'Medium',
         status: 'Assigned',
-        assignedTo: 'MSEDCL Lineman Rameshwar',
+        assignedTo: 'MSEDCL Lineman',
         adminResponse: 'Work order #EL-89 issued for LED replacement.',
         date: '2026-10-02',
         imageAttachment: null
@@ -183,7 +245,7 @@ function initializeStorageDefaults() {
         description: 'Deep potholes on bypass road causing risk to two-wheelers and bullock carts.',
         priority: 'High',
         status: 'Under Review',
-        assignedTo: 'Gram Sevak Smt. Sunita Kulkarni',
+        assignedTo: 'Gram Sevak (In-Charge)',
         adminResponse: 'Surveyed by civil supervisor. Added to emergency gravel patch plan.',
         date: '2026-10-01',
         imageAttachment: null
@@ -225,7 +287,7 @@ function initializeStorageDefaults() {
         description: 'Mosquito breeding in stagnant water near pond area. Fogging urgently needed.',
         priority: 'High',
         status: 'In Progress',
-        assignedTo: 'PHC Health Inspector Dr. Joshi',
+        assignedTo: 'Health Inspector (Sub-Center)',
         adminResponse: 'Larvicide chemical spraying completed. Malathion fogging scheduled tomorrow.',
         date: '2026-09-30',
         imageAttachment: null
@@ -436,10 +498,10 @@ function initializeStorageDefaults() {
     const defaultProjects = [
       {
         id: 'PRJ-2026-01',
-        name: 'Village Road Improvement',
+        name: '[DEMO] Village Road Improvement',
         department: 'Public Works (PWD)',
         category: 'Infrastructure',
-        location: 'Ward 3 to Main Gaothan Highway',
+        location: 'Ward 3 to Main Karvir Link Road',
         budget: '₹22,80,000',
         budgetNum: 2280000,
         spent: '₹15,50,000',
@@ -452,7 +514,7 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-02',
-        name: 'New Water Tank',
+        name: '[DEMO] New Water Tank',
         department: 'Water & Sanitation (Jal Jeevan)',
         category: 'Water & Sanitation',
         location: 'Ward 2 Hilltop Reservoir Site',
@@ -468,10 +530,10 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-03',
-        name: 'Solar Street Lights',
+        name: '[DEMO] Solar Street Lights',
         department: 'Renewable Energy (MEDA)',
         category: 'Infrastructure',
-        location: 'All 5 Wards & Shivar Links',
+        location: 'All Wards & Shivar Links',
         budget: '₹8,50,000',
         budgetNum: 850000,
         spent: '₹7,82,000',
@@ -484,10 +546,10 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-04',
-        name: 'School Renovation',
+        name: '[DEMO] School Renovation',
         department: 'School Education Dept',
         category: 'Education',
-        location: 'Z.P. High School & Primary Campus',
+        location: 'Z.P. Primary Campus, Valivade',
         budget: '₹14,50,000',
         budgetNum: 1450000,
         spent: '₹14,50,000',
@@ -500,7 +562,7 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-05',
-        name: 'Drainage Project',
+        name: '[DEMO] Drainage Project',
         department: 'Sanitation & Health',
         category: 'Infrastructure',
         location: 'Ward 1 and Ward 4 Gaothan',
@@ -516,7 +578,7 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-06',
-        name: 'Community Hall (Samaj Mandir)',
+        name: '[DEMO] Community Hall (Samaj Mandir)',
         department: 'Social Justice & Rural Dev',
         category: 'Infrastructure',
         location: 'Near Gram Panchayat Bhavan',
@@ -532,7 +594,7 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-07',
-        name: 'Anganwadi Development',
+        name: '[DEMO] Anganwadi Development',
         department: 'Women & Child Welfare',
         category: 'Education',
         location: 'Ward 5 Krushi Nagar',
@@ -548,7 +610,7 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-08',
-        name: 'Farmers Soil Health & Weather Station',
+        name: '[DEMO] Farmers Soil Health & Weather Station',
         department: 'Agriculture Dept',
         category: 'Agriculture',
         location: 'Krushi Vikas Kendra',
@@ -564,10 +626,10 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-09',
-        name: 'Primary Health Center (PHC) Upgrade',
+        name: '[DEMO] Primary Health Center (PHC) Upgrade',
         department: 'Public Health Dept',
         category: 'Health',
-        location: 'Nagpur Main Road PHC',
+        location: 'Valivade Primary Health Sub-Center',
         budget: '₹16,00,000',
         budgetNum: 1600000,
         spent: '₹9,60,000',
@@ -580,7 +642,7 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-10',
-        name: 'Village Waste Segregation & Bio-Compost Unit',
+        name: '[DEMO] Village Waste Segregation & Bio-Compost Unit',
         department: 'Swachh Bharat Mission',
         category: 'Environment',
         location: 'Gaothan Outskirts',
@@ -596,10 +658,10 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-11',
-        name: 'Groundwater Recharge Well & Lake Desilting',
+        name: '[DEMO] Groundwater Recharge Well & Lake Desilting',
         department: 'Watershed & Water Resources',
         category: 'Environment',
-        location: 'Aapla Gaav Talao (Lake)',
+        location: 'Valivade Talao (Lake)',
         budget: '₹5,50,000',
         budgetNum: 550000,
         spent: '₹4,95,000',
@@ -612,7 +674,7 @@ function initializeStorageDefaults() {
       },
       {
         id: 'PRJ-2026-12',
-        name: 'CCTV Surveillance & Public Announcement PA System',
+        name: '[DEMO] CCTV Surveillance & Public Announcement PA System',
         department: 'Home & Panchayat Security',
         category: 'Infrastructure',
         location: 'Key Chowks & School Zones',
@@ -656,15 +718,21 @@ initializeStorageDefaults();
    Admin Authentication Logic & Data API
    ========================================================================== */
 
-const AaplaAuth = {
+var AaplaAuth = window.AaplaAuth || {
   // Validate Administrator Login
   loginAdmin: function(adminId, password) {
-    if (adminId.trim() === DEMO_ADMIN.adminId && password.trim() === DEMO_ADMIN.password) {
+    const cleanId = adminId.trim().toLowerCase();
+    const cleanPass = password.trim();
+    const isIdMatch = cleanId === DEMO_ADMIN.adminId.toLowerCase() || 
+                      cleanId === 'admin@valivade' || 
+                      cleanId === 'admin@aaplagav';
+    if (isIdMatch && cleanPass === DEMO_ADMIN.password) {
       const session = {
-        adminId: DEMO_ADMIN.adminId,
+        adminId: cleanId,
         name: DEMO_ADMIN.name,
         role: DEMO_ADMIN.title,
         village: DEMO_ADMIN.village,
+        taluka: DEMO_ADMIN.taluka,
         district: DEMO_ADMIN.district,
         state: DEMO_ADMIN.state,
         token: 'auth_' + Math.random().toString(36).substring(2),
@@ -679,7 +747,7 @@ const AaplaAuth = {
     }
     return { 
       success: false, 
-      message: 'Invalid Admin ID or Password. Please check demo credentials: admin@aaplagav / Aapla@123' 
+      message: 'Invalid Admin ID or Password. Please check demo credentials: admin@valivade / Aapla@123' 
     };
   },
 

@@ -281,12 +281,12 @@
           </ul>
         </div>
 
-        <!-- Administrator Profile Chip (Suresh Patil, Sarpanch) -->
+        <!-- Administrator Profile Chip -->
         <div class="admin-user-chip" title="Click to view Administrator Profile / Settings" onclick="switchView('view-settings')" style="cursor: pointer;">
-          <div class="admin-avatar" style="background: linear-gradient(135deg, #f26522, #ea580c); color: #fff; font-weight: 800;">SP</div>
+          <div class="admin-avatar" style="background: linear-gradient(135deg, #f26522, #ea580c); color: #fff; font-weight: 800;">VA</div>
           <div class="admin-details">
-            <span id="adminNameDisplay" class="admin-name">Shri. Suresh Patil</span>
-            <span id="adminRoleDisplay" class="admin-role">Sarpanch • Aapla Gaav, Nagpur</span>
+            <span id="adminNameDisplay" class="admin-name">Administrator to update</span>
+            <span id="adminRoleDisplay" class="admin-role">Valivade Gram Panchayat, Karvir</span>
           </div>
         </div>
 
@@ -312,16 +312,16 @@
         <!-- Welcome Banner -->
         <div class="welcome-banner">
           <div class="welcome-text">
-            <h1>Welcome, Village Administrator — <span>Sarpanch Desk</span></h1>
+            <h1>Welcome, Village Administrator — <span>Valivade Gram Panchayat</span></h1>
             <div class="welcome-location">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              <strong id="bannerLocationText">Aapla Gaav, Nagpur, Maharashtra</strong>
+              <strong id="bannerLocationText">Karvir, Kolhapur, Maharashtra</strong>
             </div>
             <p class="welcome-sub">
-              Citizen Empowerment Platform (CEP) digital console. Real-time monitoring of civic health, active public infrastructure, and transparent welfare delivery.
+              Aapla Gaav | Digital Village Governance Portal • Real-time monitoring of civic health, active public infrastructure, and transparent welfare delivery.
             </p>
           </div>
 
@@ -344,12 +344,12 @@
           </div>
         </div>
 
-        <!-- Main Statistics (6 Large Cards) -->
+        <!-- Main Statistics (Large Reference & CEP Cards) -->
         <div class="main-stats-grid">
           <!-- Population -->
           <div class="stat-metric-card pop">
             <div class="stat-metric-top">
-              <span class="stat-metric-label">Population</span>
+              <span class="stat-metric-label">Population (Census 2011)</span>
               <div class="stat-metric-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -359,17 +359,17 @@
                 </svg>
               </div>
             </div>
-            <div id="popVal" class="stat-metric-number">8,542</div>
+            <div id="popVal" class="stat-metric-number">1,668</div>
             <div class="stat-metric-footer">
-              <span class="badge-tag-positive">↑ 1.4%</span>
-              <span id="popGenderSplit">4,390 M / 4,152 F</span>
+              <span class="badge-tag-positive">Reference Data</span>
+              <span id="popGenderSplit">865 M / 803 F (Ratio: 928)</span>
             </div>
           </div>
 
           <!-- Households -->
           <div class="stat-metric-card house">
             <div class="stat-metric-top">
-              <span class="stat-metric-label">Households</span>
+              <span class="stat-metric-label">Households (Census 2011)</span>
               <div class="stat-metric-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -377,10 +377,10 @@
                 </svg>
               </div>
             </div>
-            <div id="houseVal" class="stat-metric-number">1,982</div>
+            <div id="houseVal" class="stat-metric-number">332</div>
             <div class="stat-metric-footer">
-              <span class="badge-tag-positive">100%</span>
-              <span>Piped Tap Water</span>
+              <span class="badge-tag-positive">Reference Data</span>
+              <span>Village Area: 588.44 ha</span>
             </div>
           </div>
 
@@ -437,7 +437,7 @@
           <!-- Village Budget -->
           <div class="stat-metric-card budg">
             <div class="stat-metric-top">
-              <span class="stat-metric-label">Village Budget</span>
+              <span class="stat-metric-label">Annual Village Budget</span>
               <div class="stat-metric-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <rect x="2" y="4" width="20" height="16" rx="2"></rect>
@@ -446,10 +446,10 @@
                 </svg>
               </div>
             </div>
-            <div id="budgVal" class="stat-metric-number" style="font-size: 1.45rem;">₹1,24,50,000</div>
+            <div id="budgVal" class="stat-metric-number" style="font-size: 0.95rem; line-height: 1.3; color: #475569;">Data not available / Update required</div>
             <div class="stat-metric-footer">
-              <span class="badge-tag-positive">FY 2026-27</span>
-              <span>72% Utilized</span>
+              <span class="badge-tag-alert">Update required</span>
+              <span>Gram Panchayat to update</span>
             </div>
           </div>
         </div>
@@ -478,7 +478,7 @@
             </div>
 
             <div class="cep-performance-tier">
-              ★ Top 5% Gram Panchayats in Nagpur District
+              ★ Top Performing Gram Panchayat in Karvir Taluka, Kolhapur District
             </div>
 
             <p class="cep-summary-note">
@@ -567,13 +567,13 @@
       </section>
 
       <!-- =====================================================================
-           VIEW 2: VILLAGE PROFILE (STEP 3)
+           VIEW 2: VILLAGE PROFILE (STEP 3 & 5: DETAILED 8-SECTOR PROFILE)
            ===================================================================== -->
       <section id="view-village-profile" class="dash-view">
         <div class="view-header">
           <div class="view-title-group">
-            <h2>Village Profile & Official Demographics</h2>
-            <p>Master record of geographic, demographic, and agricultural data for Aapla Gaav Gram Panchayat.</p>
+            <h2>Valivade (Walivade) — वळिवडे Village Profile</h2>
+            <p>Master geographic, demographic, and civic data for Valivade Gram Panchayat, Karvir Taluka, Kolhapur District, Maharashtra.</p>
           </div>
           <div class="view-actions">
             <button onclick="openModal('editVillageProfileModal')" class="btn-admin-action saffron">
@@ -586,60 +586,277 @@
           </div>
         </div>
 
+        <!-- Master Identity & Administrative Overview Card -->
         <div class="dash-card" style="margin-bottom: 22px;">
           <div class="dash-card-header">
             <div>
-              <h3 id="vpHeaderTitle">Aapla Gaav Gram Panchayat Profile</h3>
-              <div class="card-subtitle" id="vpHeaderSubtitle">Nagpur Rural Taluka, Nagpur District, Maharashtra</div>
+              <h3 id="vpHeaderTitle">Valivade (Walivade) — वळिवडे Gram Panchayat</h3>
+              <div class="card-subtitle" id="vpHeaderSubtitle">Karvir Taluka, Kolhapur District, Maharashtra • PIN: 416119 • Census Code: 567409</div>
             </div>
-            <span class="status-badge completed">Verified Panchayat</span>
+            <span class="status-badge completed">Census 2011 / Reference Data</span>
           </div>
 
           <div class="profile-meta-grid">
             <div class="profile-meta-box">
-              <div class="meta-label">Village Name</div>
-              <div class="meta-value" id="vpVillageName">Aapla Gaav</div>
-            </div>
-            <div class="profile-meta-box">
-              <div class="meta-label">District & State</div>
-              <div class="meta-value" id="vpDistState">Nagpur, Maharashtra</div>
+              <div class="meta-label">Village Name (English / Marathi)</div>
+              <div class="meta-value" id="vpVillageName">Valivade (Walivade) / वळिवडे</div>
             </div>
             <div class="profile-meta-box">
               <div class="meta-label">Taluka</div>
-              <div class="meta-value" id="vpTaluka">Nagpur Rural</div>
+              <div class="meta-value" id="vpTaluka">Karvir (Karveer)</div>
             </div>
             <div class="profile-meta-box">
-              <div class="meta-label">Total Population</div>
-              <div class="meta-value" id="vpPopulation">8,542</div>
+              <div class="meta-label">District & State</div>
+              <div class="meta-value" id="vpDistState">Kolhapur, Maharashtra</div>
             </div>
             <div class="profile-meta-box">
-              <div class="meta-label">Total Households</div>
-              <div class="meta-value" id="vpHouseholds">1,982</div>
+              <div class="meta-label">PIN Code & Census Code</div>
+              <div class="meta-value">PIN: 416119 • Census Code: 567409</div>
             </div>
             <div class="profile-meta-box">
-              <div class="meta-label">Village Geographical Area</div>
-              <div class="meta-value" id="vpArea">14.8 sq. km (1,480 Hectares)</div>
+              <div class="meta-label">Geographical Area</div>
+              <div class="meta-value" id="vpArea">588.44 hectares (5.88 sq. km)</div>
             </div>
             <div class="profile-meta-box">
-              <div class="meta-label">Literacy Rate</div>
-              <div class="meta-value" id="vpLiteracy">86.4%</div>
-            </div>
-            <div class="profile-meta-box">
-              <div class="meta-label">Male / Female Population</div>
-              <div class="meta-value" id="vpGender">4,390 Male / 4,152 Female</div>
+              <div class="meta-label">Data Verification Baseline</div>
+              <div class="meta-value" style="color: #0284c7; font-weight: 700;">Census 2011 / Reference Data</div>
             </div>
             <div class="profile-meta-box" style="grid-column: span 2;">
-              <div class="meta-label">Main Occupations</div>
-              <div class="meta-value" id="vpOccupations" style="font-size: 0.95rem;">Agriculture, Agro-Processing, Dairy Farming, Handloom, Local Commerce</div>
+              <div class="meta-label">Gram Panchayat Bhavan Headquarters</div>
+              <div class="meta-value" id="vpContact" style="font-size: 0.92rem; font-weight: 600;">
+                Valivade Gram Panchayat Bhavan, Valivade, Taluka Karvir, District Kolhapur, Maharashtra 416119. Coordinates: 16.71979° N, 74.31259° E
+              </div>
             </div>
-            <div class="profile-meta-box" style="grid-column: span 2;">
-              <div class="meta-label">Main Agricultural Crops</div>
-              <div class="meta-value" id="vpCrops" style="font-size: 0.95rem;">Nagpur Oranges, Cotton, Soybean, Wheat, Gram (Chana), Tur Dal</div>
+          </div>
+        </div>
+
+        <!-- 8 Detailed Sectoral Sections -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; margin-bottom: 22px;">
+
+          <!-- Sector 1: Demographics -->
+          <div class="dash-card">
+            <div class="dash-card-header" style="border-bottom: 1px solid var(--border-dash); padding-bottom: 12px; margin-bottom: 14px;">
+              <h3 style="font-size: 1.05rem;">👥 1. Demographics</h3>
+              <span class="badge-tag-positive">Verified 2011</span>
             </div>
-            <div class="profile-meta-box" style="grid-column: span 2;">
-              <div class="meta-label">Contact Information & Headquarters</div>
-              <div class="meta-value" id="vpContact" style="font-size: 0.92rem; font-weight: 600;">Gram Panchayat Bhavan, Shivaji Maharaj Chowk, Aapla Gaav. Phone: 0712-2894100, Email: sarpanch@aaplagav.gov.in</div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+              <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Total Population:</span>
+                <strong id="vpPopulation">1,668</strong>
+              </li>
+              <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Male Population:</span>
+                <strong>865 (51.86%)</strong>
+              </li>
+              <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Female Population:</span>
+                <strong>803 (48.14%)</strong>
+              </li>
+              <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Total Households:</span>
+                <strong id="vpHouseholds">332</strong>
+              </li>
+              <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Children (0–6 years):</span>
+                <strong>187</strong>
+              </li>
+              <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Sex Ratio:</span>
+                <strong>928 females per 1,000 males</strong>
+              </li>
+              <li style="display: flex; justify-content: space-between; padding-top: 2px;">
+                <span style="color: #64748b;">Current 2026 Population:</span>
+                <span style="color: #e11d48; font-weight: 600;">Data not available / Update required</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sector 2: Education -->
+          <div class="dash-card">
+            <div class="dash-card-header" style="border-bottom: 1px solid var(--border-dash); padding-bottom: 12px; margin-bottom: 14px;">
+              <h3 style="font-size: 1.05rem;">🎓 2. Education</h3>
+              <span class="badge-tag-positive">Verified 2011</span>
             </div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+              <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Overall Literacy Rate:</span>
+                <strong id="vpLiteracy">67.63%</strong>
+              </li>
+              <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Male Literacy:</span>
+                <strong>75.95%</strong>
+              </li>
+              <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Female Literacy:</span>
+                <strong>58.66%</strong>
+              </li>
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Primary Schooling:</span>
+                <div style="font-weight: 600; margin-top: 2px;">Zilla Parishad Primary School, Valivade</div>
+              </li>
+              <li style="padding-top: 2px;">
+                <span style="color: #64748b;">Secondary & Higher Facilities:</span>
+                <div style="color: #64748b; font-style: italic; margin-top: 2px;">Information needs to be updated by the Gram Panchayat administrator.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sector 3: Agriculture -->
+          <div class="dash-card">
+            <div class="dash-card-header" style="border-bottom: 1px solid var(--border-dash); padding-bottom: 12px; margin-bottom: 14px;">
+              <h3 style="font-size: 1.05rem;">🌾 3. Agriculture</h3>
+              <span class="badge-tag-positive">Reference Profile</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Main Crops:</span>
+                <div style="font-weight: 600; margin-top: 2px;" id="vpCrops">Sugarcane, Paddy (Rice), Soybean, Vegetables, Groundnut</div>
+              </li>
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Main Occupations:</span>
+                <div style="font-weight: 600; margin-top: 2px;" id="vpOccupations">Agriculture, Sugarcane farming, Dairy cooperative, Commerce, Service sector</div>
+              </li>
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Irrigation Zone:</span>
+                <div style="font-weight: 600; margin-top: 2px;">Panchganga river basin recharge; canal & lift irrigation systems</div>
+              </li>
+              <li style="padding-top: 2px;">
+                <span style="color: #64748b;">Acreage & Soil Health Records:</span>
+                <div style="color: #64748b; font-style: italic; margin-top: 2px;">Information needs to be updated by the Gram Panchayat administrator.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sector 4: Water -->
+          <div class="dash-card">
+            <div class="dash-card-header" style="border-bottom: 1px solid var(--border-dash); padding-bottom: 12px; margin-bottom: 14px;">
+              <h3 style="font-size: 1.05rem;">💧 4. Water</h3>
+              <span class="badge-tag-positive">Verified Context</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Drinking Water Network:</span>
+                <div style="font-weight: 600; margin-top: 2px;">Piped drinking water distribution network across village gaothan</div>
+              </li>
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Primary Source:</span>
+                <div style="font-weight: 600; margin-top: 2px;">Panchganga river basin alluvial groundwater & piped supply</div>
+              </li>
+              <li style="padding-top: 2px;">
+                <span style="color: #64748b;">Overhead Reservoir Capacity & Quality Testing:</span>
+                <div style="color: #64748b; font-style: italic; margin-top: 2px;">Information needs to be updated by the Gram Panchayat administrator.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sector 5: Sanitation -->
+          <div class="dash-card">
+            <div class="dash-card-header" style="border-bottom: 1px solid var(--border-dash); padding-bottom: 12px; margin-bottom: 14px;">
+              <h3 style="font-size: 1.05rem;">🧹 5. Sanitation</h3>
+              <span class="badge-tag-positive">Verified Context</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">ODF Status:</span>
+                <div style="font-weight: 600; margin-top: 2px;">ODF Gram Panchayat certified status</div>
+              </li>
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Household Latrines:</span>
+                <div style="font-weight: 600; margin-top: 2px;">Individual Household Latrine (IHHL) coverage established</div>
+              </li>
+              <li style="padding-top: 2px;">
+                <span style="color: #64748b;">Solid & Liquid Waste Unit Details:</span>
+                <div style="color: #64748b; font-style: italic; margin-top: 2px;">Information needs to be updated by the Gram Panchayat administrator.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sector 6: Infrastructure -->
+          <div class="dash-card">
+            <div class="dash-card-header" style="border-bottom: 1px solid var(--border-dash); padding-bottom: 12px; margin-bottom: 14px;">
+              <h3 style="font-size: 1.05rem;">🏗️ 6. Infrastructure</h3>
+              <span class="badge-tag-positive">Verified Context</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Road Connectivity:</span>
+                <div style="font-weight: 600; margin-top: 2px;">Connected via Kolhapur-Hupari / Karvir regional road link</div>
+              </li>
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Railway Access:</span>
+                <div style="font-weight: 600; margin-top: 2px;">Valivade railway halt (Central Railway, Miraj-Kolhapur line)</div>
+              </li>
+              <li style="padding-top: 2px;">
+                <span style="color: #64748b;">Street Lighting & Internal Roads Inventory:</span>
+                <div style="color: #64748b; font-style: italic; margin-top: 2px;">Information needs to be updated by the Gram Panchayat administrator.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sector 7: Government Schemes -->
+          <div class="dash-card">
+            <div class="dash-card-header" style="border-bottom: 1px solid var(--border-dash); padding-bottom: 12px; margin-bottom: 14px;">
+              <h3 style="font-size: 1.05rem;">📜 7. Government Schemes</h3>
+              <span class="badge-tag-alert">Update Required</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Active Schemes:</span>
+                <div style="font-weight: 600; margin-top: 2px;">PM-KISAN, PMAY-G, MGNREGA, Jal Jeevan Mission, Swachh Bharat Mission, PMUY</div>
+              </li>
+              <li style="padding-top: 2px;">
+                <span style="color: #64748b;">Scheme Beneficiary Enrolments & Disbursements:</span>
+                <div style="color: #64748b; font-style: italic; margin-top: 2px;">Information needs to be updated by the Gram Panchayat administrator.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sector 8: Village Development -->
+          <div class="dash-card">
+            <div class="dash-card-header" style="border-bottom: 1px solid var(--border-dash); padding-bottom: 12px; margin-bottom: 14px;">
+              <h3 style="font-size: 1.05rem;">🌱 8. Village Development</h3>
+              <span class="badge-tag-alert">Update Required</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+              <li style="border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px;">
+                <span style="color: #64748b;">Gram Panchayat Development Plan (GPDP):</span>
+                <div style="color: #64748b; font-style: italic; margin-top: 2px;">Information needs to be updated by the Gram Panchayat administrator.</div>
+              </li>
+              <li style="padding-top: 2px;">
+                <span style="color: #64748b;">Development Priorities & Works:</span>
+                <div style="color: #64748b; font-style: italic; margin-top: 2px;">Information needs to be updated by the Gram Panchayat administrator.</div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Section 6: Map / Location Section for Valivade, Kolhapur -->
+        <div class="dash-card" style="margin-bottom: 22px;">
+          <div class="dash-card-header">
+            <div>
+              <h3>📍 Geographic Map & Location — Valivade, Kolhapur</h3>
+              <div class="card-subtitle">
+                Karvir Taluka, Kolhapur District, Maharashtra, India • GPS: 16.71979° N, 74.31259° E • PIN: 416119 • Census Code: 567409
+              </div>
+            </div>
+            <a href="https://www.openstreetmap.org/?mlat=16.71979&amp;mlon=74.31259#map=15/16.7198/74.3126" target="_blank" rel="noopener noreferrer" class="btn-admin-action outline" style="font-size: 0.8rem;">
+              Open in OpenStreetMap ↗
+            </a>
+          </div>
+
+          <div style="border-radius: 8px; overflow: hidden; border: 1px solid #cbd5e1; height: 340px; background: #f1f5f9;">
+            <iframe 
+              title="Valivade Kolhapur Admin Location Map"
+              width="100%" 
+              height="340" 
+              frameborder="0" 
+              scrolling="no" 
+              marginheight="0" 
+              marginwidth="0" 
+              src="https://www.openstreetmap.org/export/embed.html?bbox=74.2950%2C16.7050%2C74.3300%2C16.7350&amp;layer=mapnik&amp;marker=16.71979%2C74.31259"
+              style="border: 0; width: 100%; height: 100%;">
+            </iframe>
           </div>
         </div>
       </section>
@@ -856,7 +1073,7 @@
         <div class="profile-meta-grid">
           <div class="profile-meta-box">
             <div class="meta-label">Tap Water Connectivity</div>
-            <div class="meta-value">1,982 / 1,982 Households (100%)</div>
+            <div class="meta-value">332 / 332 Households (Census 2011 baseline)</div>
           </div>
           <div class="profile-meta-box">
             <div class="meta-label">Daily Supply Per Person</div>
@@ -1177,8 +1394,8 @@
         <div class="main-stats-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 20px;">
           <div class="stat-metric-card pop">
             <div class="stat-metric-top"><span class="stat-metric-label">Total Citizens</span></div>
-            <div class="stat-metric-number">8,542</div>
-            <div class="stat-metric-footer">Census Population</div>
+            <div class="stat-metric-number">1,668</div>
+            <div class="stat-metric-footer">Census 2011 Reference</div>
           </div>
           <div class="stat-metric-card house">
             <div class="stat-metric-top"><span class="stat-metric-label">Registered Citizens</span></div>
@@ -1460,28 +1677,28 @@
             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; padding: 14px; background: #f8fafc; border: 1px solid var(--border-dash); border-radius: 8px;">
               <img src="assets/logo.png" alt="Profile" style="width: 64px; height: 64px; border-radius: 50%; object-fit: contain; background: #fff; border: 2px solid var(--accent-saffron); padding: 4px;">
               <div>
-                <h3 id="setAdminName" style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2px;">Suresh Patil</h3>
-                <div style="font-weight: 700; color: var(--accent-saffron); font-size: 0.88rem;" id="setAdminRole">Sarpanch</div>
-                <div style="font-size: 0.8rem; color: #64748b;">Gram Panchayat Aapla Gaav, Nagpur, Maharashtra</div>
+                <h3 id="setAdminName" style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2px;">Administrator to update</h3>
+                <div style="font-weight: 700; color: var(--accent-saffron); font-size: 0.88rem;" id="setAdminRole">Gram Panchayat Administrator</div>
+                <div style="font-size: 0.8rem; color: #64748b;">Valivade Gram Panchayat, Karvir, Kolhapur, Maharashtra</div>
               </div>
             </div>
 
             <div class="profile-meta-grid" style="margin-bottom: 0;">
               <div class="profile-meta-box">
                 <div class="meta-label">Village</div>
-                <div class="meta-value" id="setAdminVillage">Aapla Gaav</div>
+                <div class="meta-value" id="setAdminVillage">Valivade (Walivade)</div>
               </div>
               <div class="profile-meta-box">
                 <div class="meta-label">District</div>
-                <div class="meta-value" id="setAdminDistrict">Nagpur</div>
+                <div class="meta-value" id="setAdminDistrict">Kolhapur</div>
               </div>
               <div class="profile-meta-box">
                 <div class="meta-label">Official Mobile</div>
-                <div class="meta-value" style="font-size: 0.92rem;" id="setAdminMobile">+91 94221 88990</div>
+                <div class="meta-value" style="font-size: 0.92rem;" id="setAdminMobile">Administrator to update</div>
               </div>
               <div class="profile-meta-box">
-                <div class="meta-label">Official Email</div>
-                <div class="meta-value" style="font-size: 0.85rem;" id="setAdminEmail">suresh.patil@aaplagav.gov.in</div>
+                <div class="meta-label">Official Email / ID</div>
+                <div class="meta-value" style="font-size: 0.85rem;" id="setAdminEmail">admin@valivade</div>
               </div>
             </div>
           </div>
@@ -1942,33 +2159,33 @@
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="editAdmName">Full Name *</label>
-              <input type="text" id="editAdmName" class="form-control" value="Suresh Patil" required>
+              <input type="text" id="editAdmName" class="form-control" value="Administrator to update" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="editAdmRole">Designation / Role *</label>
-              <input type="text" id="editAdmRole" class="form-control" value="Sarpanch" required>
+              <input type="text" id="editAdmRole" class="form-control" value="Gram Panchayat Administrator" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="editAdmVillage">Village *</label>
-              <input type="text" id="editAdmVillage" class="form-control" value="Aapla Gaav" required>
+              <input type="text" id="editAdmVillage" class="form-control" value="Valivade (Walivade)" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="editAdmDistrict">District *</label>
-              <input type="text" id="editAdmDistrict" class="form-control" value="Nagpur" required>
+              <input type="text" id="editAdmDistrict" class="form-control" value="Kolhapur" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="editAdmMobile">Official Mobile *</label>
-              <input type="tel" id="editAdmMobile" class="form-control" value="+91 94221 88990" required>
+              <input type="tel" id="editAdmMobile" class="form-control" value="Administrator to update" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="editAdmEmail">Official Email *</label>
-              <input type="email" id="editAdmEmail" class="form-control" value="suresh.patil@aaplagav.gov.in" required>
+              <input type="email" id="editAdmEmail" class="form-control" value="admin@valivade" required>
             </div>
           </div>
         </div>

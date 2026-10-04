@@ -326,7 +326,7 @@ function updateNavForCitizen(citizen) {
   }
 }
 
-// Grievance / Complaint submission from landing page
+// Grievance / Complaint submission from landing page (STEP 5)
 function initGrievanceForm() {
   const form = document.getElementById('publicGrievanceForm');
   const alertEl = document.getElementById('publicGrievanceAlert');
@@ -336,41 +336,59 @@ function initGrievanceForm() {
       e.preventDefault();
       const citizenName = document.getElementById('grvName').value.trim();
       const mobile = document.getElementById('grvMobile').value.trim();
-      const ward = document.getElementById('grvWard').value;
       const category = document.getElementById('grvCategory').value;
-      const subject = document.getElementById('grvSubject').value.trim();
-      const description = document.getElementById('grvDetails').value.trim();
+      const location = document.getElementById('grvLocation').value.trim();
+      const priority = document.getElementById('grvPriority').value;
+      const description = document.getElementById('grvDescription').value.trim();
+      const fileInput = document.getElementById('grvImage');
 
-      const complaints = JSON.parse(localStorage.getItem(AAPLA_STORAGE_KEYS.COMPLAINTS) || '[]');
-      const newId = 'GRV-2026-' + String(complaints.length + 1).padStart(2, '0');
+      function saveAndNotify(imageBase64 = null) {
+        const complaints = JSON.parse(localStorage.getItem(AAPLA_STORAGE_KEYS.COMPLAINTS) || '[]');
+        const newId = AaplaAuth.generateComplaintId();
 
-      const newGrievance = {
-        id: newId,
-        citizen: citizenName,
-        mobile: mobile,
-        ward: ward,
-        category: category,
-        subject: subject,
-        description: description,
-        date: new Date().toISOString().split('T')[0],
-        status: 'Pending',
-        priority: 'High'
-      };
+        const newComplaint = {
+          id: newId,
+          name: citizenName,
+          mobile: mobile,
+          category: category,
+          location: location,
+          priority: priority,
+          description: description,
+          imageAttachment: imageBase64,
+          status: 'Submitted',
+          assignedTo: 'Unassigned',
+          adminResponse: '',
+          date: new Date().toISOString().split('T')[0]
+        };
 
-      complaints.unshift(newGrievance);
-      localStorage.setItem(AAPLA_STORAGE_KEYS.COMPLAINTS, JSON.stringify(complaints));
+        complaints.unshift(newComplaint);
+        localStorage.setItem(AAPLA_STORAGE_KEYS.COMPLAINTS, JSON.stringify(complaints));
+        localStorage.setItem(AAPLA_STORAGE_KEYS.LAST_UPDATE, new Date().toLocaleString('en-IN', {
+          dateStyle: 'medium',
+          timeStyle: 'short'
+        }));
 
-      if (alertEl) {
-        alertEl.className = 'alert-message success';
-        alertEl.style.display = 'block';
-        alertEl.innerHTML = `<strong>Grievance Registered Successfully!</strong> Your tracking ID is <code>${newId}</code>. The Gram Panchayat administrator will review this shortly.`;
+        if (alertEl) {
+          alertEl.className = 'alert-message success';
+          alertEl.style.display = 'block';
+          alertEl.innerHTML = `<strong>Complaint Submitted Successfully!</strong><br>Your tracking ID is <code style="font-size: 1rem; font-weight: 800;">${newId}</code>.<br>Status: <strong>Submitted → Under Review</strong>. The Gram Panchayat Sarpanch and department officers have been notified.`;
+        }
+        form.reset();
+
+        setTimeout(() => {
+          if (alertEl) alertEl.style.display = 'none';
+        }, 8000);
       }
-      form.reset();
-      
-      // Auto-hide after 6 seconds
-      setTimeout(() => {
-        if (alertEl) alertEl.style.display = 'none';
-      }, 6000);
+
+      if (fileInput && fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          saveAndNotify(e.target.result);
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      } else {
+        saveAndNotify(null);
+      }
     });
   }
 }
@@ -410,10 +428,10 @@ function setupLanguageToggle() {
       const tag = document.querySelector('.hero-badge-pill');
       if (lang === 'mr') {
         if (subtitle) subtitle.textContent = '“आमचे गाव. आमचा विकास. आमचे भविष्य.”';
-        if (tag) tag.innerHTML = '🚩 ग्रामपंचायत आपले गाव, नागपूर (महाराष्ट्र)';
+        if (tag) tag.innerHTML = '🚩 ग्रामपंचायत वळिवडे, करवीर, कोल्हापूर (महाराष्ट्र)';
       } else {
         if (subtitle) subtitle.textContent = '“Our Village. Our Progress. Our Future.”';
-        if (tag) tag.innerHTML = '🚩 Gram Panchayat Aapla Gaav, Nagpur (Maharashtra)';
+        if (tag) tag.innerHTML = '🚩 Valivade Gram Panchayat, Karvir, Kolhapur (Maharashtra)';
       }
     });
   }

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citizen Portal Login | Aapla Gaav — Valivade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page-body">
+
+  <div class="auth-page-container">
+    <div class="auth-page-card">
+      
+      <!-- Card Header -->
+      <div class="auth-page-header">
+        <a href="index.html" class="auth-back-link">← Back to Village Website</a>
+        <div class="auth-brand-badge">
+          <img src="assets/logo.png" alt="Logo" class="auth-emblem-img">
+          <div>
+            <h2>Aapla Gaav — Valivade <span>CEP</span></h2>
+            <p>Valivade Gram Panchayat Citizen Services</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auth Body -->
+      <div class="auth-page-content">
+        <div class="auth-tabs">
+          <button id="tabCitizenLogin" class="auth-tab active" onclick="showAuthView('login')">Citizen Login</button>
+          <button id="tabCitizenRegister" class="auth-tab" onclick="showAuthView('register')">Create Account</button>
+        </div>
+
+        <!-- Alert Notification -->
+        <div id="authAlert" class="alert-message"></div>
+
+        <!-- View 1: Citizen Login -->
+        <div id="citizenLoginView">
+          <div class="demo-credentials-callout">
+            <strong>Demo Citizen Account:</strong><br>
+            Mobile: <code>9876543210</code> &nbsp;|&nbsp; Password: <code>Citizen@123</code><br>
+            <button type="button" class="demo-autofill-btn" onclick="autofillCitizenDemo()">1-Click Auto-Fill Demo Citizen</button>
+          </div>
+
+          <form id="pageCitizenLoginForm">
+            <div class="form-group">
+              <label class="form-label" for="cLoginMobile">Mobile Number *</label>
+              <input type="tel" id="cLoginMobile" class="form-control" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                <label class="form-label" for="cLoginPass" style="margin-bottom:0;">Password *</label>
+                <a href="#" onclick="showAuthView('forgot')" style="font-size: 0.78rem; color: var(--accent-saffron); font-weight: 600;">Forgot Password?</a>
+              </div>
+              <input type="password" id="cLoginPass" class="form-control" placeholder="Enter password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; margin-top: 10px;">
+              Log In to Citizen Portal
+            </button>
+          </form>
+
+          <div style="margin-top: 20px; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+            Are you a Gram Panchayat official? <a href="admin-login.html" style="color: var(--primary-navy); font-weight: 700;">Village Admin Login →</a>
+          </div>
+        </div>
+
+        <!-- View 2: Citizen Registration -->
+        <div id="citizenRegisterView" style="display: none;">
+          <form id="pageCitizenRegisterForm">
+            <div class="form-group">
+              <label class="form-label" for="cRegFullName">Full Name *</label>
+              <input type="text" id="cRegFullName" class="form-control" placeholder="e.g. Anand Deshmukh" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cRegMobile">Mobile Number *</label>
+              <input type="tel" id="cRegMobile" class="form-control" placeholder="10-digit mobile" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cRegWard">Village Ward *</label>
+              <select id="cRegWard" class="form-control" required>
+                <option value="Ward No. 01 (Gaothan Chowk)">Ward No. 01 (Gaothan Chowk)</option>
+                <option value="Ward No. 02 (Mandir Area)">Ward No. 02 (Mandir Area)</option>
+                <option value="Ward No. 03 (Shivaji Nagar)" selected>Ward No. 03 (Shivaji Nagar)</option>
+                <option value="Ward No. 04 (School & PHC)">Ward No. 04 (School & PHC)</option>
+                <option value="Ward No. 05 (Krushi Parisar)">Ward No. 05 (Krushi Parisar)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cRegPassword">Password *</label>
+              <input type="password" id="cRegPassword" class="form-control" placeholder="Minimum 6 characters" minlength="6" required>
+            </div>
+
+            <button type="submit" class="btn btn-saffron" style="width: 100%; padding: 12px; margin-top: 10px;">
+              Create Citizen Account
+            </button>
+          </form>
+        </div>
+
+        <!-- View 3: Forgot Password -->
+        <div id="citizenForgotView" style="display: none;">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
+            Enter your registered 10-digit mobile number and create a new password.
+          </p>
+          <form id="pageCitizenForgotForm">
+            <div class="form-group">
+              <label class="form-label" for="cForgotMobile">Registered Mobile *</label>
+              <input type="tel" id="cForgotMobile" class="form-control" pattern="[0-9]{10}" placeholder="10-digit mobile" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cForgotNewPass">New Password *</label>
+              <input type="password" id="cForgotNewPass" class="form-control" minlength="6" placeholder="Enter new password" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 11px; margin-bottom: 12px;">Reset Password</button>
+            <div style="text-align: center;">
+              <a href="#" onclick="showAuthView('login')" style="font-size: 0.82rem; color: var(--accent-saffron); font-weight: 600;">← Back to Login</a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Card Footer -->
+      <div class="auth-page-footer">
+        🔒 Demo authentication using localStorage • Aapla Gaav CEP Digital Village
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function showAuthView(view) {
+      document.getElementById('citizenLoginView').style.display = view === 'login' ? 'block' : 'none';
+      document.getElementById('citizenRegisterView').style.display = view === 'register' ? 'block' : 'none';
+      document.getElementById('citizenForgotView').style.display = view === 'forgot' ? 'block' : 'none';
+      document.getElementById('tabCitizenLogin').classList.toggle('active', view === 'login');
+      document.getElementById('tabCitizenRegister').classList.toggle('active', view === 'register');
+      const alertBox = document.getElementById('authAlert');
+      if (alertBox) { alertBox.className = 'alert-message'; alertBox.textContent = ''; }
+    }
+
+    function autofillCitizenDemo() {
+      document.getElementById('cLoginMobile').value = '9876543210';
+      document.getElementById('cLoginPass').value = 'Citizen@123';
+    }
+
+    document.getElementById('pageCitizenLoginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const mobile = document.getElementById('cLoginMobile').value;
+      const pass = document.getElementById('cLoginPass').value;
+      const res = AaplaAuth.loginCitizen(mobile, pass);
+      const alertBox = document.getElementById('authAlert');
+      if (res.success) {
+        alertBox.className = 'alert-message success';
+        alertBox.textContent = `Welcome back, ${res.citizen.fullName}! Redirecting to homepage...`;
+        setTimeout(() => { window.location.href = 'index.html'; }, 700);
+      } else {
+        alertBox.className = 'alert-message error';
+        alertBox.textContent = res.message;
+      }
+    });
+
+    document.getElementById('pageCitizenRegisterForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('cRegFullName').value;
+      const mobile = document.getElementById('cRegMobile').value;
+      const ward = document.getElementById('cRegWard').value;
+      const password = document.getElementById('cRegPassword').value;
+      const res = AaplaAuth.registerCitizen({ fullName, mobile, area: ward, password });
+      const alertBox = document.getElementById('authAlert');
+      if (res.success) {
+        alertBox.className = 'alert-message success';
+        alertBox.textContent = `Account created successfully! Welcome, ${res.citizen.fullName}`;
+        setTimeout(() => { window.location.href = 'index.html'; }, 800);
+      } else {
+        alertBox.className = 'alert-message error';
+        alertBox.textContent = res.message;
+      }
+    });
+
+    document.getElementById('pageCitizenForgotForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const mobile = document.getElementById('cForgotMobile').value;
+      const newPass = document.getElementById('cForgotNewPass').value;
+      const res = AaplaAuth.resetCitizenPassword(mobile, newPass);
+      const alertBox = document.getElementById('authAlert');
+      if (res.success) {
+        alertBox.className = 'alert-message success';
+        alertBox.textContent = res.message;
+        setTimeout(() => showAuthView('login'), 1200);
+      } else {
+        alertBox.className = 'alert-message error';
+        alertBox.textContent = res.message;
+      }
+    });
+  </script>
+</body>
+</html>
