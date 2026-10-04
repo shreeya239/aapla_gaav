@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aapla Gaav – CEP | Digital Village Governance Platform</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -616,47 +617,52 @@
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <div class="form-group">
-              <label class="form-label" for="grvWard">Select Ward *</label>
-              <select id="grvWard" class="form-control" required>
-                <option value="Ward 1">Ward No. 1 (Gaothan Chowk)</option>
-                <option value="Ward 2">Ward No. 2 (Mandir Area)</option>
-                <option value="Ward 3">Ward No. 3 (Shivaji Nagar)</option>
-                <option value="Ward 4">Ward No. 4 (School & PHC)</option>
-                <option value="Ward 5">Ward No. 5 (Krushi Parisar)</option>
-              </select>
-            </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
             <div class="form-group">
               <label class="form-label" for="grvCategory">Category *</label>
               <select id="grvCategory" class="form-control" required>
-                <option value="Water Supply">Water Supply & Pipeline</option>
-                <option value="Electricity">Electricity & Streetlights</option>
-                <option value="Sanitation">Sanitation & Garbage Disposal</option>
-                <option value="Roads & Infra">Roads, Drainage & Footpaths</option>
-                <option value="Health">Health & PHC Clinic</option>
-                <option value="Agriculture">Agriculture & Irrigation</option>
-                <option value="Education">Anganwadi & School</option>
+                <option value="Water">Water</option>
+                <option value="Roads">Roads</option>
+                <option value="Electricity">Electricity</option>
+                <option value="Sanitation">Sanitation</option>
+                <option value="Education">Education</option>
+                <option value="Health">Health</option>
+                <option value="Agriculture">Agriculture</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="grvLocation">Location / Landmark *</label>
+              <input type="text" id="grvLocation" class="form-control" placeholder="e.g. Ward 2 near Vitthal Mandir" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="grvPriority">Priority *</label>
+              <select id="grvPriority" class="form-control" required>
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+                <option value="Critical">Critical</option>
               </select>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="grvSubject">Subject / Brief Title *</label>
-            <input type="text" id="grvSubject" class="form-control" placeholder="e.g. Streetlight faulty near house #42" required>
+            <label class="form-label" for="grvDescription">Detailed Complaint Description *</label>
+            <textarea id="grvDescription" class="form-control" rows="3" placeholder="Provide clear details of the problem..." required></textarea>
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="grvDetails">Detailed Description *</label>
-            <textarea id="grvDetails" class="form-control" rows="3" placeholder="Provide specific landmark or location details..." required></textarea>
+            <label class="form-label" for="grvImage">Image Attachment (Optional Photo Evidence)</label>
+            <input type="file" id="grvImage" class="form-control" accept="image/*">
+            <small style="color: #64748b; font-size: 0.75rem;">Attach a photo of the road damage, water leakage, or faulty streetlight.</small>
           </div>
 
-          <button type="submit" class="btn btn-saffron" style="width: 100%;">
+          <button type="submit" class="btn btn-saffron" style="width: 100%; padding: 12px; font-weight: 700;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="22" y1="2" x2="11" y2="13"></line>
               <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
             </svg>
-            Submit Grievance to Gram Panchayat
+            Submit Complaint (Generate Tracked Ticket)
           </button>
         </form>
       </div>
@@ -866,6 +872,9 @@
             <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
               Log In as Citizen
             </button>
+            <div style="text-align: center; margin-top: 10px;">
+              <a href="login.html" style="font-size: 0.8rem; color: #0284c7; font-weight: 600;">Open Dedicated Citizen Login Page →</a>
+            </div>
           </form>
         </div>
 
@@ -983,6 +992,9 @@
             </svg>
             Secure Admin Login →
           </button>
+          <div style="text-align: center; margin-top: 10px;">
+            <a href="admin-login.html" style="font-size: 0.8rem; color: #0284c7; font-weight: 600;">Open Dedicated Administrator Login Page →</a>
+          </div>
         </form>
       </div>
 
@@ -1026,6 +1038,7 @@
   </div>
 
   <!-- Scripts -->
+  <script src="script.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
 </body>
