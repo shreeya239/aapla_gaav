@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Village Administrator Portal | Aapla Gaav – CEP</title>
   <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -225,6 +226,21 @@
       </div>
 
       <div class="topbar-right">
+        <!-- Global Search Bar -->
+        <div class="dash-search-box" style="position: relative; display: flex; align-items: center;">
+          <input type="text" id="dashGlobalSearch" class="form-control" placeholder="Search projects, schemes, grievances..." style="padding: 6px 30px 6px 12px; font-size: 0.82rem; border-radius: 20px; width: 200px;" onkeydown="if(event.key==='Enter') performGlobalSearch(this.value)">
+          <button type="button" onclick="performGlobalSearch(document.getElementById('dashGlobalSearch').value)" style="border: none; background: transparent; position: absolute; right: 8px; cursor: pointer; color: var(--text-muted);" title="Search">🔍</button>
+        </div>
+
+        <!-- Language Switcher (EN / मराठी) -->
+        <div class="lang-switch-group" style="display: flex; gap: 2px; background: rgba(0,0,0,0.06); padding: 3px; border-radius: 6px;">
+          <button onclick="setLanguage('en')" class="btn-lang" style="padding: 4px 8px; font-size: 0.74rem; border: none; background: #fff; border-radius: 4px; cursor: pointer; font-weight: 700;">EN</button>
+          <button onclick="setLanguage('mr')" class="btn-lang" style="padding: 4px 8px; font-size: 0.74rem; border: none; background: transparent; border-radius: 4px; cursor: pointer; font-weight: 700;">मराठी</button>
+        </div>
+
+        <!-- Dark Mode Toggle Button -->
+        <button onclick="toggleDarkMode()" class="btn-theme-toggle" title="Toggle Light / Dark Mode" style="background: rgba(0,0,0,0.05); border: 1px solid var(--border-dash); border-radius: 6px; padding: 6px 10px; cursor: pointer; font-size: 0.9rem;">🌓</button>
+
         <!-- Live Current Date & Last Update -->
         <div class="time-box">
           <span id="currentDateDisplay" class="current-date">Sunday, 4 Oct 2026</span>
@@ -265,12 +281,12 @@
           </ul>
         </div>
 
-        <!-- Administrator Profile Chip -->
-        <div class="admin-user-chip" title="Active Admin Session">
-          <div class="admin-avatar">RP</div>
+        <!-- Administrator Profile Chip (Suresh Patil, Sarpanch) -->
+        <div class="admin-user-chip" title="Click to view Administrator Profile / Settings" onclick="switchView('view-settings')" style="cursor: pointer;">
+          <div class="admin-avatar" style="background: linear-gradient(135deg, #f26522, #ea580c); color: #fff; font-weight: 800;">SP</div>
           <div class="admin-details">
-            <span id="adminNameDisplay" class="admin-name">Shri. Rajesh Patil</span>
-            <span id="adminRoleDisplay" class="admin-role">Sarpanch • Aapla Gaav</span>
+            <span id="adminNameDisplay" class="admin-name">Shri. Suresh Patil</span>
+            <span id="adminRoleDisplay" class="admin-role">Sarpanch • Aapla Gaav, Nagpur</span>
           </div>
         </div>
 
@@ -926,7 +942,10 @@
         <div class="view-header">
           <div class="view-title-group">
             <h2>Central & State Government Schemes Directory</h2>
-            <p>Beneficiary tracking, implementation status, and fund disbursement monitoring.</p>
+            <p>Beneficiary tracking, implementation status, and fund disbursement monitoring for flagship schemes (PM-KISAN, PMAY, MGNREGA, Jal Jeevan, Swachh Bharat, Ujjwala).</p>
+          </div>
+          <div class="view-actions">
+            <button type="button" onclick="openAddSchemeModal()" class="btn-admin-action saffron">+ Add New Scheme</button>
           </div>
         </div>
 
@@ -935,49 +954,18 @@
             <table class="dash-table">
               <thead>
                 <tr>
-                  <th>Scheme Name</th>
-                  <th>Department</th>
-                  <th>Target / Sanctioned</th>
-                  <th>Achieved</th>
-                  <th>Status</th>
+                  <th>Scheme Name & Dept</th>
+                  <th>Eligible Beneficiaries</th>
+                  <th>Applications</th>
+                  <th>Approved</th>
+                  <th>Pending</th>
+                  <th>Completed</th>
+                  <th>Amount Distributed</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Pradhan Mantri Awas Yojana (PMAY-G)</strong></td>
-                  <td>Ministry of Rural Development</td>
-                  <td>48 Pucca Houses</td>
-                  <td>36 Completed (12 In Progress)</td>
-                  <td><span class="status-badge in-progress">Active</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Jal Jeevan Mission (Har Ghar Jal)</strong></td>
-                  <td>Drinking Water & Sanitation</td>
-                  <td>1,982 Household Taps</td>
-                  <td>1,982 Connected (100%)</td>
-                  <td><span class="status-badge completed">100% Saturated</span></td>
-                </tr>
-                <tr>
-                  <td><strong>PM-KISAN Samman Nidhi</strong></td>
-                  <td>Agriculture Welfare</td>
-                  <td>1,420 Farmers</td>
-                  <td>1,420 Active DBT</td>
-                  <td><span class="status-badge completed">Disbursed</span></td>
-                </tr>
-                <tr>
-                  <td><strong>MGNREGA Rural Employment</strong></td>
-                  <td>Rural Development Dept</td>
-                  <td>640 Job Card Holders</td>
-                  <td>100 Days Wage Guarantee</td>
-                  <td><span class="status-badge in-progress">Ongoing</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Ayushman Bharat PM-JAY</strong></td>
-                  <td>National Health Authority</td>
-                  <td>8,542 Citizens</td>
-                  <td>6,840 Cards Issued (80.1%)</td>
-                  <td><span class="status-badge in-progress">Active Camp</span></td>
-                </tr>
+              <tbody id="schemesTableBody">
+                <!-- Rendered dynamically by renderSchemesTable() in js/dashboard.js -->
               </tbody>
             </table>
           </div>
@@ -1083,32 +1071,91 @@
       </section>
 
       <!-- =====================================================================
-           VIEW 12: ANNOUNCEMENTS
+           VIEW 12: ANNOUNCEMENTS (STEP 6)
            ===================================================================== -->
       <section id="view-announcements" class="dash-view">
         <div class="view-header">
           <div class="view-title-group">
-            <h2>Village Notice Board & Broadcasts</h2>
-            <p>Publish instant announcements to the scrolling ticker on the citizen landing page.</p>
+            <h2>Village Announcements & Notice Board</h2>
+            <p>Publish Gram Sabha decisions, health camps, cleanliness drives, and emergency notices to the village portal.</p>
           </div>
         </div>
 
+        <!-- Announcement Creation Form (STEP 6) -->
         <div class="dash-card" style="margin-bottom: 22px;">
-          <h3 style="font-size: 1.1rem; margin-bottom: 12px;">Broadcast New Notice</h3>
-          <form id="dashViewNoticeForm">
-            <div class="form-group">
-              <label class="form-label" for="dashViewNoticeInput">Announcement Message *</label>
-              <textarea id="dashViewNoticeInput" class="form-control" rows="3" placeholder="Enter village notice text..." required></textarea>
+          <h3 style="font-size: 1.15rem; margin-bottom: 14px; color: var(--text-primary);">Create New Village Announcement</h3>
+          <form id="createAnnouncementForm">
+            <div class="form-row" style="display: grid; grid-template-columns: 2fr 1fr; gap: 14px; margin-bottom: 14px;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label" for="annInpTitle">Announcement Title *</label>
+                <input type="text" id="annInpTitle" class="form-control" placeholder="e.g. Special Autumn Gram Sabha Meeting" required>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label" for="annInpCategory">Category *</label>
+                <select id="annInpCategory" class="form-control" required>
+                  <option value="Gram Sabha announcements">Gram Sabha announcements</option>
+                  <option value="Village meetings">Village meetings</option>
+                  <option value="Government notices">Government notices</option>
+                  <option value="Health camps">Health camps</option>
+                  <option value="Cleanliness drives">Cleanliness drives</option>
+                  <option value="Emergency notices">Emergency notices</option>
+                </select>
+              </div>
             </div>
-            <button type="submit" class="btn-admin-action saffron">📢 Publish Announcement</button>
+
+            <div class="form-row-3" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label" for="annInpPriority">Priority Level *</label>
+                <select id="annInpPriority" class="form-control" required>
+                  <option value="Normal">Normal</option>
+                  <option value="High">High</option>
+                  <option value="Emergency">Emergency</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label" for="annInpDate">Date of Notice / Event *</label>
+                <input type="date" id="annInpDate" class="form-control" required>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label" for="annInpAttach">Document Attachment (Optional)</label>
+                <input type="text" id="annInpAttach" class="form-control" placeholder="e.g. Gram_Sabha_Resolution.pdf">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="annInpDesc">Detailed Description *</label>
+              <textarea id="annInpDesc" class="form-control" rows="3" placeholder="Provide complete notice details, agenda items, venue, or citizen instructions..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-admin-action saffron">📢 Publish Official Announcement</button>
           </form>
         </div>
 
+        <!-- Active Announcements List (STEP 6) -->
+        <div class="dash-card" style="margin-bottom: 22px;">
+          <div class="dash-card-header">
+            <h3>Active Official Village Announcements</h3>
+            <span style="font-size: 0.82rem; color: #64748b;">Visible to all citizens on the village portal</span>
+          </div>
+          <div id="announcementsFullList">
+            <!-- Rendered dynamically by renderAnnouncementsTable() in js/dashboard.js -->
+          </div>
+        </div>
+
+        <!-- Quick Scrolling Ticker Broadcast -->
         <div class="dash-card">
           <div class="dash-card-header">
-            <h3>Active Broadcast Notices</h3>
+            <h3>Homepage Scrolling Ticker</h3>
+            <span style="font-size: 0.82rem; color: #64748b;">Real-time text ticker running on top of index.html</span>
           </div>
-          <div id="activeNoticesList" style="display: flex; flex-direction: column; gap: 10px;"></div>
+          <form id="dashViewNoticeForm" style="margin-bottom: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="dashViewNoticeInput">Ticker Message *</label>
+              <textarea id="dashViewNoticeInput" class="form-control" rows="2" placeholder="Enter short ticker message..." required></textarea>
+            </div>
+            <button type="submit" class="btn-admin-action outline">Update Scrolling Ticker</button>
+          </form>
+          <div id="activeNoticesList" style="display: flex; flex-direction: column; gap: 8px;"></div>
         </div>
       </section>
 
@@ -1242,55 +1289,248 @@
       <!-- =====================================================================
            VIEW 15: REPORTS
            ===================================================================== -->
+      <!-- =====================================================================
+           VIEW 15: REPORTS (STEP 6)
+           ===================================================================== -->
       <section id="view-reports" class="dash-view">
         <div class="view-header">
           <div class="view-title-group">
-            <h2>Village Governance & CEP Reports</h2>
-            <p>Generate verifiable executive reports for Zilla Parishad and state evaluation.</p>
+            <h2>Official Village Governance & CEP Reports</h2>
+            <p>Generate, export, and print official executive evaluation certificates and sectoral performance audits using browser print / PDF engine.</p>
           </div>
         </div>
 
-        <div class="dash-two-col">
-          <div class="dash-card">
-            <h3>CEP Performance Audit Certificate</h3>
-            <p style="font-size: 0.85rem; color: #64748b; margin: 10px 0 16px;">
-              Generates an aggregated score certificate detailing the 7 sectors: Education (82%), Health (74%), Water (88%), Infrastructure (69%), Agriculture (81%), Environment (72%), and Digital (76%).
-            </p>
-            <button class="btn-admin-action saffron" onclick="generateReport('CEP')">Print / Export CEP Report</button>
+        <div class="main-stats-grid" style="grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 24px;">
+          <!-- 1. CEP Performance -->
+          <div class="dash-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">📊</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">CEP Performance Report</h3>
+              <p style="font-size: 0.82rem; color: #64748b; line-height: 1.5; margin-bottom: 14px;">
+                Aggregated 7-pillar evaluation covering Education, Health, Water, Infra, Agriculture, Environment, and Digital Services.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-admin-action outline" style="flex: 1;" onclick="generateSectorReport('CEP Performance')">Generate Report</button>
+              <button class="btn-admin-action saffron" style="flex: 1;" onclick="generateSectorReport('CEP Performance')">🖨️ Print / PDF</button>
+            </div>
           </div>
 
-          <div class="dash-card">
-            <h3>Grievance SLA Compliance Summary</h3>
-            <p style="font-size: 0.85rem; color: #64748b; margin: 10px 0 16px;">
-              Comprehensive report detailing citizen tickets received, resolution velocity, average turnaround time (1.8 days), and officer performance.
-            </p>
-            <button class="btn-admin-action" onclick="generateReport('Grievances')">Export Grievances Report</button>
+          <!-- 2. Village Development -->
+          <div class="dash-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">🏛️</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">Village Development Report</h3>
+              <p style="font-size: 0.82rem; color: #64748b; line-height: 1.5; margin-bottom: 14px;">
+                Gram Panchayat baseline demographics, 15th Finance Commission fund utilisation, and infrastructure roadmap.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-admin-action outline" style="flex: 1;" onclick="generateSectorReport('Village Development')">Generate Report</button>
+              <button class="btn-admin-action saffron" style="flex: 1;" onclick="generateSectorReport('Village Development')">🖨️ Print / PDF</button>
+            </div>
+          </div>
+
+          <!-- 3. Projects -->
+          <div class="dash-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">🏗️</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">Projects Audit Report</h3>
+              <p style="font-size: 0.82rem; color: #64748b; line-height: 1.5; margin-bottom: 14px;">
+                Status of all 12 village development projects with financial sanctions, contractor milestones, and expenditure ratios.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-admin-action outline" style="flex: 1;" onclick="generateSectorReport('Projects')">Generate Report</button>
+              <button class="btn-admin-action saffron" style="flex: 1;" onclick="generateSectorReport('Projects')">🖨️ Print / PDF</button>
+            </div>
+          </div>
+
+          <!-- 4. Education -->
+          <div class="dash-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">🎓</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">Education Pillar Report</h3>
+              <p style="font-size: 0.82rem; color: #64748b; line-height: 1.5; margin-bottom: 14px;">
+                Literacy tracking (86.4%), Z.P. High School digital classroom equipment, mid-day meal audits, and library access.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-admin-action outline" style="flex: 1;" onclick="generateSectorReport('Education')">Generate Report</button>
+              <button class="btn-admin-action saffron" style="flex: 1;" onclick="generateSectorReport('Education')">🖨️ Print / PDF</button>
+            </div>
+          </div>
+
+          <!-- 5. Health -->
+          <div class="dash-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">🏥</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">Health & PHC Report</h3>
+              <p style="font-size: 0.82rem; color: #64748b; line-height: 1.5; margin-bottom: 14px;">
+                Primary Health Centre operations, immunization saturation, maternal care indicators, and Ayushman card enrollment.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-admin-action outline" style="flex: 1;" onclick="generateSectorReport('Health')">Generate Report</button>
+              <button class="btn-admin-action saffron" style="flex: 1;" onclick="generateSectorReport('Health')">🖨️ Print / PDF</button>
+            </div>
+          </div>
+
+          <!-- 6. Water -->
+          <div class="dash-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">💧</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">Water & Sanitation Report</h3>
+              <p style="font-size: 0.82rem; color: #64748b; line-height: 1.5; margin-bottom: 14px;">
+                Har Ghar Jal 100% tap connectivity audit, laboratory water potability test results, and ODF-Plus solid-liquid waste.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-admin-action outline" style="flex: 1;" onclick="generateSectorReport('Water')">Generate Report</button>
+              <button class="btn-admin-action saffron" style="flex: 1;" onclick="generateSectorReport('Water')">🖨️ Print / PDF</button>
+            </div>
+          </div>
+
+          <!-- 7. Agriculture -->
+          <div class="dash-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">🌾</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">Agriculture & Farmers Report</h3>
+              <p style="font-size: 0.82rem; color: #64748b; line-height: 1.5; margin-bottom: 14px;">
+                Soil health card distribution, micro-irrigation sub-canal coverage, Kisan Credit Card loans, and crop yield audits.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-admin-action outline" style="flex: 1;" onclick="generateSectorReport('Agriculture')">Generate Report</button>
+              <button class="btn-admin-action saffron" style="flex: 1;" onclick="generateSectorReport('Agriculture')">🖨️ Print / PDF</button>
+            </div>
+          </div>
+
+          <!-- 8. Complaints -->
+          <div class="dash-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">⚖️</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">Complaints & Grievance Report</h3>
+              <p style="font-size: 0.82rem; color: #64748b; line-height: 1.5; margin-bottom: 14px;">
+                Citizen ticket resolution turnaround (1.8 days average), ward-wise grievance breakdown, and officer compliance logs.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-admin-action outline" style="flex: 1;" onclick="generateSectorReport('Complaints')">Generate Report</button>
+              <button class="btn-admin-action saffron" style="flex: 1;" onclick="generateSectorReport('Complaints')">🖨️ Print / PDF</button>
+            </div>
+          </div>
+
+          <!-- 9. Government Schemes -->
+          <div class="dash-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">🇮🇳</div>
+              <h3 style="font-size: 1.05rem; margin-bottom: 6px;">Government Schemes Report</h3>
+              <p style="font-size: 0.82rem; color: #64748b; line-height: 1.5; margin-bottom: 14px;">
+                PM-KISAN, PMAY, MGNREGA, Jal Jeevan, SBM, and Ujjwala beneficiary disbursement tables and saturation percentages.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-admin-action outline" style="flex: 1;" onclick="generateSectorReport('Government schemes')">Generate Report</button>
+              <button class="btn-admin-action saffron" style="flex: 1;" onclick="generateSectorReport('Government schemes')">🖨️ Print / PDF</button>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- =====================================================================
-           VIEW 16: SETTINGS
+           VIEW 16: SETTINGS & ADMINISTRATOR PROFILE (STEP 7)
            ===================================================================== -->
       <section id="view-settings" class="dash-view">
         <div class="view-header">
           <div class="view-title-group">
-            <h2>Administrator Console Settings</h2>
-            <p>Session management, backup, and default data restore options.</p>
+            <h2>Administrator Profile & System Settings</h2>
+            <p>Official Sarpanch credentials, demo security configurations, password changes, and data backup controls.</p>
           </div>
         </div>
 
-        <div class="dash-card" style="max-width: 600px;">
-          <h3 style="font-size: 1.1rem; margin-bottom: 14px;">Data Management</h3>
-          <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 16px;">
-            All Aapla Gaav platform information is stored persistently in your browser's <code>localStorage</code>.
-          </p>
+        <div class="dash-two-col" style="gap: 20px;">
+          <!-- Admin Profile Card (STEP 7) -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3>Village Administrator Profile</h3>
+              <button type="button" class="btn-admin-action outline" onclick="openModal('editAdminProfileModal')">✎ Edit Profile</button>
+            </div>
 
-          <div style="display: flex; flex-direction: column; gap: 12px;">
-            <button class="btn-admin-action outline" onclick="exportDataBackup()">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; padding: 14px; background: #f8fafc; border: 1px solid var(--border-dash); border-radius: 8px;">
+              <img src="assets/logo.png" alt="Profile" style="width: 64px; height: 64px; border-radius: 50%; object-fit: contain; background: #fff; border: 2px solid var(--accent-saffron); padding: 4px;">
+              <div>
+                <h3 id="setAdminName" style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 2px;">Suresh Patil</h3>
+                <div style="font-weight: 700; color: var(--accent-saffron); font-size: 0.88rem;" id="setAdminRole">Sarpanch</div>
+                <div style="font-size: 0.8rem; color: #64748b;">Gram Panchayat Aapla Gaav, Nagpur, Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="profile-meta-grid" style="margin-bottom: 0;">
+              <div class="profile-meta-box">
+                <div class="meta-label">Village</div>
+                <div class="meta-value" id="setAdminVillage">Aapla Gaav</div>
+              </div>
+              <div class="profile-meta-box">
+                <div class="meta-label">District</div>
+                <div class="meta-value" id="setAdminDistrict">Nagpur</div>
+              </div>
+              <div class="profile-meta-box">
+                <div class="meta-label">Official Mobile</div>
+                <div class="meta-value" style="font-size: 0.92rem;" id="setAdminMobile">+91 94221 88990</div>
+              </div>
+              <div class="profile-meta-box">
+                <div class="meta-label">Official Email</div>
+                <div class="meta-value" style="font-size: 0.85rem;" id="setAdminEmail">suresh.patil@aaplagav.gov.in</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security & Session Card (STEP 7) -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3>Security & Authentication</h3>
+              <span class="status-badge completed">Session Active</span>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid var(--border-dash); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+              <div style="font-size: 0.85rem; color: #334155; margin-bottom: 6px;">
+                <strong>Session Security:</strong> Inactivity timeout set to <strong>30 minutes</strong>.
+              </div>
+              <div style="font-size: 0.85rem; color: #334155; margin-bottom: 12px;">
+                <strong>Demo Admin ID:</strong> <code>admin@aaplagav</code>
+              </div>
+              <button type="button" class="btn-admin-action outline" onclick="openModal('changeAdminPasswordModal')">
+                🔑 Change Administrator Password
+              </button>
+            </div>
+
+            <!-- Mandatory Frontend Security Disclaimer -->
+            <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 14px;">
+              <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <span style="font-size: 1.2rem;">⚠️</span>
+                <div>
+                  <strong style="color: #92400e; font-size: 0.88rem;">Important Frontend Security Notice</strong>
+                  <p style="font-size: 0.78rem; color: #b45309; line-height: 1.45; margin-top: 4px;">
+                    This application uses client-side simulated authentication and <code>localStorage</code> for demonstration and evaluation purposes. In a production deployment, this platform must be backed by a secure backend server, database, password hashing (e.g. bcrypt/Argon2), secure HTTP-only cookie sessions/JWT tokens, HTTPS encryption, and robust server-side authorization.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Management & Backup -->
+        <div class="dash-card" style="margin-top: 20px;">
+          <h3 style="font-size: 1.05rem; margin-bottom: 8px;">Persistent LocalStorage Data Management</h3>
+          <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 16px;">
+            Export the entire state of projects, complaints, government schemes, announcements, and village statistics to JSON, or reset to original demo data.
+          </p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button type="button" class="btn-admin-action outline" onclick="exportDataBackup()">
               📥 Backup / Download JSON Data
             </button>
-            <button class="btn-admin-action" style="background: #be123c;" onclick="resetDemoData()">
+            <button type="button" class="btn-admin-action" style="background: #be123c;" onclick="resetDemoData()">
               🔄 Reset Everything to Demo Defaults
             </button>
           </div>
@@ -1621,7 +1861,160 @@
     </div>
   </div>
 
+  <!-- Modal 7: Add / Edit Government Scheme (STEP 6) -->
+  <div id="schemeModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="schemeModalTitle">Add Government Scheme</h3>
+        <button class="modal-close-btn" onclick="closeModal('schemeModal')">&times;</button>
+      </div>
+
+      <form id="schemeForm">
+        <input type="hidden" id="schemeFormMode" value="add">
+        <input type="hidden" id="schemeFormId" value="">
+
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="schInpName">Scheme Name *</label>
+              <input type="text" id="schInpName" class="form-control" placeholder="e.g. PM-KISAN Samman Nidhi" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="schInpDept">Department *</label>
+              <input type="text" id="schInpDept" class="form-control" placeholder="e.g. Agriculture & Farmers Welfare" required>
+            </div>
+          </div>
+
+          <div class="form-row-3">
+            <div class="form-group">
+              <label class="form-label" for="schInpBen">Eligible Beneficiaries *</label>
+              <input type="number" id="schInpBen" class="form-control" min="0" placeholder="1420" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="schInpApp">Applications Received *</label>
+              <input type="number" id="schInpApp" class="form-control" min="0" placeholder="1450" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="schInpApr">Approved *</label>
+              <input type="number" id="schInpApr" class="form-control" min="0" placeholder="1420" required>
+            </div>
+          </div>
+
+          <div class="form-row-3">
+            <div class="form-group">
+              <label class="form-label" for="schInpPen">Pending *</label>
+              <input type="number" id="schInpPen" class="form-control" min="0" placeholder="30" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="schInpCom">Completed *</label>
+              <input type="number" id="schInpCom" class="form-control" min="0" placeholder="1420" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="schInpAmt">Amount Distributed *</label>
+              <input type="text" id="schInpAmt" class="form-control" placeholder="e.g. ₹85,20,000" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="schInpDesc">Scheme Description & Scope</label>
+            <textarea id="schInpDesc" class="form-control" rows="3" placeholder="Explain eligibility criteria and benefits..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-admin-action outline" onclick="closeModal('schemeModal')">Cancel</button>
+          <button type="submit" class="btn-admin-action saffron">Save Scheme</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 8: Edit Administrator Profile (STEP 7) -->
+  <div id="editAdminProfileModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Edit Village Administrator Profile</h3>
+        <button class="modal-close-btn" onclick="closeModal('editAdminProfileModal')">&times;</button>
+      </div>
+
+      <form id="editAdminProfileForm">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="editAdmName">Full Name *</label>
+              <input type="text" id="editAdmName" class="form-control" value="Suresh Patil" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="editAdmRole">Designation / Role *</label>
+              <input type="text" id="editAdmRole" class="form-control" value="Sarpanch" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="editAdmVillage">Village *</label>
+              <input type="text" id="editAdmVillage" class="form-control" value="Aapla Gaav" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="editAdmDistrict">District *</label>
+              <input type="text" id="editAdmDistrict" class="form-control" value="Nagpur" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="editAdmMobile">Official Mobile *</label>
+              <input type="tel" id="editAdmMobile" class="form-control" value="+91 94221 88990" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="editAdmEmail">Official Email *</label>
+              <input type="email" id="editAdmEmail" class="form-control" value="suresh.patil@aaplagav.gov.in" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-admin-action outline" onclick="closeModal('editAdminProfileModal')">Cancel</button>
+          <button type="submit" class="btn-admin-action saffron">Save Profile Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 9: Change Administrator Password (STEP 7) -->
+  <div id="changeAdminPasswordModal" class="modal-overlay">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3>Change Administrator Password</h3>
+        <button class="modal-close-btn" onclick="closeModal('changeAdminPasswordModal')">&times;</button>
+      </div>
+
+      <form id="changeAdminPasswordForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="admCurrentPass">Current Password *</label>
+            <input type="password" id="admCurrentPass" class="form-control" placeholder="Enter current password (Demo: Aapla@123)" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="admNewPass">New Password *</label>
+            <input type="password" id="admNewPass" class="form-control" placeholder="At least 6 characters" minlength="6" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="admConfirmPass">Confirm New Password *</label>
+            <input type="password" id="admConfirmPass" class="form-control" placeholder="Re-type new password" minlength="6" required>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-admin-action outline" onclick="closeModal('changeAdminPasswordModal')">Cancel</button>
+          <button type="submit" class="btn-admin-action saffron">Update Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- Scripts -->
+  <script src="script.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/dashboard.js"></script>
 </body>
