@@ -762,6 +762,16 @@ var AaplaAuth = window.AaplaAuth || {
     }
   },
 
+  // Route Guard: Require Admin Session
+  requireAdmin: function() {
+    const session = this.getAdminSession();
+    if (!session) {
+      window.location.href = 'admin-login.html';
+      return false;
+    }
+    return true;
+  },
+
   // Admin Logout
   logoutAdmin: function() {
     localStorage.removeItem(AAPLA_STORAGE_KEYS.ADMIN_SESSION);

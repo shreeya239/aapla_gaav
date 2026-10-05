@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education & Schools | Aapla Gaav — Valivade</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Ribbon -->
+  <div class="gov-topbar">
+    <div class="container gov-topbar-inner">
+      <div class="gov-emblem-text">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span data-i18n="panchayatName">Gram Panchayat Valivade • Taluka Karvir, Dist. Kolhapur, Maharashtra</span>
+      </div>
+      <div class="gov-links">
+        <span>Toll-Free: <strong>1800-233-0456</strong></span>
+        <span>Emergency: <strong>112</strong></span>
+        <button class="theme-toggle-btn" onclick="toggleDarkMode()">🌙 Dark</button>
+        <button class="lang-toggle-btn" onclick="toggleLanguage()">मराठी</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Announcement Ticker -->
+  <div style="background: #fff3ec; border-bottom: 1px solid #fed7aa; padding: 6px 0; font-size: 0.82rem; color: #9a3412;">
+    <div class="container" style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-weight: 700; background: var(--accent-saffron); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; text-transform: uppercase;">Notice</span>
+      <marquee id="tickerText" behavior="scroll" direction="left" scrollamount="6" style="margin: 0;">
+        📢 [Education] Pre-matric scholarship applications open for Valivade school students &nbsp;&nbsp;|&nbsp;&nbsp; 📢 ZP Primary School smart classroom upgraded
+      </marquee>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-wrapper">
+          <div class="brand-logo-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>Aapla Gaav <span>Valivade</span></h1>
+            <p>Gram Panchayat Karvir, Kolhapur</p>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" data-i18n="navHome">Home</a></li>
+          <li class="nav-item"><a href="village-profile.html" data-i18n="navProfile">Village Profile</a></li>
+          <li class="nav-item"><a href="services.html" data-i18n="navServices">Services</a></li>
+          <li class="nav-item"><a href="projects.html" data-i18n="navProjects">Projects</a></li>
+          <li class="nav-item"><a href="education.html" class="active" data-i18n="navEducation">Education</a></li>
+          <li class="nav-item"><a href="health.html" data-i18n="navHealth">Health</a></li>
+          <li class="nav-item"><a href="water-sanitation.html" data-i18n="navWater">Water & Sanitation</a></li>
+          <li class="nav-item"><a href="agriculture.html" data-i18n="navAgriculture">Agriculture</a></li>
+          <li class="nav-item"><a href="infrastructure.html" data-i18n="navInfra">Infrastructure</a></li>
+          <li class="nav-item"><a href="schemes.html" data-i18n="navSchemes">Schemes</a></li>
+          <li class="nav-item"><a href="complaints.html" data-i18n="navComplaints">Complaints</a></li>
+          <li class="nav-item"><a href="announcements.html" data-i18n="navAnnouncements">Announcements</a></li>
+          <li class="nav-item"><a href="documents.html">Documents</a></li>
+          <li class="nav-item"><a href="reports.html" data-i18n="navReports">Reports</a></li>
+          <li class="nav-item"><a href="contact.html" data-i18n="navContact">Contact</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <a href="login.html" class="btn btn-outline btn-sm">Citizen Portal</a>
+          <a href="admin-login.html" class="btn btn-primary btn-sm">Admin Desk</a>
+          <button id="hamburgerBtn" class="mobile-menu-toggle" aria-label="Open menu" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 4px;">☰</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div style="font-weight: 700;">Aapla Gaav — Valivade</div>
+      <button id="mobileNavCloseBtn" class="mobile-nav-close-btn">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="village-profile.html">🏛️ Village Profile</a></li>
+      <li><a href="services.html">📋 Citizen Services</a></li>
+      <li><a href="projects.html">🏗️ Development Projects</a></li>
+      <li><a href="education.html" class="active">🎓 Education</a></li>
+      <li><a href="health.html">🏥 Health & Sanitation</a></li>
+      <li><a href="water-sanitation.html">💧 Water Supply</a></li>
+      <li><a href="agriculture.html">🌾 Agriculture & Farming</a></li>
+      <li><a href="infrastructure.html">🛣️ Infrastructure</a></li>
+      <li><a href="schemes.html">📜 Govt Schemes</a></li>
+      <li><a href="complaints.html">⚠️ Lodge Grievance</a></li>
+      <li><a href="announcements.html">📢 Announcements</a></li>
+      <li><a href="citizens.html">👥 Citizen Directory</a></li>
+      <li><a href="documents.html">📁 Documents & Forms</a></li>
+      <li><a href="reports.html">📊 Reports & Analytics</a></li>
+      <li><a href="contact.html">📞 Contact & Panchayat</a></li>
+      <li><a href="settings.html">⚙️ Settings</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <a href="login.html" class="btn btn-outline" style="width: 100%;">Citizen Login</a>
+      <a href="admin-login.html" class="btn btn-primary" style="width: 100%;">Admin Login</a>
+    </div>
+  </aside>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Education Sector</span>
+      </div>
+      <div class="page-banner-inner">
+        <div>
+          <h1 class="page-banner-title">Education & School Infrastructure</h1>
+          <p class="page-banner-subtitle">Empowering the children of Valivade through quality primary schooling, digital classrooms & inclusive learning</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem;">
+          CEP Education Index: <strong>82%</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container" style="padding: 40px 20px;">
+
+    <!-- CEP Education Score & Highlights -->
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 36px;" class="about-grid">
+      <div style="background: var(--bg-card); padding: 28px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <span class="status-badge" style="background:#e0f2fe; color:#0369a1; margin-bottom: 12px; display: inline-block;">Sector Overview</span>
+        <h2 style="font-size: 1.45rem; color: var(--primary-navy); margin-bottom: 12px;">Educational Landscape of Valivade</h2>
+        <p style="font-size: 0.92rem; line-height: 1.7; color: var(--text-body); margin-bottom: 14px;">
+          The village of <strong>Valivade (वळिवडे)</strong> is served by the <strong>Zilla Parishad Primary School, Valivade</strong>, which imparts foundational education from Grade 1 through 7. Early childhood care and nutritional support are provided by two integrated <strong>Anganwadi Centers</strong> under the ICDS (Integrated Child Development Services) framework.
+        </p>
+        <p style="font-size: 0.92rem; line-height: 1.7; color: var(--text-body); margin-bottom: 14px;">
+          For secondary, higher secondary, and polytechnic studies, students utilize convenient transport links to educational institutions in nearby Karvir and Kolhapur city clusters (approximately 8–10 km away).
+        </p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+          <a href="projects.html" class="btn btn-outline btn-sm">View School Renovation Project →</a>
+          <a href="documents.html" class="btn btn-outline btn-sm">Download Admission Forms</a>
+        </div>
+      </div>
+
+      <!-- Census Literacy & Metric Callout -->
+      <div style="background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="font-size: 1.1rem; color: var(--primary-navy);">Literacy Benchmarks</h3>
+          <span style="font-size: 0.72rem; background: #fef3c7; color: #b45309; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Census 2011</span>
+        </div>
+        <div style="margin-bottom: 14px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+            <span>Overall Literacy</span>
+            <strong>67.63%</strong>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar-fill progress" style="width: 67.63%;"></div>
+          </div>
+        </div>
+        <div style="margin-bottom: 14px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+            <span>Male Literacy</span>
+            <strong>75.95%</strong>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar-fill completed" style="width: 75.95%;"></div>
+          </div>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+            <span>Female Literacy</span>
+            <strong>58.66%</strong>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar-fill planned" style="width: 58.66%;"></div>
+          </div>
+        </div>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: #64748b;">
+          <em>Reference: Registrar General and Census Commissioner of India, 2011 records for Valivade village (Code 567409).</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Institutions in Valivade -->
+    <h3 style="font-size: 1.3rem; color: var(--primary-navy); margin-bottom: 20px;">Village Educational Institutions</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 40px;">
+      
+      <div class="service-card">
+        <div style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #eff6ff; color: #2563eb;">🏫</div>
+          <div>
+            <h4 style="font-size: 1.15rem; color: var(--primary-navy);">Zilla Parishad Primary School</h4>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">जि. प. प्राथमिक शाळा, वळिवडे • U-DISE Verified</span>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.6; margin-bottom: 12px;">
+          State-board recognized co-educational primary school offering Marathi medium instruction from Std 1 to 7. Equipped with qualified ZP teachers and activity-based learning.
+        </p>
+        <ul style="font-size: 0.82rem; color: #475569; padding-left: 18px; line-height: 1.8;">
+          <li>Daily hot cooked Mid-Day Meal (PM POSHAN)</li>
+          <li>Free uniforms and state textbooks</li>
+          <li>Separate boy and girl sanitation facilities</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #fdf2f8; color: #db2777;">👶</div>
+          <div>
+            <h4 style="font-size: 1.15rem; color: var(--primary-navy);">Anganwadi Center 1 & 2</h4>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">अंगणवाडी केंद्र • ICDS Karvir Project</span>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.6; margin-bottom: 12px;">
+          Early childhood care, pre-primary non-formal education for children aged 3–6 years, and supplementary nutrition for pregnant women and lactating mothers.
+        </p>
+        <ul style="font-size: 0.82rem; color: #475569; padding-left: 18px; line-height: 1.8;">
+          <li>Routine child growth monitoring (WHO charts)</li>
+          <li>Immunization linkage with ASHA & ANM</li>
+          <li>Pre-school kit and interactive toys</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #f0fdf4; color: #16a34a;">💻</div>
+          <div>
+            <h4 style="font-size: 1.15rem; color: var(--primary-navy);">Digital Classroom & Library</h4>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">ई-लर्निंग व वाचनालय • Gram Panchayat Initiative</span>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.6; margin-bottom: 12px;">
+          Community e-learning unit and reading library established under village development funds to enhance digital literacy and competitive exam preparation.
+        </p>
+        <ul style="font-size: 0.82rem; color: #475569; padding-left: 18px; line-height: 1.8;">
+          <li>Broadband internet & smart TV display</li>
+          <li>Curated Marathi & English story books</li>
+          <li>Basic computer training for youth</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Welfare & Scholarship Schemes for Students -->
+    <div style="background: var(--bg-card); padding: 28px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); margin-bottom: 40px;">
+      <h3 style="font-size: 1.25rem; color: var(--primary-navy); margin-bottom: 16px;">Student Scholarships & Welfare Schemes</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+        <div style="padding: 16px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--border-color);">
+          <strong style="color: var(--primary-navy); font-size: 0.95rem;">Pre-Matric Scholarship</strong>
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 6px;">For SC/ST/OBC students studying in Std 1 to 10 to support education expenses and prevent dropouts.</p>
+        </div>
+        <div style="padding: 16px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--border-color);">
+          <strong style="color: var(--primary-navy); font-size: 0.95rem;">Savitribai Phule Attendance Scheme</strong>
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 6px;">Special financial incentive for girl students to maintain 75%+ annual attendance in primary schools.</p>
+        </div>
+        <div style="padding: 16px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--border-color);">
+          <strong style="color: var(--primary-navy); font-size: 0.95rem;">Mid-Day Meal (PM POSHAN)</strong>
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 6px;">Nutritious balanced lunch served daily with iron and folic acid supplementation.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <span style="font-size: 1.3rem; font-weight: 800; color: #fff;">Aapla Gaav — Valivade</span>
+          </div>
+          <p style="color: #94a3b8; font-size: 0.88rem; margin: 12px 0 16px;">
+            Digital Village Governance & Citizen Empowerment Platform for Valivade Gram Panchayat, Taluka Karvir, District Kolhapur, Maharashtra 416119.
+          </p>
+          <div style="font-size: 0.8rem; color: #cbd5e1;">
+            Census 2011 Code: <strong>567409</strong> &nbsp;|&nbsp; PIN: <strong>416119</strong>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Key Portals</h4>
+          <ul style="list-style: none; padding: 0; font-size: 0.88rem; line-height: 2;">
+            <li><a href="village-profile.html" style="color: #94a3b8;">Village Profile & Census</a></li>
+            <li><a href="services.html" style="color: #94a3b8;">Citizen Certificates & Services</a></li>
+            <li><a href="projects.html" style="color: #94a3b8;">Village Development Projects</a></li>
+            <li><a href="schemes.html" style="color: #94a3b8;">Government Welfare Schemes</a></li>
+            <li><a href="complaints.html" style="color: #94a3b8;">Grievance Redressal Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Village Sectors</h4>
+          <ul style="list-style: none; padding: 0; font-size: 0.88rem; line-height: 2;">
+            <li><a href="education.html" style="color: #94a3b8;">Education & Schools</a></li>
+            <li><a href="health.html" style="color: #94a3b8;">Health Sub-Centre</a></li>
+            <li><a href="water-sanitation.html" style="color: #94a3b8;">Water & Sanitation (JJM)</a></li>
+            <li><a href="agriculture.html" style="color: #94a3b8;">Sugarcane & Agriculture</a></li>
+            <li><a href="infrastructure.html" style="color: #94a3b8;">Roads & Railway Halt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Panchayat Office</h4>
+          <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.6;">
+            Valivade Gram Panchayat Bhavan<br>
+            Post Valivade, Taluka Karvir,<br>
+            District Kolhapur, Maharashtra – 416119<br>
+            Coordinates: 16.71979° N, 74.31259° E
+          </p>
+          <div style="margin-top: 12px;">
+            <a href="admin-login.html" class="btn btn-outline btn-sm" style="color: #cbd5e1; border-color: #475569;">Admin Access</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top: 1px solid #1e293b; padding-top: 20px; margin-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.8rem; color: #64748b;">
+        <div>
+          © 2026 Aapla Gaav — Valivade Gram Panchayat. All rights reserved. Built with Pure HTML5, CSS3, & Vanilla JavaScript.
+        </div>
+        <div>
+          <a href="documents.html" style="color: #94a3b8; margin-right: 14px;">Documents & RTI</a>
+          <a href="reports.html" style="color: #94a3b8; margin-right: 14px;">CEP Reports</a>
+          <a href="contact.html" style="color: #94a3b8;">Help & Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citizen Services & Certificates | Aapla Gaav — Valivade</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Government Ribbon -->
+  <div class="gov-topbar">
+    <div class="container gov-topbar-inner">
+      <div class="gov-emblem-text">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span data-i18n="panchayatName">Gram Panchayat Valivade • Taluka Karvir, Dist. Kolhapur, Maharashtra</span>
+      </div>
+      <div class="gov-links">
+        <span>Toll-Free: <strong>1800-233-0456</strong></span>
+        <span>Emergency: <strong>112</strong></span>
+        <button class="theme-toggle-btn" onclick="toggleDarkMode()">🌙 Dark</button>
+        <button class="lang-toggle-btn" onclick="toggleLanguage()">मराठी</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Announcement Ticker -->
+  <div style="background: #fff3ec; border-bottom: 1px solid #fed7aa; padding: 6px 0; font-size: 0.82rem; color: #9a3412;">
+    <div class="container" style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-weight: 700; background: var(--accent-saffron); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; text-transform: uppercase;">Notice</span>
+      <marquee id="tickerText" behavior="scroll" direction="left" scrollamount="6" style="margin: 0;">
+        📢 [Citizen Services] All certificates issued under Right to Public Services Act (RTS Maharashtra) within stipulated timeline &nbsp;&nbsp;|&nbsp;&nbsp; 📢 Property Tax Extract (Namuna 8) online issuance available
+      </marquee>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-wrapper">
+          <div class="brand-logo-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>Aapla Gaav <span>Valivade</span></h1>
+            <p>Gram Panchayat Karvir, Kolhapur</p>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" data-i18n="navHome">Home</a></li>
+          <li class="nav-item"><a href="village-profile.html" data-i18n="navProfile">Village Profile</a></li>
+          <li class="nav-item"><a href="services.html" class="active" data-i18n="navServices">Services</a></li>
+          <li class="nav-item"><a href="projects.html" data-i18n="navProjects">Projects</a></li>
+          <li class="nav-item"><a href="education.html" data-i18n="navEducation">Education</a></li>
+          <li class="nav-item"><a href="health.html" data-i18n="navHealth">Health</a></li>
+          <li class="nav-item"><a href="water-sanitation.html" data-i18n="navWater">Water & Sanitation</a></li>
+          <li class="nav-item"><a href="agriculture.html" data-i18n="navAgriculture">Agriculture</a></li>
+          <li class="nav-item"><a href="infrastructure.html" data-i18n="navInfra">Infrastructure</a></li>
+          <li class="nav-item"><a href="schemes.html" data-i18n="navSchemes">Schemes</a></li>
+          <li class="nav-item"><a href="complaints.html" data-i18n="navComplaints">Complaints</a></li>
+          <li class="nav-item"><a href="announcements.html" data-i18n="navAnnouncements">Announcements</a></li>
+          <li class="nav-item"><a href="documents.html">Documents</a></li>
+          <li class="nav-item"><a href="reports.html" data-i18n="navReports">Reports</a></li>
+          <li class="nav-item"><a href="contact.html" data-i18n="navContact">Contact</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <a href="login.html" class="btn btn-outline btn-sm">Citizen Portal</a>
+          <a href="admin-login.html" class="btn btn-primary btn-sm">Admin Desk</a>
+          <button id="hamburgerBtn" class="mobile-menu-toggle" aria-label="Open menu" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 4px;">☰</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div style="font-weight: 700;">Aapla Gaav — Valivade</div>
+      <button id="mobileNavCloseBtn" class="mobile-nav-close-btn">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="village-profile.html">🏛️ Village Profile</a></li>
+      <li><a href="services.html" class="active">📋 Citizen Services</a></li>
+      <li><a href="projects.html">🏗️ Development Projects</a></li>
+      <li><a href="education.html">🎓 Education</a></li>
+      <li><a href="health.html">🏥 Health & Sanitation</a></li>
+      <li><a href="water-sanitation.html">💧 Water Supply</a></li>
+      <li><a href="agriculture.html">🌾 Agriculture & Farming</a></li>
+      <li><a href="infrastructure.html">🛣️ Infrastructure</a></li>
+      <li><a href="schemes.html">📜 Govt Schemes</a></li>
+      <li><a href="complaints.html">⚠️ Lodge Grievance</a></li>
+      <li><a href="announcements.html">📢 Announcements</a></li>
+      <li><a href="citizens.html">👥 Citizen Directory</a></li>
+      <li><a href="documents.html">📁 Documents & Forms</a></li>
+      <li><a href="reports.html">📊 Reports & Analytics</a></li>
+      <li><a href="contact.html">📞 Contact & Panchayat</a></li>
+      <li><a href="settings.html">⚙️ Settings</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <a href="login.html" class="btn btn-outline" style="width: 100%;">Citizen Login</a>
+      <a href="admin-login.html" class="btn btn-primary" style="width: 100%;">Admin Login</a>
+    </div>
+  </aside>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Citizen Services</span>
+      </div>
+      <div class="page-banner-inner">
+        <div>
+          <h1 class="page-banner-title">Citizen Services & e-Certificates</h1>
+          <p class="page-banner-subtitle">Official Gram Panchayat Digital Public Services • Right to Public Services Act (RTS)</p>
+        </div>
+        <div>
+          <button class="btn btn-primary btn-sm" onclick="openCitizenAuth()" style="background: var(--accent-saffron); border-color: var(--accent-saffron);">
+            👤 Open Citizen Account
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid Container -->
+  <main class="container" style="padding: 40px 20px;">
+
+    <!-- Info Callout -->
+    <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 16px 20px; border-radius: 8px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <strong style="color: #1e40af; font-size: 0.95rem;">Right to Public Services (RTS) Guarantee:</strong>
+        <p style="color: #1e3a8a; font-size: 0.85rem; margin: 2px 0 0;">
+          All citizen certificates are processed digitally by Valivade Gram Panchayat within 3 to 7 working days. No physical visit needed for verified residents.
+        </p>
+      </div>
+      <a href="documents.html" class="btn btn-outline btn-sm" style="background:#fff; font-size: 0.82rem;">Download Offline PDF Forms</a>
+    </div>
+
+    <!-- 12 Citizen Service Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; margin-bottom: 40px;">
+
+      <!-- Service 1: Birth Certificate -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #e0f2fe; color: #0284c7;">👶</div>
+          <span class="status-badge completed" style="font-size: 0.75rem;">3 Working Days</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Birth Certificate (जन्म दाखला)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Certified birth certificate copy from Gram Panchayat register under Registration of Births and Deaths Act.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> Hospital discharge card, Parents Aadhaar card & marriage certificate.<br>
+          <strong>Official Fee:</strong> ₹20 per certified copy.
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('Birth Certificate (जन्म दाखला)')" style="width: 100%;">
+          Apply Online →
+        </button>
+      </div>
+
+      <!-- Service 2: Death Certificate -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #fee2e2; color: #dc2626;">📜</div>
+          <span class="status-badge completed" style="font-size: 0.75rem;">3 Working Days</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Death Certificate (मृत्यू दाखला)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Official registration and certified copy of death entry from Valivade Gram Panchayat vital records.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> Doctor certificate / Cremation ground slip, Deceased Aadhaar card.<br>
+          <strong>Official Fee:</strong> ₹20 per certified copy.
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('Death Certificate (मृत्यू दाखला)')" style="width: 100%;">
+          Apply Online →
+        </button>
+      </div>
+
+      <!-- Service 3: Residence Certificate -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #ecfdf5; color: #059669;">🏡</div>
+          <span class="status-badge completed" style="font-size: 0.75rem;">2 Working Days</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Residence Certificate (रहिवासी दाखला)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Verification certificate confirming permanent or temporary residency within Valivade village limits.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> Aadhaar Card, Electricity Bill / Ration card, Voter ID.<br>
+          <strong>Official Fee:</strong> ₹10.
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('Residence Certificate (रहिवासी दाखला)')" style="width: 100%;">
+          Apply Online →
+        </button>
+      </div>
+
+      <!-- Service 4: Namuna 8 Property Tax Extract -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #fef3c7; color: #d97706;">📑</div>
+          <span class="status-badge progress" style="font-size: 0.75rem;">Same Day / 24h</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Assessment Extract (नमुना ८ / नमुना ८ अ)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Official property assessment record extract showing house property valuation, ownership, and annual tax.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> House property number, previous tax receipt, Aadhaar.<br>
+          <strong>Official Fee:</strong> ₹25 per extract.
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('Namuna 8 Property Tax Extract')" style="width: 100%;">
+          Download / Apply →
+        </button>
+      </div>
+
+      <!-- Service 5: Drinking Water Tap Connection -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #e0f7fa; color: #00838f;">💧</div>
+          <span class="status-badge planned" style="font-size: 0.75rem;">7 Working Days</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Water Tap Connection (नळ कनेक्शन)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          New household piped drinking water connection under Jal Jeevan Mission / Gram Panchayat piped scheme.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> House tax receipt (Namuna 8), Identity proof, Site plan sketch.<br>
+          <strong>Security Deposit:</strong> ₹500 (Government prescribed).
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('Drinking Water Tap Connection')" style="width: 100%;">
+          Apply for Tap →
+        </button>
+      </div>
+
+      <!-- Service 6: Marriage Certificate -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #fdf2f8; color: #db2777;">💍</div>
+          <span class="status-badge completed" style="font-size: 0.75rem;">5 Working Days</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Marriage Certificate (विवाह नोंदणी)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Legal marriage registration certificate under Maharashtra Regulation of Marriage Bureaus and Registration of Marriages Act.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> Wedding card, 3 witness proofs, Bride & Groom photos & Aadhaar.<br>
+          <strong>Official Fee:</strong> ₹50.
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('Marriage Certificate (विवाह नोंदणी)')" style="width: 100%;">
+          Apply Online →
+        </button>
+      </div>
+
+      <!-- Service 7: Building Permission / NOC -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #f3e8ff; color: #9333ea;">🏗️</div>
+          <span class="status-badge planned" style="font-size: 0.75rem;">15 Working Days</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Building Permission (बांधकाम परवानगी)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Sanction and NOC for residential house construction or renovation within gaothan / rural area limits.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> Blue-print architecture plan, 7/12 extract or Namuna 8, Ownership title.<br>
+          <strong>Fee:</strong> Based on sq. footage.
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('Building Permission NOC')" style="width: 100%;">
+          Apply for NOC →
+        </button>
+      </div>
+
+      <!-- Service 8: No Objection Certificate (General NOC) -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #ecfdf5; color: #10b981;">🛡️</div>
+          <span class="status-badge completed" style="font-size: 0.75rem;">3 Working Days</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">No Objection Certificate (नाहरकत दाखला)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Gram Panchayat NOC for electricity connection (MSEDCL), bank loan, business establishment, or borewell.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> Property tax clearance slip, Application stating purpose, ID proof.<br>
+          <strong>Official Fee:</strong> ₹20.
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('General NOC (नाहरकत दाखला)')" style="width: 100%;">
+          Apply Online →
+        </button>
+      </div>
+
+      <!-- Service 9: Fair Price / Ration Card Endorsement -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #fffbeb; color: #b45309;">🌾</div>
+          <span class="status-badge completed" style="font-size: 0.75rem;">4 Working Days</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Ration Card Endorsement (रेशन कार्ड दाखला)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Gram Panchayat family listing endorsement for food & civil supplies ration card inclusion or splitting.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> Family register copy, Old ration card, Aadhaar cards of all members.<br>
+          <strong>Official Fee:</strong> Free / Nominal ₹10.
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('Ration Card Endorsement')" style="width: 100%;">
+          Apply Online →
+        </button>
+      </div>
+
+      <!-- Service 10: Trade & Business License -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #f0fdf4; color: #15803d;">🏪</div>
+          <span class="status-badge progress" style="font-size: 0.75rem;">7 Working Days</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Trade License (व्यवसाय परवाना)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Rural trade license for grocery stores, dairy collection centers, workshops, and commercial outlets in Valivade.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> Shop rent agreement or property extract, Shop act / Udyam registration.<br>
+          <strong>Annual Fee:</strong> Based on category schedule.
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('Trade & Business License')" style="width: 100%;">
+          Apply for License →
+        </button>
+      </div>
+
+      <!-- Service 11: Civic Maintenance / Streetlight Request -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #fef9c3; color: #a16207;">💡</div>
+          <span class="status-badge progress" style="font-size: 0.75rem;">48 Hours SLA</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Streetlight & Civic Repair (नागरी दुरुस्ती)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Request rapid repair of streetlights, water pipeline leaks, road potholes, or drainage blockages.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Action:</strong> Routed directly to Panchayat electrical and sanitation staff.<br>
+          <strong>Cost:</strong> Free of charge.
+        </div>
+        <a href="complaints.html" class="btn btn-outline btn-sm" style="width: 100%;">
+          Lodge Civic Grievance →
+        </a>
+      </div>
+
+      <!-- Service 12: Agricultural Water Supply Endorsement -->
+      <div class="service-card" style="display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div class="service-icon" style="background: #e0f2fe; color: #0369a1;">🚜</div>
+          <span class="status-badge completed" style="font-size: 0.75rem;">4 Working Days</span>
+        </div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Agri Water Supply Slip (शेती पाणी वापर दाखला)</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; flex: 1;">
+          Endorsement certificate for cooperative lift irrigation or canal water quota verification for sugarcane farmers.
+        </p>
+        <div style="background: #f8fafc; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: var(--text-body); margin-bottom: 14px; border: 1px solid var(--border-color);">
+          <strong>Required:</strong> 7/12 Land extract showing crop entry, Lift irrigation membership card.<br>
+          <strong>Fee:</strong> ₹20.
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openServiceApplyModal('Agri Water Supply Endorsement')" style="width: 100%;">
+          Apply Online →
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Citizen Auth Modal (Shared) -->
+  <div id="citizenAuthModal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Citizen Portal Login</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+          Sign in or register to track applications and submit certificate requests.
+        </p>
+        <div class="demo-credentials-callout" style="margin-bottom: 14px;">
+          <strong>Demo Citizen Login:</strong><br>
+          Mobile: <code>9876543210</code> &nbsp;|&nbsp; Password: <code>Citizen@123</code>
+        </div>
+        <a href="login.html" class="btn btn-primary" style="width: 100%; text-align: center;">Go to Citizen Portal Page →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <span style="font-size: 1.3rem; font-weight: 800; color: #fff;">Aapla Gaav — Valivade</span>
+          </div>
+          <p style="color: #94a3b8; font-size: 0.88rem; margin: 12px 0 16px;">
+            Digital Village Governance & Citizen Empowerment Platform for Valivade Gram Panchayat, Taluka Karvir, District Kolhapur, Maharashtra 416119.
+          </p>
+          <div style="font-size: 0.8rem; color: #cbd5e1;">
+            Census 2011 Code: <strong>567409</strong> &nbsp;|&nbsp; PIN: <strong>416119</strong>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Key Portals</h4>
+          <ul style="list-style: none; padding: 0; font-size: 0.88rem; line-height: 2;">
+            <li><a href="village-profile.html" style="color: #94a3b8;">Village Profile & Census</a></li>
+            <li><a href="services.html" style="color: #94a3b8;">Citizen Certificates & Services</a></li>
+            <li><a href="projects.html" style="color: #94a3b8;">Village Development Projects</a></li>
+            <li><a href="schemes.html" style="color: #94a3b8;">Government Welfare Schemes</a></li>
+            <li><a href="complaints.html" style="color: #94a3b8;">Grievance Redressal Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Village Sectors</h4>
+          <ul style="list-style: none; padding: 0; font-size: 0.88rem; line-height: 2;">
+            <li><a href="education.html" style="color: #94a3b8;">Education & Schools</a></li>
+            <li><a href="health.html" style="color: #94a3b8;">Health Sub-Centre</a></li>
+            <li><a href="water-sanitation.html" style="color: #94a3b8;">Water & Sanitation (JJM)</a></li>
+            <li><a href="agriculture.html" style="color: #94a3b8;">Sugarcane & Agriculture</a></li>
+            <li><a href="infrastructure.html" style="color: #94a3b8;">Roads & Railway Halt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Panchayat Office</h4>
+          <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.6;">
+            Valivade Gram Panchayat Bhavan<br>
+            Post Valivade, Taluka Karvir,<br>
+            District Kolhapur, Maharashtra – 416119<br>
+            Coordinates: 16.71979° N, 74.31259° E
+          </p>
+          <div style="margin-top: 12px;">
+            <a href="admin-login.html" class="btn btn-outline btn-sm" style="color: #cbd5e1; border-color: #475569;">Admin Access</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top: 1px solid #1e293b; padding-top: 20px; margin-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.8rem; color: #64748b;">
+        <div>
+          © 2026 Aapla Gaav — Valivade Gram Panchayat. All rights reserved. Built with Pure HTML5, CSS3, & Vanilla JavaScript.
+        </div>
+        <div>
+          <a href="documents.html" style="color: #94a3b8; margin-right: 14px;">Documents & RTI</a>
+          <a href="reports.html" style="color: #94a3b8; margin-right: 14px;">CEP Reports</a>
+          <a href="contact.html" style="color: #94a3b8;">Help & Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

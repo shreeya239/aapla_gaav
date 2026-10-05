@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citizen Grievance Redressal | Aapla Gaav — Valivade</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Ribbon -->
+  <div class="gov-topbar">
+    <div class="container gov-topbar-inner">
+      <div class="gov-emblem-text">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span data-i18n="panchayatName">Gram Panchayat Valivade • Taluka Karvir, Dist. Kolhapur, Maharashtra</span>
+      </div>
+      <div class="gov-links">
+        <span>Toll-Free: <strong>1800-233-0456</strong></span>
+        <span>Emergency: <strong>112</strong></span>
+        <button class="theme-toggle-btn" onclick="toggleDarkMode()">🌙 Dark</button>
+        <button class="lang-toggle-btn" onclick="toggleLanguage()">मराठी</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Announcement Ticker -->
+  <div style="background: #fff3ec; border-bottom: 1px solid #fed7aa; padding: 6px 0; font-size: 0.82rem; color: #9a3412;">
+    <div class="container" style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-weight: 700; background: var(--accent-saffron); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; text-transform: uppercase;">Notice</span>
+      <marquee id="tickerText" behavior="scroll" direction="left" scrollamount="6" style="margin: 0;">
+        📢 [Grievance Redressal] All civic complaints attended within 48 to 72 hours by Valivade Gram Panchayat authority
+      </marquee>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-wrapper">
+          <div class="brand-logo-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>Aapla Gaav <span>Valivade</span></h1>
+            <p>Gram Panchayat Karvir, Kolhapur</p>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" data-i18n="navHome">Home</a></li>
+          <li class="nav-item"><a href="village-profile.html" data-i18n="navProfile">Village Profile</a></li>
+          <li class="nav-item"><a href="services.html" data-i18n="navServices">Services</a></li>
+          <li class="nav-item"><a href="projects.html" data-i18n="navProjects">Projects</a></li>
+          <li class="nav-item"><a href="education.html" data-i18n="navEducation">Education</a></li>
+          <li class="nav-item"><a href="health.html" data-i18n="navHealth">Health</a></li>
+          <li class="nav-item"><a href="water-sanitation.html" data-i18n="navWater">Water & Sanitation</a></li>
+          <li class="nav-item"><a href="agriculture.html" data-i18n="navAgriculture">Agriculture</a></li>
+          <li class="nav-item"><a href="infrastructure.html" data-i18n="navInfra">Infrastructure</a></li>
+          <li class="nav-item"><a href="schemes.html" data-i18n="navSchemes">Schemes</a></li>
+          <li class="nav-item"><a href="complaints.html" class="active" data-i18n="navComplaints">Complaints</a></li>
+          <li class="nav-item"><a href="announcements.html" data-i18n="navAnnouncements">Announcements</a></li>
+          <li class="nav-item"><a href="documents.html">Documents</a></li>
+          <li class="nav-item"><a href="reports.html" data-i18n="navReports">Reports</a></li>
+          <li class="nav-item"><a href="contact.html" data-i18n="navContact">Contact</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <a href="login.html" class="btn btn-outline btn-sm">Citizen Portal</a>
+          <a href="admin-login.html" class="btn btn-primary btn-sm">Admin Desk</a>
+          <button id="hamburgerBtn" class="mobile-menu-toggle" aria-label="Open menu" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 4px;">☰</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div style="font-weight: 700;">Aapla Gaav — Valivade</div>
+      <button id="mobileNavCloseBtn" class="mobile-nav-close-btn">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="village-profile.html">🏛️ Village Profile</a></li>
+      <li><a href="services.html">📋 Citizen Services</a></li>
+      <li><a href="projects.html">🏗️ Development Projects</a></li>
+      <li><a href="education.html">🎓 Education</a></li>
+      <li><a href="health.html">🏥 Health & Sanitation</a></li>
+      <li><a href="water-sanitation.html">💧 Water Supply</a></li>
+      <li><a href="agriculture.html">🌾 Agriculture & Farming</a></li>
+      <li><a href="infrastructure.html">🛣️ Infrastructure</a></li>
+      <li><a href="schemes.html">📜 Govt Schemes</a></li>
+      <li><a href="complaints.html" class="active">⚠️ Lodge Grievance</a></li>
+      <li><a href="announcements.html">📢 Announcements</a></li>
+      <li><a href="citizens.html">👥 Citizen Directory</a></li>
+      <li><a href="documents.html">📁 Documents & Forms</a></li>
+      <li><a href="reports.html">📊 Reports & Analytics</a></li>
+      <li><a href="contact.html">📞 Contact & Panchayat</a></li>
+      <li><a href="settings.html">⚙️ Settings</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <a href="login.html" class="btn btn-outline" style="width: 100%;">Citizen Login</a>
+      <a href="admin-login.html" class="btn btn-primary" style="width: 100%;">Admin Login</a>
+    </div>
+  </aside>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Grievance Redressal</span>
+      </div>
+      <div class="page-banner-inner">
+        <div>
+          <h1 class="page-banner-title">Citizen Grievance Redressal Portal</h1>
+          <p class="page-banner-subtitle">Lodge civic complaints, report infrastructure defects & track live resolution status</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem;">
+          Redressal SLA: <strong>48–72 Hours</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container" style="padding: 40px 20px;">
+
+    <!-- Tracker Card (Top) -->
+    <div style="background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); margin-bottom: 36px;">
+      <h2 style="font-size: 1.25rem; color: var(--primary-navy); margin-bottom: 6px;">Track Grievance Resolution Status</h2>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+        Enter your 10-character Grievance Tracking Token (e.g. <code>AG-2026-84920</code>) or registered 10-digit mobile number:
+      </p>
+
+      <div style="display: flex; gap: 10px; max-width: 600px; flex-wrap: wrap;">
+        <input type="text" id="trackingIdInput" class="form-control" placeholder="e.g. AG-2026-84920 or 9876543210" style="flex: 1; min-width: 240px;">
+        <button id="trackGrievanceBtn" class="btn btn-primary">
+          🔍 Track Grievance
+        </button>
+      </div>
+
+      <!-- Live Search / Stepper Result Output -->
+      <div id="trackingResultSection" style="margin-top: 20px; display: none;">
+        <!-- Injected via js/complaints.js -->
+      </div>
+    </div>
+
+    <!-- Grievance Form & Info Split -->
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;" class="about-grid">
+      
+      <!-- Form Card -->
+      <div style="background: var(--bg-card); padding: 28px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 1.3rem; color: var(--primary-navy); margin-bottom: 6px;">Lodge a New Grievance</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+          Your grievance will be directly routed to the Valivade Gram Sevak & respective department officer.
+        </p>
+
+        <form id="grievanceLodgeForm">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="complaintCitizenName">Complainant Full Name *</label>
+              <input type="text" id="complaintCitizenName" class="form-control" placeholder="e.g. Suresh Patil" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="complaintCitizenMobile">10-Digit Mobile Number *</label>
+              <input type="tel" id="complaintCitizenMobile" class="form-control" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="complaintCategory">Grievance Category *</label>
+              <select id="complaintCategory" class="form-control" required>
+                <option value="">Select Category</option>
+                <option value="Water Supply">Water Supply & Leakage (पाणी पुरवठा)</option>
+                <option value="Street Lighting">Street Lighting & Power (दिवाबत्ती)</option>
+                <option value="Roads & Drainage">Roads & Drainage (रस्ते व गटारे)</option>
+                <option value="Health & Sanitation">Health & Garbage (स्वच्छता व कचरा)</option>
+                <option value="Education & Schools">Anganwadi & School (शाळा व अंगणवाडी)</option>
+                <option value="Encroachment">Public Encroachment (अतिक्रमण)</option>
+                <option value="Panchayat Services">Administrative Services (ग्रामपंचायत सेवा)</option>
+                <option value="Other">Other Civic Issue (इतर)</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="complaintPriority">Priority Level</label>
+              <select id="complaintPriority" class="form-control">
+                <option value="Normal">Normal (Standard 72h)</option>
+                <option value="Medium" selected>Medium (48h)</option>
+                <option value="High">High / Urgent (24h)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="complaintLocation">Exact Location / Ward / Landmark in Valivade *</label>
+            <input type="text" id="complaintLocation" class="form-control" placeholder="e.g. Ward No. 2, near ZP Primary School, Valivade" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="complaintDescription">Detailed Grievance Description *</label>
+            <textarea id="complaintDescription" class="form-control" rows="4" placeholder="Please describe the exact civic issue, duration, and details to assist our field inspection team..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; font-weight: 700;">
+            Submit Grievance to Gram Panchayat →
+          </button>
+        </form>
+      </div>
+
+      <!-- Recent Public Complaints Sidebar -->
+      <div>
+        <div style="background: var(--bg-card); padding: 22px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); margin-bottom: 24px;">
+          <h4 style="font-size: 1.1rem; color: var(--primary-navy); margin-bottom: 4px;">Recent Grievances</h4>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px;">Live feed of community tickets</p>
+          
+          <div id="recentComplaintsList">
+            <!-- Injected via js/complaints.js -->
+          </div>
+        </div>
+
+        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); font-size: 0.85rem; color: #475569;">
+          <strong style="color: var(--primary-navy); display: block; margin-bottom: 6px;">Need Urgent Assistance?</strong>
+          For emergencies requiring immediate hazard mitigation (burst water mains, live electric wires):<br>
+          📞 Gram Panchayat Office: <strong>(0231) 261-XXXX</strong><br>
+          🚨 National Emergency: <strong>112</strong>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Grievance Success Confirmation Modal -->
+  <div id="grievanceSuccessModal" class="modal-overlay">
+    <div class="modal-container" style="max-width: 520px; text-align: center;">
+      <div style="margin-bottom: 16px;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #dcfce7; color: #16a34a; font-size: 2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+          ✓
+        </div>
+        <h3 class="modal-title" style="color: #166534; font-size: 1.35rem;">Grievance Successfully Lodged!</h3>
+      </div>
+      <div class="modal-body" style="text-align: left;">
+        <p style="font-size: 0.9rem; color: #475569; margin-bottom: 14px;">
+          Your complaint has been registered in the Valivade Gram Panchayat digital grievance system. Please save your tracking token:
+        </p>
+        <div style="background: #f1f5f9; padding: 14px; border-radius: 8px; text-align: center; border: 2px dashed #cbd5e1; margin-bottom: 16px;">
+          <span style="font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 700;">GRIEVANCE TRACKING TOKEN</span>
+          <div id="successTrackingId" style="font-size: 1.4rem; font-weight: 800; color: var(--accent-saffron); letter-spacing: 1px; margin-top: 4px;">AG-2026-XXXXX</div>
+        </div>
+        <div id="successDetails" style="background: #f8fafc; padding: 12px; border-radius: 6px; font-size: 0.82rem; color: #334155; line-height: 1.6;"></div>
+      </div>
+      <div class="modal-footer" style="display: flex; justify-content: center;">
+        <button class="btn btn-primary btn-sm modal-close-btn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <span style="font-size: 1.3rem; font-weight: 800; color: #fff;">Aapla Gaav — Valivade</span>
+          </div>
+          <p style="color: #94a3b8; font-size: 0.88rem; margin: 12px 0 16px;">
+            Digital Village Governance & Citizen Empowerment Platform for Valivade Gram Panchayat, Taluka Karvir, District Kolhapur, Maharashtra 416119.
+          </p>
+          <div style="font-size: 0.8rem; color: #cbd5e1;">
+            Census 2011 Code: <strong>567409</strong> &nbsp;|&nbsp; PIN: <strong>416119</strong>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Key Portals</h4>
+          <ul style="list-style: none; padding: 0; font-size: 0.88rem; line-height: 2;">
+            <li><a href="village-profile.html" style="color: #94a3b8;">Village Profile & Census</a></li>
+            <li><a href="services.html" style="color: #94a3b8;">Citizen Certificates & Services</a></li>
+            <li><a href="projects.html" style="color: #94a3b8;">Village Development Projects</a></li>
+            <li><a href="schemes.html" style="color: #94a3b8;">Government Welfare Schemes</a></li>
+            <li><a href="complaints.html" style="color: #94a3b8;">Grievance Redressal Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Village Sectors</h4>
+          <ul style="list-style: none; padding: 0; font-size: 0.88rem; line-height: 2;">
+            <li><a href="education.html" style="color: #94a3b8;">Education & Schools</a></li>
+            <li><a href="health.html" style="color: #94a3b8;">Health Sub-Centre</a></li>
+            <li><a href="water-sanitation.html" style="color: #94a3b8;">Water & Sanitation (JJM)</a></li>
+            <li><a href="agriculture.html" style="color: #94a3b8;">Sugarcane & Agriculture</a></li>
+            <li><a href="infrastructure.html" style="color: #94a3b8;">Roads & Railway Halt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Panchayat Office</h4>
+          <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.6;">
+            Valivade Gram Panchayat Bhavan<br>
+            Post Valivade, Taluka Karvir,<br>
+            District Kolhapur, Maharashtra – 416119<br>
+            Coordinates: 16.71979° N, 74.31259° E
+          </p>
+          <div style="margin-top: 12px;">
+            <a href="admin-login.html" class="btn btn-outline btn-sm" style="color: #cbd5e1; border-color: #475569;">Admin Access</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top: 1px solid #1e293b; padding-top: 20px; margin-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.8rem; color: #64748b;">
+        <div>
+          © 2026 Aapla Gaav — Valivade Gram Panchayat. All rights reserved. Built with Pure HTML5, CSS3, & Vanilla JavaScript.
+        </div>
+        <div>
+          <a href="documents.html" style="color: #94a3b8; margin-right: 14px;">Documents & RTI</a>
+          <a href="reports.html" style="color: #94a3b8; margin-right: 14px;">CEP Reports</a>
+          <a href="contact.html" style="color: #94a3b8;">Help & Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/complaints.js"></script>
+</body>
+</html>
